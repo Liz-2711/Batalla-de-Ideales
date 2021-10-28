@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2M\include;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,8 +126,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2M\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
