@@ -1,24 +1,187 @@
 #include<SDL.h>
-
+#include <stdlib.h>
 #include"SDL_image.h"
+
+
 #include "Game.h"
+const int WIDTH = 800;
+const int HEIGHT = 460;
+//const int SPRITE_SIZE = 100;
+
+Game* game = nullptr;
+
+int main(int argc, char* argv[])
+{
 
 
+     const int FPS = 60;
+    const int frameDelay = 100 / FPS;
 
+    Uint32 frameStart;
+    int frameTime;
 
+    game = new Game();
+    game->init("GameWindow", 800, 600, false);
 
-
-
-    Game* game = nullptr;
-
-    int main(int argc, char* argv[])
+    while (game->running())
     {
 
-        const int FPS = 60;
+        frameStart = SDL_GetTicks();
+        game->handleEvents();
+        game->update();
+        game->render();
+
+        frameTime = SDL_GetTicks() - frameStart;
+
+        //Sin esto no hay delay ******
+        if (frameDelay > frameStart) {
+            SDL_Delay(frameDelay - frameTime);
+        }
+    }
+
+    game->clean();
+    return 0;
+
+}
+
+
+
+
+
+
+    /*SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Surface* imageSurface = NULL;
+    SDL_Surface* windowSurface = NULL;
+    SDL_Surface* temp = NULL;
+    SDL_Surface* sprite = NULL;
+    SDL_Surface* SDL_DisplayFormat(SDL_Surface * surface);
+    SDL_Rect    rcSprite;
+    SDL_Rect    gdSprite;
+    SDL_Event windowEvent;
+    SDL_Event   event;
+    SDL_Renderer* renderer = NULL;
+    SDL_Texture* texture;
+    SDL_Texture* spriteTexture;
+
+    const Uint8* keystate;
+    int colorkey;
+    int count;
+    int xPosition = 400;
+    int yPosition = 0;
+    int gameover = 0;
+
+
+    SDL_Window* window = SDL_CreateWindow("Intro", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
+    windowSurface = SDL_GetWindowSurface(window);
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+
+
+   
+    //imageSurface = IMG_Load("IntroBK.png");
+   sprite = IMG_Load("IntroBK.png");
+
+
+   int SPRITE_SIZE = sprite->h*sprite->w;
+    texture = SDL_CreateTextureFromSurface(renderer, imageSurface);
+    spriteTexture = SDL_CreateTextureFromSurface(renderer, sprite);
+
+    SDL_FreeSurface(sprite);
+    SDL_FreeSurface(imageSurface);
+
+    //rcSprite used as source rectangle, gdSprite as destination rectangle. Initialize them to the same position
+    rcSprite.x = 0;
+    rcSprite.y = 0;
+    rcSprite.w = 800;
+    rcSprite.h = 400;
+
+    gdSprite.x = xPosition;
+    gdSprite.y = yPosition;
+    gdSprite.w = 800;
+    gdSprite.h = 400;
+
+    while (!gameover)
+    {
+        if (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+            case SDL_QUIT:
+                gameover = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_ESCAPE:
+                case SDLK_q:
+                    gameover = 1;
+                    break;
+
+                }
+                break;
+            }
+        }
+
+        keystate = SDL_GetKeyboardState(NULL);
+
+        // When key pressed, update the destination rectangle
+
+        if (keystate[SDL_SCANCODE_UP]) {
+            gdSprite.y -= 1;
+        }
+        if (keystate[SDL_SCANCODE_DOWN]) {
+            gdSprite.y += 1;
+        }
+        if (gdSprite.x < 0) {
+            gdSprite.x = 0;
+        }
+        else if (gdSprite.x > WIDTH - SPRITE_SIZE) {
+            gdSprite.x = WIDTH - SPRITE_SIZE;
+        }
+       /* if (gdSprite.y < 0) {
+            gdSprite.y = 0;
+        }
+        else if (gdSprite.y > HEIGHT - SPRITE_SIZE) {
+            gdSprite.y = HEIGHT - SPRITE_SIZE;
+        }*/
+
+        //Render the window
+        /*
+        * 
+        * 
+        * SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, texture, NULL, &gdSprite);
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_RenderCopy(renderer, spriteTexture, &rcSprite, &gdSprite);
+        SDL_RenderPresent(renderer);
+
+
+
+    }
+
+
+    SDL_DestroyTexture(spriteTexture);
+    SDL_DestroyTexture(texture);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+
+
+
+
+    SDL_Quit();
+    return 0;
+}
+        */
+        //LAS FRAMES NOS AYUDAN A CORRER LA PANTALLA MAS LENTO
+
+        //
+      /*  const int FPS = 60;
         const int frameDelay = 100 / FPS;
 
         Uint32 frameStart;
-        int frmeTime;
+        int frameTime;
 
         game = new Game();
         game->init("GameWindow", 800, 600, false);
@@ -30,6 +193,13 @@
             game->handleEvents();
             game->update();
             game->render();
+
+            frameTime = SDL_GetTicks() - frameStart;
+
+            //Sin esto no hay delay ******
+            if (frameDelay > frameStart) {
+                SDL_Delay(frameDelay - frameTime);
+            }
         }
 
         game->clean();
@@ -143,6 +313,7 @@
 
     SDL_Quit();
 
-    return 0;*/
-    }
+    return 0;*
+    }*/
+    
 		
