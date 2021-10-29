@@ -166,15 +166,9 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
 
 
 /*****************************************STEVVEEEEEEEEEE*************************************************************************************************************************************************************************/
-                            SDL_Window* window = SDL_CreateWindow("Nueva ventana", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
-                            windowSurface = SDL_GetWindowSurface(window);
+                            
+                            menuPrincipal();
 
-
-
-
-
-                            renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-                            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
  /******************************************************************************************************************************************************************************************************************/
 
                         }
@@ -240,7 +234,99 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
     
     }
 
-   
+   //Funciones STEVE
+   // Funcion para correr constantemente las funciones del menu principal
+    void Game::menuPrincipal() {
+        ventanaMenuPrincipal("Menu Principal", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, false);
+        elementosMenuPrincipal();
+        while (true)
+            eventosMenuPrincipal();
+   }
+
+    //crear ventana de menu principal
+    void Game::ventanaMenuPrincipal(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
+        int flags = 0;
+
+        if (fullscreen)
+            flags = SDL_WINDOW_FULLSCREEN;
+
+        if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+            window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+            isRunning = true;
+        }
+        else
+            isRunning = false;
+
+    }
+
+    //funcion de eventos para el menu principal
+    void Game::eventosMenuPrincipal() {
+        SDL_Event event;
+        SDL_PollEvent(&event);
+        switch (event.type) {
+
+            //cerrar la ventana
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+
+        case SDL_MOUSEBUTTONDOWN:
+            int cursorx = event.motion.x, cursory = event.motion.y;
+
+            //detectar si esta en boton 1
+            if (cursorx > 385 && cursorx < 630 && cursory > 80 && cursory < 130) {
+                std::cout << "Tocaste el boton de NUEVO JUEGO\n";
+            }
+            //detectar si esta en boton 2
+            if (cursorx > 385 && cursorx < 630 && cursory > 190 && cursory < 240) {
+                std::cout << "Tocaste el boton de CONTROLES.\n";
+            }
+            //detectar si esta en boton 3
+            if (cursorx > 385 && cursorx < 630 && cursory > 300 && cursory < 350) {
+                std::cout << "Tocaste el boton de CREDITOS.\n";
+            }
+            //detectar si esta en boton 4
+            if (cursorx > 385 && cursorx < 630 && cursory > 410 && cursory < 460) {
+                std::cout << "Tocaste el boton de SALIR.\n";
+            }
+            break;
+        }
+    }
+
+    //elementos de menu principal (botones)
+    void Game::elementosMenuPrincipal() {
+        //fondo
+        superficieVentana = SDL_GetWindowSurface(window);
+
+        background = IMG_Load("assets/backgroundmenu2.png");
+        SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+        //boton1
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 360; posInicial.h = 120;
+        posFinal.x = 330; posFinal.y = 50; posFinal.w = 360; posFinal.h = 120;
+        boton1 = IMG_Load("assets/botonjugar2.png");
+        SDL_BlitSurface(boton1, &posInicial, superficieVentana, &posFinal);
+
+        //boton2
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 360; posInicial.h = 120;
+        posFinal.x = 330; posFinal.y = 160; posFinal.w = 360; posFinal.h = 120;
+        boton2 = IMG_Load("assets/botoncontroles2.png");
+        SDL_BlitSurface(boton2, &posInicial, superficieVentana, &posFinal);
+
+        //boton3
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 360; posInicial.h = 120;
+        posFinal.x = 330; posFinal.y = 270; posFinal.w = 360; posFinal.h = 120;
+        boton3 = IMG_Load("assets/botoncreditos2.png");
+        SDL_BlitSurface(boton3, &posInicial, superficieVentana, &posFinal);
+
+        //boton4
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 360; posInicial.h = 120;
+        posFinal.x = 330; posFinal.y = 380; posFinal.w = 360; posFinal.h = 120;
+        boton4 = IMG_Load("assets/botonsalir2.png");
+        SDL_BlitSurface(boton4, &posInicial, superficieVentana, &posFinal);
+
+        SDL_UpdateWindowSurface(window);
+    }
 
 
 void Game::handleEvents()
