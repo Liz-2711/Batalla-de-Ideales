@@ -161,7 +161,21 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
                         {
                             continuer = 0;
                             SDL_Quit();
+
                             int status = system("./cs");
+
+
+/*****************************************STEVVEEEEEEEEEE*************************************************************************************************************************************************************************/
+                            SDL_Window* window = SDL_CreateWindow("Nueva ventana", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
+                            windowSurface = SDL_GetWindowSurface(window);
+
+
+
+
+
+                            renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+                            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+ /******************************************************************************************************************************************************************************************************************/
 
                         }
 
