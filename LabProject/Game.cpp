@@ -276,6 +276,8 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             //detectar si esta en boton 1
             if (cursorx > 385 && cursorx < 630 && cursory > 80 && cursory < 130) {
                 std::cout << "Tocaste el boton de NUEVO JUEGO\n";
+                SDL_Quit();
+                pantallaCartas();
             }
             //detectar si esta en boton 2
             if (cursorx > 385 && cursorx < 630 && cursory > 190 && cursory < 240) {
@@ -288,6 +290,7 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             //detectar si esta en boton 4
             if (cursorx > 385 && cursorx < 630 && cursory > 410 && cursory < 460) {
                 std::cout << "Tocaste el boton de SALIR.\n";
+                SDL_Quit();
             }
             break;
         }
@@ -379,4 +382,319 @@ void Game::clean()
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
+}
+
+
+
+
+
+//****************************************************Pantalla Cartas*********************************************
+
+
+void Game::pantallaCartas() 
+{
+    const int WIDTH = 800;
+    const int HEIGHT = 600;
+    const int SPRITE_SIZE = 120;
+    const int SizeMessaje = 600;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+    SDL_Renderer* renderizado; // render de ventana
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Texture* Tfondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Carta1; //Arte
+    SDL_Texture* Tarte;
+
+
+    SDL_Surface* Carta2; //Historia
+    SDL_Texture* Thistoria;
+
+    SDL_Surface* Carta3; //Politica
+    SDL_Texture* Tpolitica;
+
+    SDL_Surface* Carta4; // ciencia
+    SDL_Texture* Tciencia;
+
+    SDL_Surface* Continuar;
+
+
+
+
+    SDL_Event EventoSalir;
+
+    const Uint32* m;
+    int salir = 0;
+    //POsiciones de los vasos
+    SDL_Rect    rcMI;
+    SDL_Rect    rcInicial; //posicion inicial
+    SDL_Rect    gdPosCartas; //posicion con el toque
+    SDL_Rect    gdMensaje;
+
+    //evento para el toque de el vaso
+
+    SDL_Event eleccion;
+
+    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+
+    if (Ventana == NULL)
+    {
+        std::cout << ("error en ventana %s\n", SDL_GetError());
+    }
+    else
+    {
+
+        Uint32 Color = SDL_MapRGB(superficieVentana->format, 222, 235, 247);
+        SDL_FillRect(superficieVentana, NULL, Color);
+
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = SPRITE_SIZE; rcInicial.h = SPRITE_SIZE;
+
+        rcMI.x = 0; rcMI.y = 0; rcMI.w = SizeMessaje; rcMI.h = SizeMessaje;
+
+        gdPosCartas.x = 120; gdPosCartas.y = 350; gdPosCartas.w = SPRITE_SIZE; gdPosCartas.h = SPRITE_SIZE;
+
+
+
+
+        //Posicion de mensaje ganador;
+        gdMensaje.x = 182; gdMensaje.y = 40; gdMensaje.w = 500; gdMensaje.h = 500;
+
+
+        srand(time(NULL));
+        int numeroAdivinar = 0;
+        std::cout << numeroAdivinar;
+
+        Fondo = IMG_Load("Imagenes/MesaFacherita1.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+        Carta1 = IMG_Load("Imagenes/Carta1.png");
+        SDL_BlitSurface(Carta1, &rcInicial, superficieVentana, &gdPosCartas);
+
+        gdPosCartas.x = 270;
+        Carta2 = IMG_Load("Imagenes/Carta1.png");
+        SDL_BlitSurface(Carta2, &rcInicial, superficieVentana, &gdPosCartas);
+        gdPosCartas.x = 420;
+        Carta3 = IMG_Load("Imagenes/Carta1.png");
+        SDL_BlitSurface(Carta3, &rcInicial, superficieVentana, &gdPosCartas);
+        gdPosCartas.x = 570;
+        Carta4 = IMG_Load("Imagenes/Carta1.png");
+        SDL_BlitSurface(Carta4, &rcInicial, superficieVentana, &gdPosCartas);
+
+        gdPosCartas.x = 120;
+        Continuar = IMG_Load("Imagenes/Continuar.png");
+
+
+        ////Liberemaos las imagenes
+        SDL_FreeSurface(Fondo);
+        SDL_FreeSurface(Carta1);
+        SDL_FreeSurface(Carta2);
+        SDL_FreeSurface(Carta3);
+        SDL_FreeSurface(Carta4);
+
+
+        SDL_UpdateWindowSurface(Ventana);
+
+        int i = 0;
+        while (!i) {
+            if (SDL_PollEvent(&eleccion))
+            {
+                int posicionClick = 0;
+                switch (eleccion.type)
+                {
+                case SDL_QUIT:
+                    i = 1;
+                    break;
+               
+                case SDL_MOUSEBUTTONDOWN:
+
+
+                    if (eleccion.button.button == SDL_BUTTON_LEFT)
+                    {
+                        int posx = eleccion.motion.x;
+                        int posy = eleccion.motion.y;
+                       
+                      
+
+                        if (posx > gdPosCartas.x && posx < gdPosCartas.x + gdPosCartas.w && posy >gdPosCartas.y && posy < gdPosCartas.y + gdPosCartas.h)
+                        {
+
+                            numeroAdivinar = 1 + rand() % 4;
+                            if (numeroAdivinar == 1)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeA.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 2)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeH.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 3)
+                            {
+                                Carta1 = IMG_Load("Imagenes/MensajeP.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 4)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeC.png");
+                                i = 1;
+                            }
+                            SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
+                            gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
+                            SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                        }
+                        gdPosCartas.x = 270;
+                        if (posx > gdPosCartas.x && posx < gdPosCartas.x + gdPosCartas.w && posy >gdPosCartas.y && posy < gdPosCartas.y + gdPosCartas.h)
+                        {
+                            numeroAdivinar = 1 + rand() % 4;
+                            if (numeroAdivinar == 1)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeA.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 2)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeH.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 3)
+                            {
+                                Carta1 = IMG_Load("Imagenes/MensajeP.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 4)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeC.png");
+                                i = 1;
+                            }
+                            SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
+                            gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
+                            SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                        }
+                        gdPosCartas.x = 420;
+                        if (posx > gdPosCartas.x && posx < gdPosCartas.x + gdPosCartas.w && posy >gdPosCartas.y && posy < gdPosCartas.y + gdPosCartas.h)
+                        {
+                            numeroAdivinar = 1 + rand() % 4;
+                            if (numeroAdivinar == 1)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeA.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 2)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeH.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 3)
+                            {
+                                Carta1 = IMG_Load("Imagenes/MensajeP.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 4)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeC.png");
+                                i = 1;
+                            }
+
+                            SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
+                            gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
+                            SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                        }
+                        gdPosCartas.x = 570;
+                        if (posx > gdPosCartas.x && posx < gdPosCartas.x + gdPosCartas.w && posy >gdPosCartas.y && posy < gdPosCartas.y + gdPosCartas.h)
+                        {
+                            numeroAdivinar = 1 + rand() % 4;
+                            if (numeroAdivinar == 1)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeA.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 2)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeH.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 3)
+                            {
+                                Carta1 = IMG_Load("Imagenes/MensajeP.png");
+                                i = 1;
+                            }
+                            if (numeroAdivinar == 4)
+                            {
+
+                                Carta1 = IMG_Load("Imagenes/MensajeC.png");
+                                i = 1;
+                            }
+                            SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
+                            gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
+                            SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+                }
+            }
+        }
+
+
+    }
+
+    while (!salir)
+    {
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+    }
+
+    SDL_DestroyWindow(Ventana);
+
+    SDL_Quit();
+    
 }

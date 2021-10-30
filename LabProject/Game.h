@@ -22,6 +22,7 @@ public:
     void eventosMenuPrincipal();
     void elementosMenuPrincipal();
     void menuPrincipal();
+	void pantallaCartas();
    //void  isRunning() { return isRunning(); };
 
 private:

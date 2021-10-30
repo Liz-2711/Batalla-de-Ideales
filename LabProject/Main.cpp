@@ -1,7 +1,7 @@
 #include<SDL.h>
 #include <stdlib.h>
 #include"SDL_image.h"
-#include <SDL_mixer.h>
+
 
 
 
