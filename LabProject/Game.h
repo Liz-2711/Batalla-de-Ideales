@@ -30,6 +30,7 @@ private:
 	int cnt = 0;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	int numeroAdivinar;
     SDL_Surface* background;
     SDL_Surface* superficieVentana;
     SDL_Surface* boton1;

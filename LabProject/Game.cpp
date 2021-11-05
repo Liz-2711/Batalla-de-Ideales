@@ -393,41 +393,36 @@ void Game::clean()
 
 void Game::pantallaCartas() 
 {
-    const int WIDTH = 800;
-    const int HEIGHT = 600;
-    const int SPRITE_SIZE = 120;
-    const int SizeMessaje = 600;
+    const int WIDTH = 800; //Ancho de pantalla
+    const int HEIGHT = 600; // altura de pantallla
+    const int SPRITE_SIZE = 120; //tamaño de cartas
+    const int SizeMessaje = 600; // tamaño de mensaje de carta eleguida
 
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window* Ventana;
-    SDL_Renderer* renderizado; // render de ventana
+   
 
     //Imagenes
     SDL_Surface* Fondo;
-    SDL_Texture* Tfondo;
+   
     SDL_Surface* superficieVentana;
 
     SDL_Surface* Carta1; //Arte
-    SDL_Texture* Tarte;
-
-
+   
     SDL_Surface* Carta2; //Historia
-    SDL_Texture* Thistoria;
-
+   
     SDL_Surface* Carta3; //Politica
-    SDL_Texture* Tpolitica;
-
+  
     SDL_Surface* Carta4; // ciencia
-    SDL_Texture* Tciencia;
-
-    SDL_Surface* Continuar;
-
+    
+    SDL_Surface* Continuar; // imagen de tecla espace y tecla escape
 
 
 
+    //enveno para salir
     SDL_Event EventoSalir;
 
-    const Uint32* m;
+    
     int salir = 0;
     //POsiciones de los vasos
     SDL_Rect    rcMI;
@@ -435,8 +430,7 @@ void Game::pantallaCartas()
     SDL_Rect    gdPosCartas; //posicion con el toque
     SDL_Rect    gdMensaje;
 
-    //evento para el toque de el vaso
-
+    //evento para el toque de la carta
     SDL_Event eleccion;
 
     Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
@@ -459,16 +453,13 @@ void Game::pantallaCartas()
 
         gdPosCartas.x = 120; gdPosCartas.y = 350; gdPosCartas.w = SPRITE_SIZE; gdPosCartas.h = SPRITE_SIZE;
 
-
-
-
         //Posicion de mensaje ganador;
         gdMensaje.x = 182; gdMensaje.y = 40; gdMensaje.w = 500; gdMensaje.h = 500;
 
 
         srand(time(NULL));
-        int numeroAdivinar = 0;
-        std::cout << numeroAdivinar;
+        
+        
 
         Fondo = IMG_Load("Imagenes/MesaFacherita1.png");
         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -520,7 +511,7 @@ void Game::pantallaCartas()
                         int posy = eleccion.motion.y;
                        
                       
-
+                        gdPosCartas.x = 120; gdPosCartas.y = 350; gdPosCartas.w = SPRITE_SIZE; gdPosCartas.h = SPRITE_SIZE;
                         if (posx > gdPosCartas.x && posx < gdPosCartas.x + gdPosCartas.w && posy >gdPosCartas.y && posy < gdPosCartas.y + gdPosCartas.h)
                         {
 
@@ -544,7 +535,6 @@ void Game::pantallaCartas()
                             }
                             if (numeroAdivinar == 4)
                             {
-
                                 Carta1 = IMG_Load("Imagenes/MensajeC.png");
                                 i = 1;
                             }
@@ -680,9 +670,36 @@ void Game::pantallaCartas()
                 switch (EventoSalir.key.keysym.sym)
                 {
                 case SDLK_SPACE:
-                    salir = 1;
+                    if (numeroAdivinar == 1)
+                    {
+                        std::cout << "Carta ARTE";
+                        superficieVentana = SDL_GetWindowSurface(Ventana);
+                        SDL_UpdateWindowSurface(Ventana);
+                    }
+                    else if (numeroAdivinar == 2)
+                    {
+                        std::cout << "Carta Historia";
+                        superficieVentana = SDL_GetWindowSurface(Ventana);
+                        SDL_UpdateWindowSurface(Ventana);
+                    }
+                    else if (numeroAdivinar == 3)
+                    {
+                        std::cout << "Carta POLITICA";
+                        
+                        superficieVentana = SDL_GetWindowSurface(Ventana);
+                        SDL_UpdateWindowSurface(Ventana);
+                    }
+                    else if (numeroAdivinar == 4)
+                    {
+                        std::cout << "Carta CIENCIA";
+                        superficieVentana = SDL_GetWindowSurface(Ventana);
+                        SDL_UpdateWindowSurface(Ventana);
+                    }
+                    
+
                     break;
                 case SDLK_ESCAPE:
+                    
                     SDL_Quit();
                     menuPrincipal();
                     break;
