@@ -23,6 +23,12 @@ public:
     void elementosMenuPrincipal();
     void menuPrincipal();
 	void pantallaCartas();
+	
+
+
+	//funciones de juegos de la parte de eleccion
+	void juegoArte();
+	void miniJuegoCiencia();
    //void  isRunning() { return isRunning(); };
 
 private:

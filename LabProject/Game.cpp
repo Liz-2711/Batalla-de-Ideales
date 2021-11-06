@@ -122,7 +122,7 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
 
         // keep application running long enough to hear the sound
 
-        SDL_Delay(3000);
+       // SDL_Delay(3000);
        //************************************************************************************************************************************************
 
         while (!gameover)
@@ -673,27 +673,35 @@ void Game::pantallaCartas()
                     if (numeroAdivinar == 1)
                     {
                         std::cout << "Carta ARTE";
-                        superficieVentana = SDL_GetWindowSurface(Ventana);
-                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Quit();
+                        juegoArte();
+                        
                     }
                     else if (numeroAdivinar == 2)
                     {
                         std::cout << "Carta Historia";
-                        superficieVentana = SDL_GetWindowSurface(Ventana);
-                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Quit();
+                        //juegoHistoria();
+                       
                     }
                     else if (numeroAdivinar == 3)
                     {
                         std::cout << "Carta POLITICA";
                         
-                        superficieVentana = SDL_GetWindowSurface(Ventana);
-                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Quit();
+
+                        //juegoPolitica();
+                       
                     }
                     else if (numeroAdivinar == 4)
                     {
                         std::cout << "Carta CIENCIA";
-                        superficieVentana = SDL_GetWindowSurface(Ventana);
-                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Quit();
+                        miniJuegoCiencia();
+                        //juegoCiencia();
+                        
+
+
                     }
                     
 
@@ -714,4 +722,1078 @@ void Game::pantallaCartas()
 
     SDL_Quit();
     
+}
+
+void Game::juegoArte()
+{
+
+    const int WIDTH = 1000; //Ancho de pantalla
+    const int HEIGHT =  564; // altura de pantallla
+    const int SPRITE_SIZE = 600; //TAMA;O D ELA ORCA
+    const int SizeMessaje = 600; // tamaño de mensaje de carta eleguida
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Orca1;
+    
+    SDL_Surface* Pregunta1;
+
+    SDL_Surface* Respuesta1;
+
+
+
+    //enveno para salir
+    SDL_Event EventoSalir;
+
+
+    int salir = 0;
+    //POsiciones de las imagenes
+    SDL_Rect    rcInicial;
+    SDL_Rect    gdFinal;
+  
+
+    //evento para el toque de la carta
+    SDL_Event eleccion;
+
+    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    if (Ventana == NULL) 
+    {
+        std::cout << "Error";
+
+    }
+    else 
+    {
+        
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = SPRITE_SIZE; rcInicial.h = SPRITE_SIZE;
+
+        gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+
+
+
+
+        Fondo = IMG_Load("Imagenes/FondoOrca.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+
+        Orca1 = IMG_Load("Imagenes/Orca1.png");
+        SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+        gdFinal.x = 380; gdFinal.y = 80;
+        Pregunta1 = IMG_Load("Imagenes/Pregunta00.png");
+        SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+        gdFinal.x = 430; gdFinal.y = 150;
+        Respuesta1 = IMG_Load("Imagenes/Respuesta0.png");
+        SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+       
+
+
+        SDL_FreeSurface(Fondo);
+        SDL_FreeSurface(Orca1);
+        SDL_FreeSurface(Pregunta1);
+        SDL_FreeSurface(Respuesta1);
+        int i = 0;
+        int M = 0, I = 0, G = 0, U = 0, E = 0, L = 0, A = 0, N = 0, G2 = 0, E2 = 0, L2 = 0;
+        int errores = 0; // solo tiene 6 intentos
+        int reintentos = 2;
+
+        SDL_UpdateWindowSurface(Ventana);
+
+        while (!i) {
+            if (SDL_PollEvent(&eleccion))
+            {
+                int posicionClick = 0;
+                switch (eleccion.type)
+                {
+                case SDL_QUIT:
+                    i = 1;
+                    break;
+
+                case SDL_KEYDOWN:
+                    switch (eleccion.key.keysym.sym)
+                    {
+                    case SDLK_m:
+
+                        if (M == 0)
+                        {
+                            M++;
+                            gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+                            std::cout << "\n\nPresionaste M\n\n";
+                            
+
+                        }
+                        else 
+                        {
+                            std::cout << "Ya la habias presionado una vez";
+                        }
+
+                        break;
+
+                    case SDLK_i:
+
+                        if (M == 1)
+                        {
+                            M++;
+                           
+                            std::cout << "\n\nPresionaste i\n\n";
+
+
+                        }
+                        else
+                        {
+                            std::cout << "Ya la habias presionado una vez";
+                        }
+
+                        break;
+                    
+
+                    case SDLK_q:
+                        i = 1;
+                        break;
+
+                   
+
+                    default:
+                        std::cout << "Esta letra no esta";
+                        gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+                        if (errores == 0)
+                        {
+                            errores++;
+
+                            Orca1 = IMG_Load("Imagenes/orca2.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 1)
+                        {
+                            errores++;
+
+                            Orca1 = IMG_Load("Imagenes/orca3.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 2)
+                        {
+                            errores++;
+                            Orca1 = IMG_Load("Imagenes/orca4.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 3)
+                        {
+                            errores++;
+                            Orca1 = IMG_Load("Imagenes/Orca5.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 4)
+                        {
+                            errores++;
+                            Orca1 = IMG_Load("Imagenes/orca6.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 5)
+                        {
+                            errores++;
+                            Orca1 = IMG_Load("Imagenes/orca7.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        else if (errores == 6)
+                        {
+                            errores++;
+                            Orca1 = IMG_Load("Imagenes/orca8.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_UpdateWindowSurface(Ventana);
+                            i = 1;
+                            
+                        }
+                        else if (errores == 7)
+                        {
+                          
+                            std::cout << "\n\nPerdiste!!\n\n";
+
+                            i = 1;
+                        }
+
+
+                        break;
+
+                    }
+                   
+
+                    
+                default:
+               
+                    break;
+                }
+            }
+        }
+    }
+
+    SDL_UpdateWindowSurface(Ventana);
+
+    
+
+
+
+    while (!salir)
+    {
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+          
+            }
+        }
+    }
+
+    SDL_FreeSurface(superficieVentana);
+    SDL_DestroyWindow(Ventana);
+
+    SDL_Quit();
+
+
+
+}
+
+
+void Game::miniJuegoCiencia()
+{
+
+
+
+    const int WIDTH = 1000;
+    const int HEIGHT = 600;
+    //const int SPRITE_SIZE = 120;
+    const int SizeMessaje = 600;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+    SDL_Renderer* renderizado; // render de ventana
+
+    //Imagenes
+    SDL_Surface* Fondo1;
+    SDL_Texture* Tfondo;
+    SDL_Surface* superficieVentana;
+    SDL_Surface* prt1 = nullptr;
+    SDL_Surface* prt2 = nullptr;
+    SDL_Surface* prt3 = nullptr;
+    SDL_Surface* prt4 = nullptr;
+    SDL_Surface* prt5 = nullptr;
+    SDL_Surface* prt6 = nullptr;
+    SDL_Surface* prt7 = nullptr;
+    SDL_Surface* prt8 = nullptr;
+    SDL_Surface* prt9 = nullptr;
+    SDL_Surface* prt10 = nullptr;
+    SDL_Surface* prt11 = nullptr;
+    SDL_Surface* prt12 = nullptr;
+    SDL_Surface* prt13 = nullptr;
+    SDL_Surface* prt14 = nullptr;
+    SDL_Surface* prt15 = nullptr;
+    SDL_Surface* prt16 = nullptr;
+    SDL_Surface* prt17 = nullptr;
+    SDL_Surface* prt18 = nullptr;
+    SDL_Surface* prt19 = nullptr;
+    SDL_Surface* prt20 = nullptr;
+    SDL_Surface* prt21 = nullptr;
+    SDL_Surface* prt22 = nullptr;
+    SDL_Surface* prt23 = nullptr;
+    SDL_Surface* prt24 = nullptr;
+    SDL_Surface* prt25 = nullptr;
+
+    SDL_Surface* correct1 = nullptr;
+    SDL_Surface* correct2 = nullptr;
+    SDL_Surface* correct3 = nullptr;
+    SDL_Surface* correct4 = nullptr;
+    SDL_Surface* correct5 = nullptr;
+
+    SDL_Surface* win1 = nullptr;
+    SDL_Surface* win2 = nullptr;
+    SDL_Surface* win3 = nullptr;
+    SDL_Surface* win4 = nullptr;
+    SDL_Surface* win5 = nullptr;
+
+    SDL_Surface* heart;
+
+    SDL_Texture* Fondo;
+
+
+
+    SDL_Surface* Continuar;
+
+
+
+
+    SDL_Event EventoSalir;
+
+    const Uint32* m;
+    int salir = 0;
+    //POsiciones de los vasos
+    SDL_Rect    rcMI;
+    SDL_Rect    rcInicial; //posicion inicial
+    SDL_Rect    gdPosCartas; //posicion con el toque
+    SDL_Rect    gdMensaje;
+
+    SDL_Renderer* renderer;
+    //evento para el toque de el vaso
+
+    SDL_Event eleccion;
+    int SPRITE_SIZE = 50;
+
+    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    Uint32 Color = SDL_MapRGB(superficieVentana->format, 222, 235, 247);
+    SDL_FillRect(superficieVentana, NULL, Color);
+
+    renderer = SDL_CreateRenderer(Ventana, -1, SDL_RENDERER_ACCELERATED);
+
+
+
+    Fondo1 = IMG_Load("Img/5sec.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Delay(500);
+
+
+    Fondo1 = IMG_Load("Img/4sec.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Delay(500);
+
+
+    Fondo1 = IMG_Load("Img/3sec.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Delay(500);
+
+
+    Fondo1 = IMG_Load("Img/2sec.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Delay(500);
+
+
+    Fondo1 = IMG_Load("Img/1sec.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Delay(500);
+
+    Fondo1 = IMG_Load("Img/1.png");
+    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+    SDL_FreeSurface(Fondo1);
+    SDL_UpdateWindowSurface(Ventana);
+    SDL_Surface* numScore;
+    SDL_Rect    gdPosScore;
+    prt1 = IMG_Load("Img/1.png");
+    prt2 = IMG_Load("Img/2.png");
+    prt3 = IMG_Load("Img/3.png");
+    prt4 = IMG_Load("Img/4.png");
+    prt5 = IMG_Load("Img/5.png");
+    prt6 = IMG_Load("Img/6.png");
+    prt7 = IMG_Load("Img/7.png");
+    prt8 = IMG_Load("Img/8.png");
+    prt9 = IMG_Load("Img/9.png");
+    prt10 = IMG_Load("Img/10.png");
+    prt11 = IMG_Load("Img/11.png");
+    prt12 = IMG_Load("Img/12.png");
+    prt13 = IMG_Load("Img/13.png");
+    prt14 = IMG_Load("Img/14.png");
+    prt15 = IMG_Load("Img/15.png");
+    prt16 = IMG_Load("Img/16.png");
+    prt17 = IMG_Load("Img/17.png");
+    prt18 = IMG_Load("Img/18.png");
+    prt19 = IMG_Load("Img/19.png");
+    prt20 = IMG_Load("Img/20.png");
+    prt21 = IMG_Load("Img/21.png");
+    prt22 = IMG_Load("Img/22.png");
+    prt23 = IMG_Load("Img/23.png");
+    prt24 = IMG_Load("Img/24.png");
+    prt25 = IMG_Load("Img/25.png");
+    correct1 = IMG_Load("Img/1correct.png");
+    correct2 = IMG_Load("Img/2correct.png");
+    correct3 = IMG_Load("Img/3correct.png");
+    correct4 = IMG_Load("Img/4correct.png");
+    correct5 = IMG_Load("Img/5correct.png");
+    win1 = IMG_Load("Img/win1.png");
+    win2 = IMG_Load("Img/win2.png");
+    win3 = IMG_Load("Img/win3.png");
+    win4 = IMG_Load("Img/win4.png");
+    win5 = IMG_Load("Img/win5.png");
+
+    int Puntuacion = 0;
+    int bk = 0;
+    int prtnum = 1;
+    SDL_Surface* currentImg = prt1;
+    SDL_Event evento;
+    while (isRunning) {
+
+
+        if (prtnum == 1) {
+
+            while (SDL_PollEvent(&evento) != 0) {
+
+
+                if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
+
+
+                    currentImg = prt1;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt5;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        SDL_Delay(2000);
+
+                        prtnum = 2;
+                    }
+
+                }
+                if (evento.button.x >= 280 && evento.button.x <= 480 && evento.button.y >= 30 && evento.button.y <= 125) {
+
+
+                    currentImg = prt2;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt5;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 2;
+                    }
+
+                }
+                if (evento.button.x >= 458 && evento.button.x <= 656 && evento.button.y >= 180 && evento.button.y <= 274) {
+
+
+                    currentImg = prt3;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = correct1;
+
+                        Puntuacion++;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 2;
+                        //pregunta2();
+                    }
+
+                }
+                if (evento.button.x >= 680 && evento.button.x <= 871 && evento.button.y >= 34 && evento.button.y <= 124) {
+
+
+                    currentImg = prt4;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt5;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 2;
+                    }
+
+                }
+
+            }
+
+            //************************************************************************************************************************************************************************************************
+
+        }
+
+        if (prtnum == 2) {
+
+            while (SDL_PollEvent(&evento) != 0) {
+                if (bk == 0) {
+                    Fondo1 = IMG_Load("Img/5sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/4sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/3sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/2sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/1sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+                    bk = 1;
+                }
+
+
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
+
+                    currentImg = prt6;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = correct2;
+                        Puntuacion++;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        SDL_Delay(2000);
+
+                        prtnum = 3;
+                    }
+
+                }
+                if (evento.button.x >= 280 && evento.button.x <= 480 && evento.button.y >= 30 && evento.button.y <= 125) {
+
+
+                    currentImg = prt7;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt10;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 3;
+                    }
+
+                }
+                if (evento.button.x >= 458 && evento.button.x <= 656 && evento.button.y >= 180 && evento.button.y <= 274) {
+
+
+                    currentImg = prt8;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt10;
+
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 3;
+                        //pregunta2();
+                    }
+
+                }
+                if (evento.button.x >= 680 && evento.button.x <= 871 && evento.button.y >= 34 && evento.button.y <= 124) {
+
+
+                    currentImg = prt9;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt10;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 3;
+                    }
+
+                }
+
+            }
+        }
+        //************************************************************************************************************************************************************************************************
+        if (prtnum == 3) {
+            while (SDL_PollEvent(&evento) != 0) {
+                if (bk == 1) {
+                    Fondo1 = IMG_Load("Img/5sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/4sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/3sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/2sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/1sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+                    bk = 2;
+                }
+
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+
+                if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
+
+                    currentImg = prt11;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt15;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        SDL_Delay(2000);
+
+                        prtnum = 4;
+                    }
+
+                }
+                if (evento.button.x >= 280 && evento.button.x <= 480 && evento.button.y >= 30 && evento.button.y <= 125) {
+
+
+                    currentImg = prt12;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = correct3;
+                        Puntuacion++;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 4;
+                    }
+
+                }
+                if (evento.button.x >= 458 && evento.button.x <= 656 && evento.button.y >= 180 && evento.button.y <= 274) {
+
+
+                    currentImg = prt13;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt15;
+
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 4;
+                        //pregunta2();
+                    }
+
+                }
+                if (evento.button.x >= 680 && evento.button.x <= 871 && evento.button.y >= 34 && evento.button.y <= 124) {
+
+
+                    currentImg = prt14;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt15;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 4;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+
+        //************************************************************************************************************************************************************************************************
+        if (prtnum == 4) {
+            while (SDL_PollEvent(&evento) != 0) {
+                if (bk == 2) {
+                    Fondo1 = IMG_Load("Img/5sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/4sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/3sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/2sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/1sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+                    bk = 3;
+                }
+
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
+
+                    currentImg = prt16;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = correct4;
+                        Puntuacion++;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        SDL_Delay(2000);
+
+                        prtnum = 5;
+                    }
+
+                }
+                if (evento.button.x >= 280 && evento.button.x <= 480 && evento.button.y >= 30 && evento.button.y <= 125) {
+
+
+                    currentImg = prt17;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt20;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 5;
+                    }
+
+                }
+                if (evento.button.x >= 458 && evento.button.x <= 656 && evento.button.y >= 180 && evento.button.y <= 274) {
+
+
+                    currentImg = prt18;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt20;
+
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 5;
+                        //pregunta2();
+                    }
+
+                }
+                if (evento.button.x >= 680 && evento.button.x <= 871 && evento.button.y >= 34 && evento.button.y <= 124) {
+
+
+                    currentImg = prt19;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt20;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 5;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+
+
+
+        //************************************************************************************************************************************************************************************************
+        if (prtnum == 5) {
+            while (SDL_PollEvent(&evento) != 0) {
+                if (bk == 3) {
+                    Fondo1 = IMG_Load("Img/5sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/4sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/3sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/2sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+
+                    Fondo1 = IMG_Load("Img/1sec.png");
+                    SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(Fondo1);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+                    bk = 4;
+                }
+
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
+
+                    currentImg = prt21;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt25;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        SDL_Delay(2000);
+
+                        prtnum = 6;
+                    }
+
+                }
+                if (evento.button.x >= 280 && evento.button.x <= 480 && evento.button.y >= 30 && evento.button.y <= 125) {
+
+
+                    currentImg = prt22;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt25;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 6;
+                    }
+
+                }
+                if (evento.button.x >= 458 && evento.button.x <= 656 && evento.button.y >= 180 && evento.button.y <= 274) {
+
+
+                    currentImg = prt23;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = prt25;
+
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 6;
+                        //pregunta2();
+                    }
+
+                }
+                if (evento.button.x >= 680 && evento.button.x <= 871 && evento.button.y >= 34 && evento.button.y <= 124) {
+
+
+                    currentImg = prt24;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = correct5;
+                        Puntuacion++;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(2000);
+
+                        prtnum = 6;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        //************************************************************************************************************************************************************************************************
+        if (prtnum == 6) {
+
+            if (Puntuacion == 1) {
+
+
+                currentImg = win1;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                SDL_Delay(6000);
+
+
+
+            }
+            if (Puntuacion == 2) {
+
+
+                currentImg = win2;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                SDL_Delay(6000);
+
+
+
+            }  if (Puntuacion == 3) {
+
+
+                currentImg = win3;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                SDL_Delay(6000);
+
+
+
+            }  if (Puntuacion == 4) {
+
+
+                currentImg = win4;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                SDL_Delay(6000);
+
+
+
+            } if (Puntuacion == 5) {
+
+
+                currentImg = win5;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                SDL_Delay(6000);
+
+
+
+            }
+
+
+
+
+        }
+
+
+
+        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+        SDL_UpdateWindowSurface(Ventana);
+    }
+
+
+
+    SDL_Surface* tmpsurface;
+
+
+    while (!salir)
+    {
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+    }
+
+
+    SDL_FreeSurface(prt1);
+    SDL_FreeSurface(prt2);
+    SDL_FreeSurface(prt3);
+    SDL_FreeSurface(prt4);
+    SDL_FreeSurface(prt5);
+
+    prt1 = prt2 = prt3 = superficieVentana = nullptr;
+    Ventana = nullptr;
+
+    SDL_DestroyWindow(Ventana);
+
+    SDL_Quit();
+
+
 }

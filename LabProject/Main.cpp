@@ -40,6 +40,8 @@ int main(int argc, char* argv[])
         if (frameDelay > frameStart) {
             SDL_Delay(frameDelay - frameTime);
         }
+
+        game->juegoArte();
     }
 
 
