@@ -3,11 +3,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 SDL_Texture* playText;
 SDL_Rect scrR, destR;
 SDL_Rect    rcSprite;
 SDL_Rect    gdSprite;
+
+//controla que elemento va despues
+int elementospantalla = 0, puntos = 0;
+bool eliminado = false;
 
 int gameover = 0;
 Game::Game()
@@ -681,7 +684,7 @@ void Game::pantallaCartas()
                     {
                         std::cout << "Carta Historia";
                         SDL_Quit();
-                        //juegoHistoria();
+                        minjuegoHistoria();
                        
                     }
                     else if (numeroAdivinar == 3)
@@ -1794,6 +1797,241 @@ void Game::miniJuegoCiencia()
     SDL_DestroyWindow(Ventana);
 
     SDL_Quit();
+}
 
+void Game::minjuegoHistoria() {
+    ventanaMinijuegoHistoria("Historia", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, false);
+    minjuegoHistoriaElementos();
+    while (true)
+        minjuegoHistoriaEventos();
+}
 
+//crear ventana de menu principal
+void Game::ventanaMinijuegoHistoria(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
+    int flags = 0;
+
+    if (fullscreen)
+        flags = SDL_WINDOW_FULLSCREEN;
+
+    if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+        window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+        isRunning = true;
+    }
+    else
+        isRunning = false;
+
+}
+
+void Game::minijuegoHistoriaElementos() {
+    //fondo
+    superficieVentana = SDL_GetWindowSurface(window);
+
+    background = IMG_Load("assets/fondominijuegohistoria.jpg");
+    SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+    //personaje - mensajero del rey
+    posInicial.x = 0; posInicial.y = 0; posInicial.w = 635; posInicial.h = 1011;
+    posFinal.x = 480; posFinal.y = 50; posFinal.w = 635; posFinal.h = 1011;
+    personaje1 = IMG_Load("assets/mensajerohistoria.png");
+    SDL_BlitSurface(personaje1, &posInicial, superficieVentana, &posFinal);
+
+    //mensaje de pulsa espacio
+    posInicial.x = 0; posInicial.y = 0; posInicial.w = 700; posInicial.h = 106;
+    posFinal.x = 10; posFinal.y = 470; posFinal.w = 700; posFinal.h = 106;
+    pulsaespacio = IMG_Load("assets/pulsaespacio.png");
+    SDL_BlitSurface(pulsaespacio, &posInicial, superficieVentana, &posFinal);
+
+    //globo de texto 1
+    posInicial.x = 0; posInicial.y = 0; posInicial.w = 500; posInicial.h = 720;
+    posFinal.x = 100; posFinal.y = 50; posFinal.w = 500; posFinal.h = 720;
+    globodetexto1 = IMG_Load("assets/globodetexto1.png");
+    SDL_BlitSurface(globodetexto1, &posInicial, superficieVentana, &posFinal);
+
+    SDL_UpdateWindowSurface(window);
+}
+
+void Game::minijuegoHistoriaEventos() {
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch (event.type) {
+        //cerrar ventana
+    case SDL_QUIT:
+        isRunning = false;
+        break;
+    case SDL_KEYDOWN:
+        switch (event.key.keysym.sym) {
+        case SDLK_SPACE:
+            //determina que elemento va despues
+            if (elementospantalla == 0) {
+                globodetexto1 = IMG_Load("assets/globodetexto2.png");
+                SDL_BlitSurface(globodetexto1, &posInicial, superficieVentana, &posFinal);
+                elementospantalla++;
+            }
+            else if (elementospantalla == 1) {
+                globodetexto1 = IMG_Load("assets/globodetexto3.png");
+                SDL_BlitSurface(globodetexto1, &posInicial, superficieVentana, &posFinal);
+                elementospantalla++;
+            }
+            else if (elementospantalla == 2) {
+                //limpiar la ventana (surface)
+                SDL_FillRect(superficieVentana, NULL, 0x000000);
+                SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+                posInicial.x = 0; posInicial.y = 0; posInicial.w = 500; posInicial.h = 377;
+                posFinal.x = 70; posFinal.y = 40; posFinal.w = 500; posFinal.h = 377;
+                mensaje1 = IMG_Load("assets/mensajeminijuegohistoria1a.png");
+                SDL_BlitSurface(mensaje1, &posInicial, superficieVentana, &posFinal);
+
+                posInicial.x = 0; posInicial.y = 0; posInicial.w = 300; posInicial.h = 530;
+                posFinal.x = 620; posFinal.y = 2; posFinal.w = 300; posFinal.h = 530;
+                tablajuego = IMG_Load("assets/tabladelingotes.png");
+                SDL_BlitSurface(tablajuego, &posInicial, superficieVentana, &posFinal);
+
+                elementospantalla++;
+            }
+            else if (elementospantalla == 3) {
+                SDL_FillRect(superficieVentana, NULL, 0x000000);
+                SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+                posInicial.x = 0; posInicial.y = 0; posInicial.w = 635; posInicial.h = 1011;
+                posFinal.x = 460; posFinal.y = -10; posFinal.w = 635; posFinal.h = 1011;
+                personaje1 = IMG_Load("assets/mensajerohistoria.png");
+                SDL_BlitSurface(personaje1, &posInicial, superficieVentana, &posFinal);
+
+                posInicial.x = 0; posInicial.y = 0; posInicial.w = 946; posInicial.h = 283;
+                posFinal.x = 30; posFinal.y = 260; posFinal.w = 946; posFinal.h = 283;
+                pregunta1 = IMG_Load("assets/minijuegohistoriapregunta1.png");
+                SDL_BlitSurface(pregunta1, &posInicial, superficieVentana, &posFinal);
+            }
+
+            SDL_UpdateWindowSurface(window);
+            break;
+        }
+        break;
+
+    case SDL_MOUSEBUTTONDOWN:
+        int cursorx = event.motion.x, cursory = event.motion.y;
+
+        //detectar que opcion elige con el mouse
+        if (elementospantalla >= 3) {
+            //Si presiona la opcion A
+            if (cursorx > 70 && cursorx < 470 && cursory > 402 && cursory < 450) {
+                switch (elementospantalla) {
+                case 3:
+                    eliminado = true;
+                    break;
+                case 4:
+                    eliminado = true;
+                    break;
+                case 5:
+                    puntos++;
+                    break;
+                case 6:
+                    eliminado = true;
+                    break;
+                case 7:
+                    puntos++;
+                    break;
+                }
+                elementospantalla++;
+            }
+
+            //Si presiona la opcion B
+            if (cursorx > 540 && cursorx < 920 && cursory > 402 && cursory < 450) {
+                switch (elementospantalla) {
+                case 3:
+                    eliminado = true;
+                    break;
+                case 4:
+                    puntos++;
+                    break;
+                case 5:
+                    eliminado = true;
+                    break;
+                case 6:
+                    puntos++;
+                    break;
+                case 7:
+                    eliminado = true;
+                    break;
+                }
+                elementospantalla++;
+            }
+
+            //Si presiona la opcion C
+            if (cursorx > 70 && cursorx < 470 && cursory > 470 && cursory < 532) {
+                switch (elementospantalla) {
+                case 3:
+                    puntos++;
+                    break;
+                case 4:
+                    eliminado = true;
+                    break;
+                case 5:
+                    eliminado = true;
+                    break;
+                case 6:
+                    eliminado = true;
+                    break;
+                case 7:
+                    eliminado = true;
+                    break;
+                }
+                elementospantalla++;
+            }
+
+            //Si presiona la opcion D
+            if (cursorx > 540 && cursorx < 920 && cursory > 470 && cursory < 532) {
+                switch (elementospantalla) {
+                case 3:
+                    eliminado = true;
+                    break;
+                case 4:
+                    eliminado = true;
+                    break;
+                case 5:
+                    eliminado = true;
+                    break;
+                case 6:
+                    eliminado = true;
+                    break;
+                case 7:
+                    eliminado = true;
+                    break;
+                }
+                elementospantalla++;
+            }
+        }
+
+        if (!eliminado) {
+            if (elementospantalla == 4) {
+                pregunta1 = IMG_Load("assets/minijuegohistoriapregunta2.png");
+                SDL_BlitSurface(pregunta1, &posInicial, superficieVentana, &posFinal);
+            }
+            if (elementospantalla == 5) {
+                pregunta1 = IMG_Load("assets/minijuegohistoriapregunta3.png");
+                SDL_BlitSurface(pregunta1, &posInicial, superficieVentana, &posFinal);
+            }
+            if (elementospantalla == 6) {
+                pregunta1 = IMG_Load("assets/minijuegohistoriapregunta4.png");
+                SDL_BlitSurface(pregunta1, &posInicial, superficieVentana, &posFinal);
+            }
+            if (elementospantalla == 7) {
+                pregunta1 = IMG_Load("assets/minijuegohistoriapregunta5.png");
+                SDL_BlitSurface(pregunta1, &posInicial, superficieVentana, &posFinal);
+            }
+            if (elementospantalla == 8) {
+                std::cout << "ganaste, tus puntos fueron " << puntos << "\n";
+            }
+        }
+
+        SDL_UpdateWindowSurface(window);
+        break;
+    }
+
+    if (eliminado) {
+        std::cout << "perdiste, te llevas " << puntos << " puntos\n";
+        elementospantalla = -1;
+        eliminado = false;
+    }
 }

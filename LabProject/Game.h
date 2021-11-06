@@ -23,6 +23,10 @@ public:
     void elementosMenuPrincipal();
     void menuPrincipal();
 	void pantallaCartas();
+	void minjuegoHistoria();
+	void ventanaMinijuegoHistoria(const char*, int, int, int, int, bool);
+	void minijuegoHistoriaElementos();
+	void minijuegoHistoriaEventos();
 	
 
 
@@ -43,6 +47,12 @@ private:
     SDL_Surface* boton2;
     SDL_Surface* boton3;
     SDL_Surface* boton4;
+	SDL_Surface* personaje1;
+	SDL_Surface* globodetexto1;
+	SDL_Surface* mensaje1;
+	SDL_Surface* tablajuego;
+	SDL_Surface* pregunta1;
+	SDL_Surface* pulsaespacio;
     SDL_Rect posInicial;
     SDL_Rect posFinal;
 };
