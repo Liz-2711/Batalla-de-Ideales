@@ -678,13 +678,15 @@ void Game::pantallaCartas()
                         std::cout << "Carta ARTE";
                         SDL_Quit();
                         juegoArte();
+                        //miniJuegoCiencia(); 
                         
                     }
                     else if (numeroAdivinar == 2)
                     {
                         std::cout << "Carta Historia";
                         SDL_Quit();
-                        minjuegoHistoria();
+                        juegoArte();
+                        //miniJuegoCiencia();
                        
                     }
                     else if (numeroAdivinar == 3)
@@ -692,7 +694,8 @@ void Game::pantallaCartas()
                         std::cout << "Carta POLITICA";
                         
                         SDL_Quit();
-
+                        juegoArte();
+                        //miniJuegoCiencia();
                         //juegoPolitica();
                        
                     }
@@ -700,7 +703,8 @@ void Game::pantallaCartas()
                     {
                         std::cout << "Carta CIENCIA";
                         SDL_Quit();
-                        miniJuegoCiencia();
+                        juegoArte();
+                        //miniJuegoCiencia();
                         //juegoCiencia();
                         
 
@@ -727,6 +731,9 @@ void Game::pantallaCartas()
     
 }
 
+
+//****************************************************PANTALLA JUEGOS***********************************************
+
 void Game::juegoArte()
 {
 
@@ -748,6 +755,9 @@ void Game::juegoArte()
     SDL_Surface* Pregunta1;
 
     SDL_Surface* Respuesta1;
+    SDL_Surface* R1;
+    SDL_Surface* R11;
+   
 
 
 
@@ -789,24 +799,59 @@ void Game::juegoArte()
         Orca1 = IMG_Load("Imagenes/Orca1.png");
         SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
 
-        gdFinal.x = 380; gdFinal.y = 80;
-        Pregunta1 = IMG_Load("Imagenes/Pregunta00.png");
+        gdFinal.x = 400; gdFinal.y = 80;
+        Pregunta1 = IMG_Load("Imagenes/Pregunta1.png");
         SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
 
-        gdFinal.x = 430; gdFinal.y = 150;
+        gdFinal.x = 400; gdFinal.y = 200;
         Respuesta1 = IMG_Load("Imagenes/Respuesta0.png");
         SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
        
+       
+        
 
+       /* gdFinal.x = 768; gdFinal.y = 145;
+        R1 = IMG_Load("Imagenes/R1.5.png");
+        SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+
+        gdFinal.x = 737; gdFinal.y = 145;
+        R11 = IMG_Load("Imagenes/R1.4.png");
+        SDL_BlitSurface(R11, &rcInicial, superficieVentana, &gdFinal);*/
 
         SDL_FreeSurface(Fondo);
         SDL_FreeSurface(Orca1);
         SDL_FreeSurface(Pregunta1);
         SDL_FreeSurface(Respuesta1);
         int i = 0;
-        int M = 0, I = 0, G = 0, U = 0, E = 0, L = 0, A = 0, N = 0, G2 = 0, E2 = 0, L2 = 0;
-        int errores = 0; // solo tiene 6 intentos
-        int reintentos = 2;
+        //respietsa 2 MIGUEL ANGEL
+        int M = 0, I = 0, G = 0, U = 0, E = 0, L = 0, A = 0, N = 0; //intentos 10 // correctas 8 //prgeunta 1
+        //respuesta 2  Miguel Ángel Buonarroti.
+        int M2 = 0, I2 = 0, G2 = 0, U2 = 0, E2 = 0, L2 = 0, A2 = 0, N2 = 0, B2 = 0, O2 = 0, R2 = 0, T2 = 0;//intentos 14 //correctas 12 //prgeunta 2
+        //Respuesta 3 El barroco
+        int E3 = 0, L3 = 0, B3 = 0, A3 = 0, R3 = 0, O3 = 0, C3 = 0; //intentos 9 // correctas 7 //prgeunta 3
+        //Respuesta 4 Humanismo
+        int H4 = 0, U4 = 0, M4 = 0, A4 = 0, N4 = 0, I4 = 0, S4 = 0, O4=0; //intentos 10  //correctas 8 //prgeunta 4
+        //Respuetsa 5  tortugas ninjas
+        int L5=0,  S5=0, T5 = 0, O5 = 0, R5 = 0,  U5 = 0, G5 = 0, A5 = 0, N5 = 0, I5 = 0, J5 = 0; //intentos 13 //correctas 11 //prgeunta 5
+
+
+        int intentos1 = 0;
+
+        int preguntas = 1;
+        int pregun1 = 0;
+        int pregun2 = 0;
+        int pregun3 = 0;
+        int pregun4 = 0;
+        int pregun5 = 0;
+
+        int limite = 10;
+
+        int correctas1 = 0;
+
+        int correcta = 8;
+
+        //int correctaP = 0;
+
 
         SDL_UpdateWindowSurface(Ventana);
 
@@ -814,130 +859,1759 @@ void Game::juegoArte()
             if (SDL_PollEvent(&eleccion))
             {
                 int posicionClick = 0;
-                switch (eleccion.type)
+                
+                if (correctas1 == correcta)
                 {
-                case SDL_QUIT:
-                    i = 1;
-                    break;
+                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                case SDL_KEYDOWN:
-                    switch (eleccion.key.keysym.sym)
-                    {
-                    case SDLK_m:
-
-                        if (M == 0)
+                        if (preguntas == 1) 
                         {
-                            M++;
-                            gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
-                            std::cout << "\n\nPresionaste M\n\n";
-                            
+                            pregun1 = 1;
+                            gdFinal.x = 150; gdFinal.y = 100;
+                            Orca1 = IMG_Load("Imagenes/Orca1.png");
+                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
 
-                        }
-                        else 
-                        {
-                            std::cout << "Ya la habias presionado una vez";
-                        }
+                            gdFinal.x = 400; gdFinal.y = 80;
+                            Pregunta1 = IMG_Load("Imagenes/Pregunta2.png");
+                            SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
 
-                        break;
+                            gdFinal.x = 400; gdFinal.y = 200;
+                            Respuesta1 = IMG_Load("Imagenes/Respuesta2.png");
+                            SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
 
-                    case SDLK_i:
-
-                        if (M == 1)
-                        {
-                            M++;
+                            correcta = 12;
+                            intentos1 = 0;
+                            correctas1 = 0;
+                            limite = 14;
                            
-                            std::cout << "\n\nPresionaste i\n\n";
-
-
-                        }
-                        else
-                        {
-                            std::cout << "Ya la habias presionado una vez";
-                        }
-
-                        break;
-                    
-
-                    case SDLK_q:
-                        i = 1;
-                        break;
-
-                   
-
-                    default:
-                        std::cout << "Esta letra no esta";
-                        gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
-                        if (errores == 0)
-                        {
-                            errores++;
-
-                            Orca1 = IMG_Load("Imagenes/orca2.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 1)
-                        {
-                            errores++;
-
-                            Orca1 = IMG_Load("Imagenes/orca3.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 2)
-                        {
-                            errores++;
-                            Orca1 = IMG_Load("Imagenes/orca4.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 3)
-                        {
-                            errores++;
-                            Orca1 = IMG_Load("Imagenes/Orca5.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 4)
-                        {
-                            errores++;
-                            Orca1 = IMG_Load("Imagenes/orca6.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 5)
-                        {
-                            errores++;
-                            Orca1 = IMG_Load("Imagenes/orca7.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        else if (errores == 6)
-                        {
-                            errores++;
-                            Orca1 = IMG_Load("Imagenes/orca8.png");
-                            SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_UpdateWindowSurface(Ventana);
-                            i = 1;
+                            preguntas = 2;
+                           
                             
                         }
-                        else if (errores == 7)
+                        else if (preguntas == 2) 
                         {
-                          
-                            std::cout << "\n\nPerdiste!!\n\n";
 
-                            i = 1;
+                            if (pregun1 == 1 )
+                            {
+                                
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/Orca1.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 400; gdFinal.y = 80;
+                                Pregunta1 = IMG_Load("Imagenes/Pregunta3.png");
+                                SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 400; gdFinal.y = 200;
+                                Respuesta1 = IMG_Load("Imagenes/Respuesta3.png");
+                                SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                correcta = 7;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 9;
+                                preguntas = 3;
+
+
+                                pregun2 = 1;
+                                
+                                
+                            }
+                            else if (pregun1 == 2)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca2.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 380; gdFinal.y = 80;
+                                Pregunta1 = IMG_Load("Imagenes/Pregunta3.png");
+                                SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 380; gdFinal.y = 150;
+                                Respuesta1 = IMG_Load("Imagenes/Respuesta3.png");
+                                SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                correcta = 7;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 9;
+
+                                preguntas = 3;
+
+                                pregun2 = 2;
+                                
+                            }
+                        }
+                        else if (preguntas == 3)
+                        {
+                            if (pregun1 == 1 && pregun2 == 1)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/Orca1.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                               
+
+                                correcta = 8;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 10;
+
+                                preguntas = 4;
+
+                                pregun3 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 2 || pregun1 == 2 && pregun2 == 1)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca2.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                correcta = 8;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 10;
+
+                                preguntas = 4;
+
+                                pregun3 = 1;
+                            }
+                            else if (pregun1 == 2 && pregun2 == 2)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca3.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                
+
+                                correcta = 8;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 10;
+
+                                preguntas = 4;
+                                pregun3 = 1;
+                            }
+
+                            preguntas = 4;
+                            gdFinal.x = 400; gdFinal.y = 80;
+                            Pregunta1 = IMG_Load("Imagenes/Pregunta4.png");
+                            SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 430; gdFinal.y = 200;
+                            Respuesta1 = IMG_Load("Imagenes/Respuesta4.png");
+                            SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                        }
+                        else if (preguntas == 4)
+                        {
+                            if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/Orca1.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                
+                                correcta = 11;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 13;
+
+                                preguntas = 5;
+                                pregun4 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2  || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca2.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                               
+                                correcta = 11;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 13;
+
+                                preguntas = 5;
+                                pregun4 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 || pregun1 == 2 && pregun2 == 1 && pregun3 == 2)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca3.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                               
+
+                                correcta = 11;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 13;
+
+                                preguntas = 5;
+                                pregun4 = 1;
+                                
+                            }
+                            else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2)
+                            {
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca4.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                               
+
+                                correcta = 11;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 13;
+
+                                preguntas = 5;
+                                pregun4 = 1;
+                               
+                            }
+
+                            preguntas = 5;
+                            correctas1 = 0;
+                            gdFinal.x = 400; gdFinal.y = 80;
+                            Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
+                            SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 400; gdFinal.y = 200;
+                            Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
+                            SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                          
+
+                        }
+                        else if (preguntas == 5)
+                        {
+                            if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                            {
+                                //orca1
+                                //gano 5 corazones
+                                pregun5 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                            {
+                                //orca 2
+                                //gano 4 corazones
+                                pregun5 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
+                            {
+                                //orca 3
+                                //gano 3 corazones
+                                pregun5 = 1;
+                            }
+                            else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
+                            {
+                                //orca 4
+                                //gano 2 corazones
+                                pregun5 = 1;
+                            }
+                            else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2)
+                            {
+                                //orca 6
+                                //gano 1 corazones
+                                pregun5 = 1;
+                            }
+                            
+
                         }
 
+                        SDL_FreeSurface(Fondo);
+                        //SDL_FreeSurface(Orca1);
+                        SDL_UpdateWindowSurface(Ventana);
 
-                        break;
-
-                    }
-                   
+                        
 
                     
-                default:
-               
-                    break;
+                    
+
+
+                }
+                else {
+                    switch (eleccion.type)
+                    {
+                    case SDL_QUIT:
+                        i = 1;
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+                        switch (eleccion.key.keysym.sym)
+                        {
+
+
+                        case SDLK_m:
+
+                            if (preguntas == 1) {
+                                if (M == 0)
+                                {
+                                    M++;
+                                    correctas1++;
+                                    std::cout << "\n M\n";
+                                    intentos1++;
+                                    gdFinal.x = 421; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/M.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-M1\n";
+                                }
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (M2 == 0)
+                                {
+                                    M++;
+                                    correctas1++;
+                                    std::cout << "\n M2\n";
+                                    intentos1++;
+                                    gdFinal.x = 421; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/M.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-M2\n";
+                                }
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (M4 == 0)
+                                {
+                                    M4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 505; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/M.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 670; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/M.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-O2\n";
+                            }
+                            break;
+
+                        case SDLK_i:
+
+                            if (preguntas == 1) {
+                                if (I == 0)
+                                {
+                                    I++; intentos1++;
+                                    correctas1++;
+                                    std::cout << "\nI\n";
+                                    gdFinal.x = 446; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/I.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\n O-I1\n";
+                                }
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (I2 == 0)
+                                {
+                                    I2++; intentos1++;
+                                    correctas1++;
+                                    std::cout << "\nI2\n";
+                                    gdFinal.x = 446; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/I.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 680; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/I.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-I2\n";
+                                }
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (I4 == 0)
+                                {
+                                    I4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 600; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/I.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (I5 == 0)
+                                {
+                                    I5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 523; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/I.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                    
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-O2\n";
+                            }
+
+                            break;
+
+
+                        case SDLK_g:
+                            if (preguntas == 1)
+                            {
+                                if (G == 0)
+                                {
+                                    G++; intentos1++;
+                                    std::cout << "\nG\n";
+                                    correctas1++;
+                                    gdFinal.x = 474; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/G.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 655; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/G.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                     intentos1++;
+                                    std::cout << "\nO-G\n";
+                                }
+
+
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (G2 == 0)
+                                {
+                                    
+                                    G2++; intentos1++;
+                                    std::cout << "\nG2\n";
+                                    correctas1++;
+                                    gdFinal.x = 474; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/G.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 655; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/G.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nG2\n";
+                                }
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (G5 == 0)
+                                {
+                                    G5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 670; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/G.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+
+                        case SDLK_u:
+                            if (preguntas == 1)
+                            {
+
+                                if (U == 0)
+                                {
+                                    U++; intentos1++;
+                                    correctas1++;
+                                    std::cout << "\nU";
+                                    gdFinal.x = 503; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/U.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-U1\n";
+                                }
+
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (U2 == 0)
+                                {
+                                    U2++; intentos1++;
+                                    correctas1++;
+                                    std::cout << "\nU2\n";
+                                    gdFinal.x = 503; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/U.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                 
+
+                                    gdFinal.x = 478; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/U.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-U2\n";
+                                }
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (U4 == 0)
+                                {
+                                    U4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 470; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/U.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (U5 == 0)
+                                {
+                                    U5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 640; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/U.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    
+
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+
+                        case SDLK_e:
+                            if (preguntas == 1)
+                            {
+
+                                if (E == 0)
+                                {
+                                    E++; intentos1++;
+                                    std::cout << "\nE";
+                                    correctas1++;
+                                    gdFinal.x = 527; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/E.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 680; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/E.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\no-E1\n";
+                                }
+
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (E2 == 0)
+                                {
+                                    E2++; intentos1++;
+                                    std::cout << "\nE2\n";
+                                    correctas1++;
+                                    gdFinal.x = 527; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/E.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 680; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/E.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\no-E2\n";
+
+                                }
+                            }
+                            else if (preguntas == 3) 
+                            {
+                                if (E3 == 0) 
+                                {
+                                    E3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 440; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/E.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else 
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            break;
+
+                        case SDLK_l:
+                            if (preguntas == 1)
+                            {
+
+                                if (L == 0)
+                                {
+                                    L++; intentos1++;
+                                    std::cout << "\nL";
+                                    correctas1++;
+                                    gdFinal.x = 555; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x  = 705; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nYa la habias presionado una vez";
+                                }
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (L2 == 0)
+                                {
+                                    L2++; intentos1++;
+                                    std::cout << "\nL2\n";
+                                    correctas1++;
+                                    gdFinal.x = 555; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 705; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-L2\n";
+                                }
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (L3 == 0)
+                                {
+                                    L3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 471; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (L5 == 0)
+                                {
+                                    L5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 407; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/L.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else 
+                            {
+                                intentos1++;
+                            }
+                            break;
+
+                        case SDLK_a:
+                            if (preguntas == 1)
+                            {
+
+                                if (A == 0)
+                                {
+                                    A++; intentos1++;
+                                    std::cout << "\nA1\n";
+                                    correctas1++;
+                                    gdFinal.x = 605; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-A1\n";
+                                }
+                            }
+                            else if (preguntas == 2)
+                            {
+
+                                if (A2 == 0)
+                                {
+                                    A2++; intentos1++;
+                                    std::cout << "\nA2\n";
+                                    correctas1++;
+                                    gdFinal.x = 605; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 550; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-A2\n";
+                                }
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (A3 == 0)
+                                {
+                                    A3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 556; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (A4 == 0)
+                                {
+                                    A4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 537; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (A5 == 0)
+                                {
+                                    A5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 435; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                    gdFinal.x = 703; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                    gdFinal.x = 615; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/A.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+
+                        case SDLK_n:
+                            if (preguntas == 1)
+                            {
+                                if (N == 0)
+                                {
+
+                                    N++; intentos1++;
+                                    std::cout << "\nN1\n";
+                                    correctas1++;
+                                    gdFinal.x = 633; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-N1\n";
+                                }
+
+
+                            }
+                            else if (preguntas == 2)
+                            {
+                                if (N2 == 0)
+                                {
+                                    N2++; intentos1++;
+                                    std::cout << "\nN2\n";
+                                    correctas1++;
+                                    gdFinal.x = 633; gdFinal.y = 221;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    
+
+                                    gdFinal.x = 528; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-N2\n";
+                                }
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (N4 == 0)
+                                {
+                                    N4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 572; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (N5 == 0)
+                                {
+                                    N5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 495; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                    gdFinal.x = 555; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/N.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-O2\n";
+                            }
+                            break;
+
+
+                            //lETRAS ADISIONALES DE PREGUNTA 2 BU
+                            
+                            
+                        case SDLK_b:
+                            if (preguntas == 2) {
+                                if (B2 == 0)
+                                {
+                                    B2++; intentos1++;
+                                    std::cout << "\nB2\n";
+                                    correctas1++;
+                                    gdFinal.x = 450; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/B.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-B2\n";
+                                }
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (B3 == 0)
+                                {
+                                    B3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 525; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/B.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else 
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-B2\n";
+                            }
+
+                            break;
+                        case SDLK_o:
+                            if (preguntas == 2) {
+                                if (O2 == 0)
+                                {
+                                    O2++; intentos1++;
+                                    std::cout << "\nO2\n";
+                                    correctas1++;
+                                    gdFinal.x = 500; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 628; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                    std::cout << "\nO-O2\n";
+                                }
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (O3 == 0)
+                                {
+                                    O3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 644; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 705; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 4)
+                            {
+                                if (O4 == 0)
+                                {
+                                    O4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 700; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (O5 == 0)
+                                {
+                                    O5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 545; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/O.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                   
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+                        case SDLK_r:
+                            if (preguntas == 2) {
+                                if (R2 == 0 && preguntas == 2)
+                                {
+                                    R2++; intentos1++;
+                                    std::cout << "\nR2\n";
+                                    correctas1++;
+
+                                    gdFinal.x = 580; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/R.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 602; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/R.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                }
+                                else
+                                {
+                                    std::cout << "\nO-R2\n";
+                                    intentos1++;
+                                }
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (R3 == 0)
+                                {
+                                    R3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 587; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/R.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 613; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/R.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (R5 == 0)
+                                {
+                                    R5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 575; gdFinal.y = 238;
+                                    R1 = IMG_Load("Imagenes/R.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    
+
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+                        case SDLK_t:
+                            if (preguntas == 2) {
+                                if (T2 == 0)
+                                {
+                                    T2++; intentos1++;
+                                    std::cout << "\nT2\n";
+                                    correctas1++;
+                                    gdFinal.x = 655; gdFinal.y = 270;
+                                    R1 = IMG_Load("Imagenes/T.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    std::cout << "\nO-T2\n";
+                                }
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (T5 == 0)
+                                {
+                                    T5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 513; gdFinal.y = 238;
+                                    R1 = IMG_Load("Imagenes/T.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 610; gdFinal.y = 238;
+                                    R1 = IMG_Load("Imagenes/T.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+                        case SDLK_c:
+                            if (preguntas == 3)
+                            {
+                                if (C3 == 0)
+                                {
+                                    C3++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 674; gdFinal.y = 246;
+                                    R1 = IMG_Load("Imagenes/C.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-O2\n";
+                            }
+                            break;
+                        case SDLK_h:
+                            if (preguntas == 4)
+                            {
+                                if (H4 == 0)
+                                {
+                                    H4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 440; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/H.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                                std::cout << "\nPO-O2\n";
+                            }
+                            break;
+                        case SDLK_s:
+                            if (preguntas == 4)
+                            {
+                                if (S4 == 0)
+                                {
+                                    S4++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 635; gdFinal.y = 244;
+                                    R1 = IMG_Load("Imagenes/S.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else if (preguntas == 5)
+                            {
+                                if (S5 == 0)
+                                {
+                                    S5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 463; gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/S.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    gdFinal.x = 740;  gdFinal.y = 240;
+                                    R1 = IMG_Load("Imagenes/S.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                    gdFinal.x = 650; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/S.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+                        case SDLK_j:
+                            
+                            if (preguntas == 5)
+                            {
+                                if (J5 == 0)
+                                {
+                                    J5++; intentos1++;
+                                    correctas1++;
+                                    gdFinal.x = 583; gdFinal.y = 308;
+                                    R1 = IMG_Load("Imagenes/J.png");
+                                    SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                    
+                                }
+                                else
+                                {
+                                    intentos1++;
+                                }
+
+                            }
+                            else
+                            {
+                                intentos1++;
+                            }
+                            break;
+                      
+                            
+
+
+
+
+                        default:
+                            std::cout << "\nIncorrecta\n";
+                            std::cout << "L- " << limite;
+                            gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+                            if (intentos1 != limite)
+                            {
+                                
+                                intentos1++;
+                                std::cout << "\nI-" << intentos1;
+
+                            }
+                            else if (preguntas == 1)
+                            {
+                                pregun1 = 2;
+
+                                SDL_FreeSurface(superficieVentana);
+                                Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                gdFinal.x = 150; gdFinal.y = 100;
+                                Orca1 = IMG_Load("Imagenes/orca2.png");
+                                SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 400; gdFinal.y = 80;
+                                Pregunta1 = IMG_Load("Imagenes/Pregunta2.png");
+                                SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 400; gdFinal.y = 200;
+                                Respuesta1 = IMG_Load("Imagenes/Respuesta2.png");
+                                SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                correcta = 12;
+                                intentos1 = 0;
+                                correctas1 = 0;
+                                limite = 14;
+                                preguntas = 2;
+
+                                SDL_FreeSurface(Fondo);
+                                SDL_FreeSurface(Orca1);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            else if (preguntas == 2 )
+                            {
+                               
+                                if (pregun1 == 1) 
+                                {
+                                    pregun2 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca2.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta3.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta3.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 7;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 9;
+                                    preguntas = 3;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+
+                                }
+                                else if (pregun1 == 2)
+                                {
+                                    pregun2 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca3.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta3.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta3.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 7;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 9;
+                                    preguntas = 3;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                
+                            }
+                            else if (preguntas == 3)
+                            {
+                                if (pregun1 == 1 && pregun2 == 1)
+                                {
+                                    pregun3 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca2.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta4.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta4.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 8;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 10;
+                                    preguntas = 4;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else if (pregun1 == 1 && pregun2 == 2|| pregun1 == 2 && pregun2 == 1)
+                                {
+                                   
+                                    pregun3 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca3.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta4.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta4.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 8;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 10;
+                                    preguntas = 4;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else if (pregun1 == 2 && pregun2 == 2)
+                                {
+
+                                    pregun3 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca4.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta4.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta4.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 8;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 10;
+                                    preguntas = 4;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+
+
+
+
+                            }
+                            else if (preguntas == 4)
+                            {
+                               
+
+                                if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1)
+                                {
+                                    pregun4 = 2;
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca2.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 10;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 12;
+                                    preguntas = 5;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+
+                                }
+                                else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1)
+                                {
+                                    pregun4 = 2;
+
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca3.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 10;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 12;
+                                    preguntas = 5;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1)
+                                {
+
+                                    pregun4 = 2;
+                                    
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca4.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 10;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 12;
+                                    preguntas = 5;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                                else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2)
+                                {
+
+                                    pregun4 = 2;
+                                    
+                                    SDL_FreeSurface(superficieVentana);
+                                    Fondo = IMG_Load("Imagenes/FondoOrca.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                    gdFinal.x = 150; gdFinal.y = 100;
+                                    Orca1 = IMG_Load("Imagenes/orca6.png");
+                                    SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 80;
+                                    Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
+                                    SDL_BlitSurface(Pregunta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    gdFinal.x = 380; gdFinal.y = 150;
+                                    Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
+                                    SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
+
+                                    correcta = 10;
+                                    intentos1 = 0;
+                                    correctas1 = 0;
+                                    limite = 12;
+                                    preguntas = 5;
+
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_FreeSurface(Orca1);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                }
+                              
+
+                            }
+                            else if (preguntas == 5)
+                            {
+
+                                if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                                {
+                                   
+                                    pregun5 = 2;
+                                    //orca 2
+                                    //gano 4 cora
+                                }
+                                else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                                {
+                                    pregun5 = 2;
+                                    //orca 3
+                                   //gano 3 cora
+                                }
+                                else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
+                                {
+                                    pregun5 = 2;
+                                    //orca 4
+                                  //gano 2 cora
+                                }
+                                else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
+                                {
+                                    pregun5 = 2;
+                                    //orca 6
+                                  //gano 1 cora
+                                }
+                                else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2)
+                                {
+                                    pregun5 = 2;
+                                    //orca 8
+                                  //gano 0 cora
+                                }
+                                
+                            }
+                            break;
+
+                        }
+
+                        default:
+
+                        break;
+                    }
                 }
             }
         }
@@ -1800,13 +3474,13 @@ void Game::miniJuegoCiencia()
 }
 
 void Game::minjuegoHistoria() {
+
     ventanaMinijuegoHistoria("Historia", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, false);
-    minjuegoHistoriaElementos();
+    minijuegoHistoriaElementos();
     while (true)
-        minjuegoHistoriaEventos();
+        minijuegoHistoriaEventos();
 }
 
-//crear ventana de menu principal
 void Game::ventanaMinijuegoHistoria(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
     int flags = 0;
 

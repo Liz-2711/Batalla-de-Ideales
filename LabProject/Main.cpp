@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include"SDL_image.h"
 
-
-
-
-
 #include "Game.h"
 
 

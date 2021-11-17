@@ -23,6 +23,7 @@ public:
     void elementosMenuPrincipal();
     void menuPrincipal();
 	void pantallaCartas();
+
 	void minjuegoHistoria();
 	void ventanaMinijuegoHistoria(const char*, int, int, int, int, bool);
 	void minijuegoHistoriaElementos();
