@@ -285,6 +285,8 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             //detectar si esta en boton 2
             if (cursorx > 385 && cursorx < 630 && cursory > 190 && cursory < 240) {
                 std::cout << "Tocaste el boton de CONTROLES.\n";
+                SDL_Quit();
+                CombateporlaVerdad(5);
             }
             //detectar si esta en boton 3
             if (cursorx > 385 && cursorx < 630 && cursory > 300 && cursory < 350) {
@@ -737,7 +739,7 @@ void Game::pantallaCartas()
 
 void Game::juegoArte()
 {
-
+    vidas = 0;
     const int WIDTH = 1000; //Ancho de pantalla
     const int HEIGHT =  564; // altura de pantallla
     const int SPRITE_SIZE = 600; //TAMA;O D ELA ORCA
@@ -758,7 +760,7 @@ void Game::juegoArte()
     SDL_Surface* Respuesta1;
     SDL_Surface* R1;
     SDL_Surface* R11;
-   
+    
 
 
 
@@ -775,7 +777,7 @@ void Game::juegoArte()
     //evento para el toque de la carta
     SDL_Event eleccion;
 
-    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    Ventana = SDL_CreateWindow("Minijuego Arte", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     superficieVentana = SDL_GetWindowSurface(Ventana);
 
     if (Ventana == NULL) 
@@ -1119,7 +1121,7 @@ void Game::juegoArte()
                                 //orca1
                                 //gano 5 corazones
                                 pregun5 = 1;
-                               
+                                vidas = 5;
                                 SDL_Delay(1000);
                                 Fondo = IMG_Load("Imagenes/G5.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -1145,7 +1147,7 @@ void Game::juegoArte()
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
-
+                                vidas = 4;
                                 std::cout << "\n4";
                                 i = 1;
                             }
@@ -1156,7 +1158,7 @@ void Game::juegoArte()
                                 pregun5 = 1;
                                 
                                 std::cout << "\nVidas ganadas: 3";
-
+                                vidas = 3;
 
                                 SDL_Delay(1000);
                                 Fondo = IMG_Load("Imagenes/G3.png");
@@ -1173,7 +1175,7 @@ void Game::juegoArte()
                                 pregun5 = 1;
                                 
                                 std::cout << "\nVidas ganadas: 2";
-
+                                vidas = 2;
                                 
                                 SDL_Delay(1000);
                                 Fondo = IMG_Load("Imagenes/G2.png");
@@ -1192,7 +1194,7 @@ void Game::juegoArte()
                                 pregun5 = 1;
                               
                                 std::cout << "\nVidas ganadas: 1";
-
+                                vidas = 1;
                                 SDL_Delay(1000);
                                 Fondo = IMG_Load("Imagenes/G1.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -2637,6 +2639,7 @@ void Game::juegoArte()
                                 Respuesta1 = IMG_Load("Imagenes/Respuesta5.png");
                                 SDL_BlitSurface(Respuesta1, &rcInicial, superficieVentana, &gdFinal);
 
+                                correctas1 = 0;
                                 SDL_FreeSurface(Fondo);
                                 SDL_FreeSurface(Orca1);
                                 SDL_UpdateWindowSurface(Ventana);
@@ -2654,7 +2657,7 @@ void Game::juegoArte()
                                    
                                     pregun5 = 2;
                                     //orca 2
-                                    
+                                    vidas = 4;
                                     //gano 4 cora
                                     std::cout << "\nVidas ganadas: 4" ;
                                     SDL_Delay(1000);
@@ -2672,7 +2675,7 @@ void Game::juegoArte()
                                     //orca 3 
                                    //gano 3 cora
                                     std::cout << "\nVidas ganadas: 3";
-
+                                    vidas = 3;
                                     SDL_Delay(1000);
                                     Fondo = IMG_Load("Imagenes/G3.png");
                                     SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -2686,7 +2689,7 @@ void Game::juegoArte()
                                 {
                                     pregun5 = 2;
                                     //orca 4
-                                    
+                                    vidas = 2;
                                   //gano 2 cora
                                     std::cout << "\nVidas ganadas: 2";
 
@@ -2703,7 +2706,7 @@ void Game::juegoArte()
                                 {
                                     pregun5 = 2;
                                     //orca 6
-                                    
+                                    vidas = 1;
                                   //gano 1 cora
                                     std::cout << "\nVidas ganadas: 1";
 
@@ -2720,7 +2723,7 @@ void Game::juegoArte()
                                 {
                                     pregun5 = 2;
                                     //orca 8
-                                    
+                                    vidas = 0;
                                   //gano 0 cora
                                     std::cout << "\nVidas ganadas: 0";
 
@@ -2755,7 +2758,7 @@ void Game::juegoArte()
     SDL_UpdateWindowSurface(Ventana);
 
     
-
+    std::cout << "hola";
 
 
     while (!salir)
@@ -2767,6 +2770,22 @@ void Game::juegoArte()
             case SDL_QUIT:
                 salir = 1;
                 break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+
+
+                  
+                    SDL_FreeSurface(superficieVentana);
+                    SDL_DestroyWindow(Ventana);
+
+                    SDL_Quit();
+                    CombateporlaVerdad(vidas);
+                }
+
+                
           
             }
         }
@@ -5964,6 +5983,34 @@ void Game::bandosCoinFlip()
 
 }
 
+SDL_Surface* Game::Vidas(int vidas)
+{
+    SDL_Surface* Vidas;
+
+    if (vidas == 1) {
+        return Vidas = IMG_Load("CVerdad/C1.png");
+    }
+    else if (vidas == 2) 
+    {
+        return Vidas = IMG_Load("CVerdad/C2.png");
+    }
+    else if (vidas == 3)
+    {
+        return Vidas = IMG_Load("CVerdad/C3.png");
+    }
+    else if (vidas == 4)
+    {
+        return Vidas = IMG_Load("CVerdad/C4.png");
+    }
+    else if (vidas == 5)
+    {
+        return Vidas = IMG_Load("CVerdad/C5.png");
+    }
+
+}
+
+
+
 //Combate por la verdad
 void Game::CombateporlaVerdad(int vidas)
 {
@@ -5991,17 +6038,18 @@ void Game::CombateporlaVerdad(int vidas)
     //envento para salir
     SDL_Event EventoSalir;
 
-
+    int vida = vidas;
+    int vidaIa = 3;
     int salir = 0;
     //POsiciones de las imagenes
     SDL_Rect    rcInicial;
     SDL_Rect    gdFinal;
 
 
-    //evento para el toque de la carta
-    SDL_Event eleccion;
+    //evento 
+    SDL_Event Event;
 
-    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    Ventana = SDL_CreateWindow("Combate por la verdad", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     superficieVentana = SDL_GetWindowSurface(Ventana);
 
     if (Ventana == NULL)
@@ -6014,95 +6062,375 @@ void Game::CombateporlaVerdad(int vidas)
 
         rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = SPRITE_SIZE; rcInicial.h = SPRITE_SIZE;
 
-        gdFinal.x = 150; gdFinal.y = 100; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+        gdFinal.x = 0; gdFinal.y = 0; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
 
-
-
-
-        Fondo = IMG_Load("Imagenes/FondoOrca.png");
+        Fondo = IMG_Load("CVerdad/Fondo.png");
         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
+        Corazones = Vidas(vida);
 
+        gdFinal.x = 4; gdFinal.y = 270;
+        CaballoU = IMG_Load("CVerdad/CaballoU1.png");
 
-        /* gdFinal.x = 768; gdFinal.y = 145;
-         R1 = IMG_Load("Imagenes/R1.5.png");
-         SDL_BlitSurface(R1, &rcInicial, superficieVentana, &gdFinal);
-
-         gdFinal.x = 737; gdFinal.y = 145;
-         R11 = IMG_Load("Imagenes/R1.4.png");
-         SDL_BlitSurface(R11, &rcInicial, superficieVentana, &gdFinal);*/
+        gdFinal.x = 700; gdFinal.y = 270;
+        CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
+        gdFinal.x = 0; gdFinal.y = 0;
+     
 
         SDL_FreeSurface(Fondo);
-        SDL_FreeSurface(Orca1);
-        SDL_FreeSurface(Pregunta1);
-        SDL_FreeSurface(Respuesta1);
-        int i = 0;
-        //respietsa 2 MIGUEL ANGEL
-        int M = 0, I = 0, G = 0, U = 0, E = 0, L = 0, A = 0, N = 0; //intentos 10 // correctas 8 //prgeunta 1
-        //respuesta 2  Miguel Ángel Buonarroti.
-        int M2 = 0, I2 = 0, G2 = 0, U2 = 0, E2 = 0, L2 = 0, A2 = 0, N2 = 0, B2 = 0, O2 = 0, R2 = 0, T2 = 0;//intentos 14 //correctas 12 //prgeunta 2
-        //Respuesta 3 El barroco
-        int E3 = 0, L3 = 0, B3 = 0, A3 = 0, R3 = 0, O3 = 0, C3 = 0; //intentos 9 // correctas 7 //prgeunta 3
-        //Respuesta 4 Humanismo
-        int H4 = 0, U4 = 0, M4 = 0, A4 = 0, N4 = 0, I4 = 0, S4 = 0, O4 = 0; //intentos 10  //correctas 8 //prgeunta 4
-        //Respuetsa 5  tortugas ninjas
-        int L5 = 0, S5 = 0, T5 = 0, O5 = 0, R5 = 0, U5 = 0, G5 = 0, A5 = 0, N5 = 0, I5 = 0, J5 = 0; //intentos 13 //correctas 11 //prgeunta 5
 
-
-        int intentos1 = 0;
-
-        int preguntas = 1;
-        int pregun1 = 0;
-        int pregun2 = 0;
-        int pregun3 = 0;
-        int pregun4 = 0;
-        int pregun5 = 0;
-
-        int limite = 10;
-
-        int correctas1 = 0;
-
-        int correcta = 8;
-
-        //int correctaP = 0;
 
 
         SDL_UpdateWindowSurface(Ventana);
+        int p = 0;
+        int pregunta = 0;
+        int correctas = 0;
 
-        while (!i) {
-            if (SDL_PollEvent(&eleccion))
+
+        while (p == 0) {
+            //std::cout << "i";
+            if (SDL_PollEvent(&Event))
             {
+                std::cout << "o";
+                if (pregunta == 0) {
+                    switch (Event.type)
+                    {
+                        //std::cout << "o2";
+                    case SDL_QUIT:
+                        //std::cout << "sal";
+                        p = 1;
+                        salir = 1;
+                        break;
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_y:
+                            std::cout << "Y";
+                            Fondo = IMG_Load("CVerdad/3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("CVerdad/2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("CVerdad/1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(500);
+
+                            Fondo = IMG_Load("CVerdad/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+
+                            gdFinal.x = 850;
+                            Corazones = Vidas(vidaIa);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 4; gdFinal.y = 260;
+                            SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 730; gdFinal.y = 260;
+                            SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+                           
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(Corazones);
+                            SDL_FreeSurface(CaballoU);
+                            SDL_FreeSurface(CaballoIA);
+                            SDL_UpdateWindowSurface(Ventana);
+                            pregunta++;
+
+                            break;
+
+                        case SDLK_n:
+                            std::cout << "N";
+
+                            SDL_Quit;
+                            Map();
+                            break;
+                        default:
+                            break;
+                        }
+
+                    }
+                }else if (pregunta == 1)
+                {
+                    gdFinal.x = 0; gdFinal.y = 0;
+
+                    switch (Event.type)
+                    {
+                    case SDL_QUIT:
+                        salir = 1;
+                        p = 1;
+                        break;
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_b:
+                            //vidas siguen siendo iguales
+                            //el caballo se acerca
+                           
+                            
+                            std::cout << "Nada";
+                            correctas++;
+                            Fondo = IMG_Load("CVerdad/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            Corazones = Vidas(vida);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+
+                            gdFinal.x = 200; gdFinal.y = 260;
+                            CaballoU = IMG_Load("CVerdad/CaballoU.png");
+                            SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 730; gdFinal.y = 260;
+                            CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
+                            SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 900; gdFinal.y = 0;
+                            vidaIa -= 1;
+                            Corazones = Vidas(vidaIa);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballoU);
+                            SDL_FreeSurface(CaballoIA);
+                            SDL_UpdateWindowSurface(Ventana);
+                            pregunta++;
+
+                            break;
+
+                        default:
+                            vida -= 1;
+                            Corazones = Vidas(vida );
+                            std::cout << "a";
+
+                            Fondo = IMG_Load("CVerdad/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+
+                            
+                            gdFinal.x = 4; gdFinal.y = 260;
+                            CaballoU = IMG_Load("CVerdad/CaballoU1.png");
+                            SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                            CaballoIA = IMG_Load("CVerdad/CaballoR2.png");
+                            gdFinal.x = 600; gdFinal.y = 260;
+                            SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 900; gdFinal.y = 0;
+
+                            Corazones = Vidas(vidaIa);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(CaballoU);
+                            SDL_FreeSurface(CaballoIA);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            pregunta++;
+                            break;
+                        }
 
 
+                    }
+                }else if (pregunta == 2)
+                {
+                    gdFinal.x = 0; gdFinal.y = 0;
+
+                    switch (Event.type)
+                    {
+                    case SDL_QUIT:
+                        salir = 1;
+                        p = 1;
+                        break;
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_a:
+                            //vidas siguen siendo iguales
+                            //el caballo se acerca
+
+                            Fondo = IMG_Load("CVerdad/Pregunta3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            Corazones = Vidas(vida);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+                            correctas++;
+                            if (correctas > 1) {
+                                gdFinal.x = 730; gdFinal.y = 270;
+                                CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
+                                SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 400; gdFinal.y = 260;
+                                CaballoU = IMG_Load("CVerdad/CaballoU1.png");
+                                SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                            }
+                            else 
+                            {
+                                gdFinal.x = 200; gdFinal.y = 260;
+                                CaballoU = IMG_Load("CVerdad/CaballoU1.png");
+                                SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                                CaballoIA = IMG_Load("CVerdad/CaballoR2.png");
+                                gdFinal.x = 600; gdFinal.y = 260;
+                                SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+                               
+                            }
+
+
+                            gdFinal.x = 900;  gdFinal.y = 0;
+                            vidaIa -= 1;
+                            Corazones = Vidas(vidaIa);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+                            SDL_FreeSurface(CaballoIA);
+                            SDL_FreeSurface(CaballoU);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            pregunta++;
+
+                            break;
+                        default:
+                            vida -= 1;
+                            Corazones = Vidas(vida );
+                            std::cout << "a";
+                            Fondo = IMG_Load("CVerdad/Pregunta3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Corazones);
+
+                            if (correctas == 1) {
+                                gdFinal.x = 600; gdFinal.y = 260;
+                                CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
+                                SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+
+                                gdFinal.x = 200; gdFinal.y = 260;
+                                CaballoU = IMG_Load("CVerdad/CaballoU1.png");
+                                SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                            }
+                            else
+                            {
+                                gdFinal.x = 4; gdFinal.y = 260;
+                                CaballoU = IMG_Load("CVerdad/CaballoU1.png");
+                                SDL_BlitSurface(CaballoU, &rcInicial, superficieVentana, &gdFinal);
+
+                                CaballoIA = IMG_Load("CVerdad/CaballoR2.png");
+                                gdFinal.x = 300; gdFinal.y = 260;
+                                SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            }
+
+
+                            gdFinal.x = 950; gdFinal.y = 0;
+
+                            Corazones = Vidas(vidaIa);
+                            SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Corazones);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            pregunta++;
+                            break;
+                        }
+
+
+                    }
+                }else if (pregunta == 3)
+                {
+                    switch (Event.type)
+                    {
+                    case SDL_QUIT:
+                        salir = 1;
+                        p = 1;
+                        break;
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_c:
+                            //vidas siguen siendo iguales
+                            //el caballo se acerca
+                            correctas++;
+
+                            if (correctas > 1) {
+                                Fondo = IMG_Load("CVerdad/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                p = 1;
+                            }
+                            else 
+                            {
+                                Fondo = IMG_Load("CVerdad/Perdiste.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                p = 1;
+                                
+                            }
+
+                            break;
+                        default:
+                           
+                            if (correctas > 1) {
+                                Fondo = IMG_Load("CVerdad/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                p = 1;
+                            }
+                            else
+                            {
+                                Fondo = IMG_Load("CVerdad/Perdiste.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                p = 1;
+
+                            }
+                            break;
+                        }
+
+
+                    }
+
+                }
             }
+
         }
+        SDL_UpdateWindowSurface(Ventana);
 
-
-    SDL_UpdateWindowSurface(Ventana);
-
-
-
-
-
-    while (!salir)
-    {
-        if (SDL_PollEvent(&EventoSalir))
+        while (!salir)
         {
-            switch (EventoSalir.type)
+            if (SDL_PollEvent(&EventoSalir))
             {
-            case SDL_QUIT:
-                salir = 1;
-                break;
+                switch (EventoSalir.type)
+                {
+                case SDL_QUIT:
+                    salir = 1;
 
+                    break;
+
+                }
             }
         }
+
+        SDL_FreeSurface(superficieVentana);
+        SDL_DestroyWindow(Ventana);
+        SDL_Quit();
     }
-
-    SDL_FreeSurface(superficieVentana);
-    SDL_DestroyWindow(Ventana);
-
-    SDL_Quit();
-
-
-
 }
+
+    

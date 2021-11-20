@@ -37,6 +37,9 @@ public:
 	
 	void CombateporlaVerdad(int);
 
+	SDL_Surface* Vidas(int);
+
+	
 	//funciones de juegos de la parte de eleccion
 	void juegoArte();
 	void miniJuegoCiencia();
@@ -48,6 +51,7 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	int numeroAdivinar;
+	int vidas;
     SDL_Surface* background;
     SDL_Surface* superficieVentana;
     SDL_Surface* boton1;
