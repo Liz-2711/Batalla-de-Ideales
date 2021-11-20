@@ -291,6 +291,7 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             //detectar si esta en boton 3
             if (cursorx > 385 && cursorx < 630 && cursory > 300 && cursory < 350) {
                 std::cout << "Tocaste el boton de CREDITOS.\n";
+              
             }
             //detectar si esta en boton 4
             if (cursorx > 385 && cursorx < 630 && cursory > 410 && cursory < 460) {
