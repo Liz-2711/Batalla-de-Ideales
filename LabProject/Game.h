@@ -28,8 +28,14 @@ public:
 	void ventanaMinijuegoHistoria(const char*, int, int, int, int, bool);
 	void minijuegoHistoriaElementos();
 	void minijuegoHistoriaEventos();
-	
 
+	void miniJuegopolitica();
+
+	void Map();
+
+	void bandosCoinFlip();
+	
+	void CombateporlaVerdad(int);
 
 	//funciones de juegos de la parte de eleccion
 	void juegoArte();
