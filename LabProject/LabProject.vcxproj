@@ -121,12 +121,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\Dev\SDL2_image-2.0.1\include;C:\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\include;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\SDL2_image-2.0.1\include;C:\Dev\SDL2\include;C:\Dev\Dev\SDL2_image-2.0.1\include;C:\SDL2-devel-2.0.16-VC\SDL2-2.0.16\include;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\include;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Dev\Dev\SDL2_image-2.0.1\lib\x64;C:\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2M\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Dev\SDL2_image-2.0.1\lib\x64;C:\Dev\SDL2\lib\x64;C:\Dev\Dev\SDL2_image-2.0.1\lib\x64;C:\SDL2-devel-2.0.16-VC\SDL2-2.0.16\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2M\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\JuarezEspinal\Documents\Desktop\Universidad\Programacion 3\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

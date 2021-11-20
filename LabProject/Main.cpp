@@ -19,8 +19,9 @@ int main(int argc, char* argv[])
     int frameTime;
 
     game = new Game();
-    game->init("GameWindow", 800, 600, false);
-  
+    //game->init("GameWindow", 800, 600, false);
+    //game->combateSujeto();
+    game->minjuegoHistoria();
 
     while (game->running())
     {

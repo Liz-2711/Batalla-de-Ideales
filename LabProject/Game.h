@@ -37,6 +37,11 @@ public:
 	
 	void CombateporlaVerdad(int);
 
+	void combateSujeto();
+	void ventanaCombateSujeto(const char*, int, int, int, int, bool);
+	void elementosCombateSujeto();
+	void eventosCombateSujeto();
+
 	SDL_Surface* Vidas(int);
 
 	
@@ -64,6 +69,9 @@ private:
 	SDL_Surface* tablajuego;
 	SDL_Surface* pregunta1;
 	SDL_Surface* pulsaespacio;
+	SDL_Surface* imagen;
+	SDL_Surface* lingote;
+	SDL_Surface* correcto;
     SDL_Rect posInicial;
     SDL_Rect posFinal;
 };
