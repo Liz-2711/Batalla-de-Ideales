@@ -62,6 +62,7 @@ private:
 	bool isRunning = false;
 	int cnt = 0;
 	SDL_Window* window;
+	SDL_Window* Ventana;
 	SDL_Renderer* renderer;
 	int numeroAdivinar;
 	int vidas;

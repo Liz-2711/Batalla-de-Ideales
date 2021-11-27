@@ -25,8 +25,8 @@ int main(int argc, char* argv[])
     //game->juegoArte();
     //game->bandosCoinFlip();
     //game->CombateTrancendental(5);
-    game->EscapeRoom();
-    //game->miniJuegopolitica();
+    //game->EscapeRoom();
+    game->miniJuegopolitica();
     //game->minjuegoHistoria();
     //game->Map();
 
