@@ -36,11 +36,19 @@ public:
 	void bandosCoinFlip();
 	
 	void CombateporlaVerdad(int);
+	void CombateTrancendental(int);
+
+	void musicaHallowedBeThyName();
+
+	void musicaCarminaBurana();
+
 
 	void combateSujeto();
 	void ventanaCombateSujeto(const char*, int, int, int, int, bool);
 	void elementosCombateSujeto();
 	void eventosCombateSujeto();
+
+	void EscapeRoom();
 
 	SDL_Surface* Vidas(int);
 
@@ -74,6 +82,10 @@ private:
 	SDL_Surface* correcto;
     SDL_Rect posInicial;
     SDL_Rect posFinal;
+
+
+
+	int bando=1;
 };
 
 

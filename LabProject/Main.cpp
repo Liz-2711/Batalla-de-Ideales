@@ -21,7 +21,14 @@ int main(int argc, char* argv[])
     game = new Game();
     //game->init("GameWindow", 800, 600, false);
     //game->combateSujeto();
-    game->minjuegoHistoria();
+    //game->CombateporlaVerdad(5);
+    //game->juegoArte();
+    //game->bandosCoinFlip();
+    //game->CombateTrancendental(5);
+    game->EscapeRoom();
+    //game->miniJuegopolitica();
+    //game->minjuegoHistoria();
+    //game->Map();
 
     while (game->running())
     {
