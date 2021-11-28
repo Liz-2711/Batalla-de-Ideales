@@ -59,7 +59,7 @@ public:
    //void  isRunning() { return isRunning(); };
 
 private:
-	bool isRunning = false;
+	bool isRunning = true;
 	int cnt = 0;
 	SDL_Window* window;
 	SDL_Window* Ventana;

@@ -11,7 +11,7 @@ SDL_Rect    gdSprite;
 //controla que elemento va despues
 int elementospantalla = 0, preguntaCS = 1, puntos = 0, J1posx = 100, J1posy = 110, J2posx = 820, J2posy = 110, turno = 1,
 J1movimiento = 0, J2movimiento = 0;
-bool eliminado = false, J1RespuestaCorrecta, J2RespuestaCorrecta;
+bool eliminado = false, J1RespuestaCorrecta, J2RespuestaCorrecta, opcionSeleccionada = 0;
 
 int gameover = 0;
 Game::Game()
@@ -1190,7 +1190,7 @@ void Game::juegoArte()
                                 std::cout << "\n4";
                                 i = 1;
                             }
-                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                             {
                                 //orca 3
                                 //gano 3 corazones
@@ -1240,13 +1240,16 @@ void Game::juegoArte()
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
-
+                                std::cout << "Salir";
                                 i = 1;
                             }
-                            
+                            else {
+                                std::cout << "\nOtra validacion: p1 - " << pregun1 << " p2- " << pregun2 << " p3- " << pregun3 << " p4- " << pregun4 << " p5- " << pregun5;
+                                i = 1;
+                            }
 
                         }
-
+                        
                         
 
                 }
@@ -2729,7 +2732,7 @@ void Game::juegoArte()
 
                                     i = 1;
                                 }
-                                else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                                else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                                 {
                                     pregun5 = 2;
                                     //orca 3 
@@ -2796,7 +2799,10 @@ void Game::juegoArte()
 
                                     i = 1;
                                 }
+                                else {
+                                    std::cout << "\nOtra validacion: p1 - " << pregun1 << " p2- " << pregun2 << " p3- " << pregun3 << " p4- " << pregun4 << " p5- " << pregun5;
 
+                                }
                                
 
                                 i = 1;
@@ -2842,7 +2848,7 @@ void Game::juegoArte()
                     SDL_DestroyWindow(Ventana);
 
                     SDL_Quit();
-                    CombateporlaVerdad(vidas);
+                    
                 }
 
                 
@@ -4126,6 +4132,7 @@ void Game::minijuegoHistoriaEventos() {
     case SDL_MOUSEBUTTONDOWN:
         int cursorx = event.motion.x, cursory = event.motion.y;
 
+        opcionSeleccionada = 0;
         //detectar que opcion elige con el mouse
         if (elementospantalla == 3 || elementospantalla == 5 || elementospantalla == 7 || elementospantalla == 9
             || elementospantalla == 11) {
@@ -4149,6 +4156,8 @@ void Game::minijuegoHistoriaEventos() {
                     puntos++;
                     break;
                 }
+                elementospantalla++;
+                opcionSeleccionada = 1;
             }
 
             //Si presiona la opcion B
@@ -4172,6 +4181,8 @@ void Game::minijuegoHistoriaEventos() {
                     eliminado = true;
                     break;
                 }
+                elementospantalla++;
+                opcionSeleccionada = 2;
             }
 
             //Si presiona la opcion C
@@ -4196,6 +4207,8 @@ void Game::minijuegoHistoriaEventos() {
                     eliminado = true;
                     break;
                 }
+                elementospantalla++;
+                opcionSeleccionada = 3;
             }
 
             //Si presiona la opcion D
@@ -4220,11 +4233,13 @@ void Game::minijuegoHistoriaEventos() {
                     eliminado = true;
                     break;
                 }
+                elementospantalla++;
+                opcionSeleccionada = 4;
             }
         }
-        elementospantalla++;
 
-        if (!eliminado) {
+
+        if (!eliminado && opcionSeleccionada != 0) {
             posInicial.x = 0; posInicial.y = 0; posInicial.w = 250; posInicial.h = 250;
             posFinal.x = 60; posFinal.y = 10; posFinal.w = 250; posFinal.h = 250;
             correcto = IMG_Load("assets/correcto.png");
@@ -4443,7 +4458,7 @@ void Game::minijuegoHistoriaEventos() {
                     lingote = IMG_Load("assets/100lingotes.png");
                     SDL_BlitSurface(lingote, &posInicial, superficieVentana, &posFinal);
 
-                    std::cout << "ganaste, tus puntos fueron " << puntos << "\n";
+                    eliminado = true;
                 }
             }
         }
@@ -4456,6 +4471,35 @@ void Game::minijuegoHistoriaEventos() {
         std::cout << "perdiste, te llevas " << puntos << " puntos\n";
         elementospantalla = -1;
         eliminado = false;
+
+        SDL_FillRect(superficieVentana, NULL, 0x000000);
+        SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 635; posInicial.h = 1011;
+        posFinal.x = 460; posFinal.y = -10; posFinal.w = 635; posFinal.h = 1011;
+        personaje1 = IMG_Load("assets/mensajerohistoria.png");
+        SDL_BlitSurface(personaje1, &posInicial, superficieVentana, &posFinal);
+
+        for (int i = puntos, x = 10, y = 50; i > 0; i--) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 500; posInicial.h = 500;
+            posFinal.x = x; posFinal.y = y; posFinal.w = 500; posFinal.h = 500;
+            imagen = IMG_Load("assets/corazon2.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            if (i != 3)
+                x += 200;
+            else {
+                y = 200;
+                x = 120;
+            }
+        }
+
+        posInicial.x = 0; posInicial.y = 0; posInicial.w = 700; posInicial.h = 106;
+        posFinal.x = -100; posFinal.y = 470; posFinal.w = 700; posFinal.h = 106;
+        pulsaespacio = IMG_Load("assets/mensajecorazonesconseguidos.png");
+        SDL_BlitSurface(pulsaespacio, &posInicial, superficieVentana, &posFinal);
+
+        SDL_UpdateWindowSurface(window);
     }
 }
 
