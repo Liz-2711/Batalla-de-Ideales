@@ -2,6 +2,7 @@
 #include"SDL_image.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string>
 
 SDL_Texture* playText;
 SDL_Rect scrR, destR;
@@ -921,7 +922,7 @@ void Game::juegoArte()
                         }
                         else if (preguntas == 2) 
                         {
-
+                            std::cout << "Correcta";
                             if (pregun1 == 1 )
                             {
                                 
@@ -949,6 +950,7 @@ void Game::juegoArte()
                             }
                             else if (pregun1 == 2)
                             {
+                                
                                 gdFinal.x = 150; gdFinal.y = 100;
                                 Orca1 = IMG_Load("Imagenes/orca2.png");
                                 SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
@@ -961,11 +963,11 @@ void Game::juegoArte()
                                 correcta = 7;
                                 intentos1 = 0;
                                 correctas1 = 0;
-                                limite = 9;
+                                limite = 9; 
 
                                 preguntas = 3;
 
-                                pregun2 = 2;
+                                pregun2 = 1;
                                 
                             }
                             gdFinal.x = 400; gdFinal.y = 80;
@@ -982,6 +984,7 @@ void Game::juegoArte()
                         }
                         else if (preguntas == 3)
                         {
+                            std::cout << "Correcta3";
                             if (pregun1 == 1 && pregun2 == 1)
                             {
                                 gdFinal.x = 150; gdFinal.y = 100;
@@ -1006,6 +1009,7 @@ void Game::juegoArte()
                             }
                             else if (pregun1 == 1 && pregun2 == 2 || pregun1 == 2 && pregun2 == 1)
                             {
+                                std::cout << "1:2 2:1";
                                 gdFinal.x = 150; gdFinal.y = 100;
                                 Orca1 = IMG_Load("Imagenes/orca2.png");
                                 SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
@@ -1019,10 +1023,11 @@ void Game::juegoArte()
                                 intentos1 = 0;
                                 correctas1 = 0;
                                 limite = 10;
+                                pregun3 = 1;
 
                                 preguntas = 4;
 
-                                pregun3 = 1;
+                               
                             }
                             else if (pregun1 == 2 && pregun2 == 2)
                             {
@@ -1155,6 +1160,7 @@ void Game::juegoArte()
                         }
                         else if (preguntas == 5)
                         {
+                            std::cout << "Correctas: " << correctas1;
                             if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
                             {
                                 //orca1
@@ -1171,7 +1177,7 @@ void Game::juegoArte()
                                 
                                 i = 1;
                             }
-                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1)
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                             {
                                 //orca 2
                                 //gano 4 corazones
@@ -1190,7 +1196,7 @@ void Game::juegoArte()
                                 std::cout << "\n4";
                                 i = 1;
                             }
-                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
+                            else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2)
                             {
                                 //orca 3
                                 //gano 3 corazones
@@ -1244,6 +1250,8 @@ void Game::juegoArte()
                                 i = 1;
                             }
                             else {
+                                //p1 - 2 p2 - 1 p3 - 1 p4 - 2 p5 -1
+                                pregun5 = 1;
                                 std::cout << "\nOtra validacion: p1 - " << pregun1 << " p2- " << pregun2 << " p3- " << pregun3 << " p4- " << pregun4 << " p5- " << pregun5;
                                 i = 1;
                             }
@@ -2405,6 +2413,7 @@ void Game::juegoArte()
                                 correctas1 = 0;
                                 limite = 14;
                                 preguntas = 2;
+                                pregun1 = 2;
 
                                 SDL_FreeSurface(Fondo);
                                 SDL_FreeSurface(Orca1);
@@ -2618,7 +2627,7 @@ void Game::juegoArte()
                                     SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                                     SDL_FreeSurface(Corazones);
 
-                                    correcta = 10;
+                                    correcta = 11;
                                     intentos1 = 0;
                                     correctas1 = 0;
                                     limite = 12;
@@ -2641,7 +2650,7 @@ void Game::juegoArte()
                                     SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                                     SDL_FreeSurface(Corazones);
 
-                                    correcta = 10;
+                                    correcta = 11;
                                     intentos1 = 0;
                                     correctas1 = 0;
                                     limite = 12;
@@ -2663,7 +2672,7 @@ void Game::juegoArte()
                                     SDL_BlitSurface(Orca1, &rcInicial, superficieVentana, &gdFinal);
 
 
-                                    correcta = 10;
+                                    correcta = 11;
                                     intentos1 = 0;
                                     correctas1 = 0;
                                     limite = 12;
@@ -2684,7 +2693,7 @@ void Game::juegoArte()
 
                                     
 
-                                    correcta = 10;
+                                    correcta = 11;
                                     intentos1 = 0;
                                     correctas1 = 0;
                                     limite = 12;
@@ -2693,6 +2702,7 @@ void Game::juegoArte()
                                    
                                 }
                                 preguntas = 5;
+                                correcta = 11;
                                 correctas1 = 0;
                                 gdFinal.x = 400; gdFinal.y = 80;
                                 Pregunta1 = IMG_Load("Imagenes/Pregunta5.png");
@@ -2710,7 +2720,7 @@ void Game::juegoArte()
                             }
                             else if (preguntas == 5)
                             {
-                                std::cout << "AAAA";
+                            std::cout << "Correctas: " << correctas1;
                                 SDL_FreeSurface(superficieVentana);
                                 Fondo = IMG_Load("Imagenes/FondoOrca.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -2808,6 +2818,7 @@ void Game::juegoArte()
                                 i = 1;
                                 
                             }
+                            
                             break;
 
                         }
@@ -6402,16 +6413,18 @@ void Game::CombateporlaVerdad(int vidas)
         int p = 0;
         int pregunta = 0;
         int correctas = 0;
-
+        std::string contra = "";
+        std::string verda = "hola";
 
         while (p == 0) {
             //std::cout << "i";
             if (SDL_PollEvent(&Event))
             {
-                std::cout << "o";
+                //std::cout << "o";
                 if (pregunta == 0) {
                     switch (Event.type)
                     {
+                       
                         //std::cout << "o2";
                     case SDL_QUIT:
                         //std::cout << "sal";
@@ -6465,6 +6478,17 @@ void Game::CombateporlaVerdad(int vidas)
                             SDL_FreeSurface(CaballoIA);
                             SDL_UpdateWindowSurface(Ventana);
                             pregunta++;
+                            std::cout << "\n\ncontr; " << contra;
+                            
+
+                            if (verda.compare(contra)) 
+                            {
+                                std::cout << "Zi";
+                            }
+                            else 
+                            {
+                                std::cout << "No";
+                            }
 
                             break;
 
@@ -6475,6 +6499,13 @@ void Game::CombateporlaVerdad(int vidas)
                             Map();
                             break;
                         default:
+                            
+                            std::cout << "\nEvent.key.keysym.unused - " << Event.key.keysym.scancode;
+                            std::cout << SDL_GetKeyName(Event.key.keysym.sym);
+
+                            
+                            contra += SDL_GetKeyName(Event.key.keysym.sym);
+                            
                             break;
                         }
 
@@ -6515,6 +6546,7 @@ void Game::CombateporlaVerdad(int vidas)
                             SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
 
                             gdFinal.x = 900; gdFinal.y = 0;
+                            std::cout << "-1IA b";
                             vidaIa -= 1;
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
@@ -6529,7 +6561,7 @@ void Game::CombateporlaVerdad(int vidas)
 
                         default:
                             vida -= 1;
-                            Corazones = Vidas(vida );
+                            Corazones = Vidas(vida);
                             std::cout << "a";
 
                             Fondo = IMG_Load("CVerdad/Pregunta2.png");
@@ -6546,8 +6578,8 @@ void Game::CombateporlaVerdad(int vidas)
                             gdFinal.x = 600; gdFinal.y = 260;
                             SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 900; gdFinal.y = 0;
-
+                            gdFinal.x = 850; gdFinal.y = 0;
+                            std::cout << "IA b "<<vidaIa;
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(CaballoU);
@@ -6608,6 +6640,7 @@ void Game::CombateporlaVerdad(int vidas)
 
 
                             gdFinal.x = 900;  gdFinal.y = 0;
+                            std::cout << "-1IA a";
                             vidaIa -= 1;
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
@@ -6621,15 +6654,17 @@ void Game::CombateporlaVerdad(int vidas)
                             break;
                         default:
                             vida -= 1;
-                            Corazones = Vidas(vida );
-                            std::cout << "a";
+                            Corazones = Vidas(vida);
+                            //SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+                           
                             Fondo = IMG_Load("CVerdad/Pregunta3.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
-                            SDL_FreeSurface(Corazones);
+                            //SDL_FreeSurface(Corazones);
 
                             if (correctas == 1) {
+
                                 gdFinal.x = 600; gdFinal.y = 260;
                                 CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
                                 SDL_BlitSurface(CaballoIA, &rcInicial, superficieVentana, &gdFinal);
@@ -6652,14 +6687,17 @@ void Game::CombateporlaVerdad(int vidas)
                             }
 
 
-                            gdFinal.x = 950; gdFinal.y = 0;
-
+                            gdFinal.x = 900; gdFinal.y = 0;
+                            std::cout << "\n\nIA a"<< vidaIa;
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
 
                             SDL_FreeSurface(Corazones);
                             SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballoIA);
+                            SDL_FreeSurface(CaballoU);
                             SDL_UpdateWindowSurface(Ventana);
+
                             pregunta++;
                             break;
                         }
@@ -6678,6 +6716,7 @@ void Game::CombateporlaVerdad(int vidas)
 
                         switch (Event.key.keysym.sym)
                         {
+                            
                         case SDLK_c:
                             //vidas siguen siendo iguales
                             //el caballo se acerca
@@ -6775,6 +6814,73 @@ void Game::CombateporlaVerdad(int vidas)
                             }
                             else 
                             {
+                                Fondo = IMG_Load("CVerdad/24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/27.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/28.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/29.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/30.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/31.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/32.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/33.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/34.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                              
                                 Fondo = IMG_Load("CVerdad/Perdiste.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
@@ -6888,6 +6994,73 @@ void Game::CombateporlaVerdad(int vidas)
                             }
                             else
                             {
+                                Fondo = IMG_Load("CVerdad/24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/27.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/28.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/29.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/30.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/31.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/32.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/33.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Fondo = IMG_Load("CVerdad/34.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+
                                 Fondo = IMG_Load("CVerdad/Perdiste.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
@@ -7307,7 +7480,7 @@ void Game::CombateTrancendental(int vidas)
         Corazones = Vidas(vida);
 
         gdFinal.x = 4; gdFinal.y = 270;
-        CaballeroU = IMG_Load("UltimoC/U0.png");
+        CaballeroU = IMG_Load("UltimoC/U00.png");
 
         gdFinal.x = 700; gdFinal.y = 270;
         CaballeroIA = IMG_Load("UltimoC/I0.png");
@@ -7374,10 +7547,10 @@ void Game::CombateTrancendental(int vidas)
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 20; gdFinal.y = 220;
+                            gdFinal.x = 70; gdFinal.y = 220;
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 730; gdFinal.y = 220;
+                            gdFinal.x = 670; gdFinal.y = 220;
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
 
@@ -7427,11 +7600,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 20; gdFinal.y = 220;
-                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 730; gdFinal.y = 220;
+                            gdFinal.x = 670; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I0.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
@@ -7445,11 +7618,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 60; gdFinal.y = 220;
+                            gdFinal.x = 110; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U1.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
@@ -7463,11 +7636,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 110; gdFinal.y = 220;
+                            gdFinal.x = 160; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U2.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
@@ -7481,11 +7654,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 170; gdFinal.y = 220;
+                            gdFinal.x = 220; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U3.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
@@ -7499,11 +7672,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 240; gdFinal.y = 220;
+                            gdFinal.x = 290; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U4.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
                             
@@ -7517,11 +7690,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 230; gdFinal.y = 220;
+                            gdFinal.x = 280; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U5.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
@@ -7535,11 +7708,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 190; gdFinal.y = 220;
+                            gdFinal.x = 170; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U6.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
                             
@@ -7553,11 +7726,11 @@ void Game::CombateTrancendental(int vidas)
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 120; gdFinal.y = 220;
+                            gdFinal.x = 90; gdFinal.y = 220;
                             CaballeroU = IMG_Load("UltimoC/U7.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
                            
@@ -7566,16 +7739,16 @@ void Game::CombateTrancendental(int vidas)
                             SDL_FreeSurface(CaballeroIA);
                             SDL_UpdateWindowSurface(Ventana);
 
-                            //U8----------------------------------------------------------------------
+                            //-------------------------------------------------------------------
                             SDL_Delay(1000);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
-                            gdFinal.x = 60; gdFinal.y = 220;
-                            CaballeroU = IMG_Load("UltimoC/U8.png");
+                            gdFinal.x = 50; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 690; gdFinal.y = 220;
+                            gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Fondo);
@@ -7583,23 +7756,22 @@ void Game::CombateTrancendental(int vidas)
                             SDL_FreeSurface(CaballeroIA);
                             SDL_UpdateWindowSurface(Ventana);
                             SDL_Delay(1000);
-
-                            //-------------------------------------------------------------------
-
-                            gdFinal.x = 20; gdFinal.y = 220;
-                            CaballeroU = IMG_Load("UltimoC/U0.png");
-                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
-
-                            gdFinal.x = 730; gdFinal.y = 220;
-                            CaballeroIA = IMG_Load("UltimoC/I0.png");
-                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-
+                            //-------------------------------------------
+                           
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             Corazones = Vidas(vida);
                             gdFinal.x = 0; gdFinal.y = 0;
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Corazones);
+
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
 
                             gdFinal.x = 900; gdFinal.y = 0;
@@ -7614,7 +7786,7 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
                             break;
                         }
-                        if (x >= 462 && y >= 244 && x <= 554 && y <= 315) {
+                        else if(x < 294 && y > 517 || x > 524 && y > 517) {
 
 
 
@@ -7622,24 +7794,191 @@ void Game::CombateTrancendental(int vidas)
                             Corazones = Vidas(vida);
                             std::cout << "a";
 
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            // U1 - I1--------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 520; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I2.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U2--------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 490; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I3.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U3--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 370; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I4.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U4---------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 380; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I5.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U5 ------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 450; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I6.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U6--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 490; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I7.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U7--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 520; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I8.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U8----------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(1000);
+
+                            //U9-------------------------------------------------------------------
+                            
+
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            Corazones = Vidas(vida);
+                            gdFinal.x = 0; gdFinal.y = 0;
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Corazones);
 
-
-                            gdFinal.x = 4; gdFinal.y = 260;
-                            CaballeroU = IMG_Load("UltimoC/CaballoU1.png");
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
                             SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            CaballeroIA = IMG_Load("UltimoC/CaballoR2.png");
-                            gdFinal.x = 600; gdFinal.y = 260;
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
-                            gdFinal.x = 900; gdFinal.y = 0;
 
+
+                            gdFinal.x = 850; gdFinal.y = 0;
+                            std::cout << vidaIa;
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
+
                             SDL_FreeSurface(CaballeroU);
                             SDL_FreeSurface(CaballeroIA);
                             SDL_FreeSurface(Fondo);
@@ -7647,9 +7986,7 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
                             break;
                         }
-                            
-
-
+                         
                     }
                 }
                 else if (pregunta == 2)
@@ -7670,37 +8007,186 @@ void Game::CombateTrancendental(int vidas)
                             //vidas siguen siendo iguales
                             //el caballo se acerca
                         if (x >= 490 && y >= 517 && x <= 666 && y <= 557) {
+                            std::cout << "Nada";
+                            correctas++;
+
+
+                            
+                            // U1 - I1--------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 110; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U1.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U2--------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 160; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U2.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U3--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 220; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U3.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U4---------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 290; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U4.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U5 ------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 280; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U5.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U6--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 170; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U6.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U7--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 90; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U7.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //-------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 50; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(1000);
+                            //-------------------------------------------
+
                             Fondo = IMG_Load("UltimoC/Pregunta3.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             Corazones = Vidas(vida);
+                            gdFinal.x = 0; gdFinal.y = 0;
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Corazones);
-                            correctas++;
-                            if (correctas > 1) {
-                                gdFinal.x = 730; gdFinal.y = 270;
-                                CaballeroIA = IMG_Load("CVerdad/CaballoR1.png");
-                                SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
-                                gdFinal.x = 400; gdFinal.y = 260;
-                                CaballeroU = IMG_Load("CVerdad/CaballoU1.png");
-                                SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                            }
-                            else
-                            {
-                                gdFinal.x = 200; gdFinal.y = 260;
-                                CaballeroU = IMG_Load("CVerdad/CaballoU1.png");
-                                SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
-
-                                CaballeroIA = IMG_Load("CVerdad/CaballoR2.png");
-                                gdFinal.x = 600; gdFinal.y = 260;
-                                SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-
-                            }
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
 
-                            gdFinal.x = 900;  gdFinal.y = 0;
                             vidaIa -= 1;
+                            if (vidaIa == 2)
+                            {
+                                gdFinal.x = 900; gdFinal.y = 0;
+                            }
+                            else if (vidaIa == 1)
+                            {
+                                gdFinal.x = 950; gdFinal.y = 0;
+                            }
+                            else if (vidaIa == 3)
+                            {
+                                gdFinal.x = 850; gdFinal.y = 0;
+                            }
+
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Corazones);
@@ -7711,41 +8197,206 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
 
                             break;
-                        }else {
+
+
+                        }
+                        else if(x < 490 && y > 517 || x > 666 && y < 517){
                         
                             vida -= 1;
                             Corazones = Vidas(vida);
                             std::cout << "a";
-                            Fondo = IMG_Load("CVerdad/Pregunta3.png");
+
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            // U1 - I1--------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 520; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I2.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U2--------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 490; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I3.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U3--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 370; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I4.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U4---------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 380; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I5.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U5 ------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 450; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I6.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U6--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 490; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I7.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U7--------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 520; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I8.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            //U8----------------------------------------------------------------------
+                            SDL_Delay(1000);
+                            Fondo = IMG_Load("UltimoC/Pregunta2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            gdFinal.x = 190; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U0.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+
+                            gdFinal.x = 550; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I1.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+                            SDL_FreeSurface(Fondo);
+                            SDL_FreeSurface(CaballeroU);
+                            SDL_FreeSurface(CaballeroIA);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(1000);
+
+                            //U9-------------------------------------------------------------------
+
+
+                            Fondo = IMG_Load("UltimoC/Pregunta3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            Corazones = Vidas(vida);
+                            gdFinal.x = 0; gdFinal.y = 0;
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
                             SDL_FreeSurface(Corazones);
 
-                            if (correctas == 1) {
-                                gdFinal.x = 600; gdFinal.y = 260;
-                                CaballeroIA = IMG_Load("CVerdad/CaballoR1.png");
-                                SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
+                            gdFinal.x = 70; gdFinal.y = 220;
+                            CaballeroU = IMG_Load("UltimoC/U00.png");
+                            SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
 
-                                gdFinal.x = 200; gdFinal.y = 260;
-                                CaballeroU = IMG_Load("CVerdad/CaballoU1.png");
-                                SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
+                            gdFinal.x = 670; gdFinal.y = 220;
+                            CaballeroIA = IMG_Load("UltimoC/I0.png");
+                            SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
 
-                            }
-                            else
+
+                            if (vidaIa == 2)
                             {
-                                gdFinal.x = 4; gdFinal.y = 260;
-                                CaballeroU = IMG_Load("CVerdad/CaballoU1.png");
-                                SDL_BlitSurface(CaballeroU, &rcInicial, superficieVentana, &gdFinal);
-
-                                CaballeroIA = IMG_Load("CVerdad/CaballoR2.png");
-                                gdFinal.x = 300; gdFinal.y = 260;
-                                SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-
+                                gdFinal.x = 900; gdFinal.y = 0;
                             }
-
-
-                            gdFinal.x = 950; gdFinal.y = 0;
+                            else if (vidaIa == 1)
+                            {
+                                gdFinal.x = 950; gdFinal.y = 0;
+                            }
+                            else if (vidaIa == 3)
+                            {
+                                gdFinal.x = 850; gdFinal.y = 0;
+                            }
 
                             Corazones = Vidas(vidaIa);
                             SDL_BlitSurface(Corazones, &rcInicial, superficieVentana, &gdFinal);
@@ -7755,6 +8406,9 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
                             pregunta++;
                             break;
+
+
+                           
                         }
 
 
@@ -7763,85 +8417,557 @@ void Game::CombateTrancendental(int vidas)
                 else if (pregunta == 3)
                 {
 
+                switch (Event.type)
+                {
+                case SDL_QUIT:
+                    salir = 1;
+                    p = 1;
+                    break;
+                case SDL_MOUSEBUTTONDOWN:
+                    std::cout << "\nx = " << Event.motion.x;
+                    std::cout << "\ny = " << Event.motion.y;
+                    int x = Event.motion.x;
+                    int y = Event.motion.y;
+                    //vidas siguen siendo iguales
+                    //el caballo se acerca
+                    if (x >= 767 && y >= 517 && x <= 944 && y <= 557) {
+                        std::cout << "Nada";
+                        correctas++;
+
+                        if (correctas > 1) {
+                            Fondo = IMG_Load("UltimoC/G1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G4.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G5.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G6.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G7.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G8.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G9.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G10.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G11.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G12.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G13.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G14.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G15.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G16.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G17.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G18.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G19.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G20.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G21.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G22.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G23.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G24.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G25.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G26.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/G27.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/Ganador.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            
 
 
-                    if (correctas == 2) {
-                        Fondo = IMG_Load("CVerdad/10.png");
+                            if (bando == 1)
+                            {
+                                musicaHallowedBeThyName();
+                            }
+                            else
+                            {
+                                musicaCarminaBurana();
+                            }
+
+                            std::cout << "Se termino";
+                            p = 1;
+                        }
+                        else
+                        {
+                            Fondo = IMG_Load("UltimoC/P1.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P2.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P3.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P4.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P5.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P6.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P7.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P8.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P9.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P10.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P11.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P12.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P13.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P14.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P15.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P16.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P17.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P18.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P19.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P20.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P21.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P22.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P23.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P24.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P25.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            Fondo = IMG_Load("UltimoC/P26.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(200);
+
+                            
+
+                            Fondo = IMG_Load("UltimoC/Perdiste.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                            SDL_FreeSurface(Fondo);
+                            SDL_UpdateWindowSurface(Ventana);
+
+                            if (bando == 1)
+                            {
+                                musicaCarminaBurana();
+                            }
+                            else
+                            {
+                                musicaHallowedBeThyName();
+                            }
+
+                            p = 1;
+
+                        }
+                        break;
+
+
+                    }
+                    else if (x < 767 && y > 517 && x > 944 && y < 517) {
+
+                    if (correctas > 1) {
+                        Fondo = IMG_Load("UltimoC/G1.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/11.png");
+                        Fondo = IMG_Load("UltimoC/G2.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/12.png");
+                        Fondo = IMG_Load("UltimoC/G3.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/13.png");
+                        Fondo = IMG_Load("UltimoC/G4.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/14.png");
+                        Fondo = IMG_Load("UltimoC/G5.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/15.png");
+                        Fondo = IMG_Load("UltimoC/G6.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/16.png");
+                        Fondo = IMG_Load("UltimoC/G7.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/17.png");
+                        Fondo = IMG_Load("UltimoC/G8.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/18.png");
+                        Fondo = IMG_Load("UltimoC/G9.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/19.png");
+                        Fondo = IMG_Load("UltimoC/G10.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/20.png");
+                        Fondo = IMG_Load("UltimoC/G11.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/21.png");
+                        Fondo = IMG_Load("UltimoC/G12.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
+                        SDL_Delay(200);
 
-                        Fondo = IMG_Load("CVerdad/Ganador.png");
+                        Fondo = IMG_Load("UltimoC/G13.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G14.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G15.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G16.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G17.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G18.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G19.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G20.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G21.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G22.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G23.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G24.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G25.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G26.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/G27.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/Ganador.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+
+
 
                         if (bando == 1)
                         {
@@ -7857,10 +8983,169 @@ void Game::CombateTrancendental(int vidas)
                     }
                     else
                     {
-                        Fondo = IMG_Load("CVerdad/Perdiste.png");
+                        Fondo = IMG_Load("UltimoC/P1.png");
                         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                         SDL_FreeSurface(Fondo);
                         SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P2.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P3.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P4.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P5.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P6.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P7.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P8.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P9.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P10.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P11.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P12.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P13.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P14.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P15.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P16.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P17.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P18.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P19.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P20.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P21.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P22.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P23.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P24.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P25.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+                        Fondo = IMG_Load("UltimoC/P26.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(200);
+
+
+
+                        Fondo = IMG_Load("UltimoC/Perdiste.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(Fondo);
+                        SDL_UpdateWindowSurface(Ventana);
+
                         if (bando == 1)
                         {
                             musicaCarminaBurana();
@@ -7872,123 +9157,12 @@ void Game::CombateTrancendental(int vidas)
 
                         p = 1;
 
+
+
                     }
 
 
-                    if (correctas > 1) {
-                        Fondo = IMG_Load("CVerdad/10.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/11.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/12.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/13.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/14.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/15.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/16.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/17.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/18.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/19.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/20.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/21.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(500);
-
-                        Fondo = IMG_Load("CVerdad/Ganador.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-
-                        if (bando == 1)
-                        {
-
-                            musicaHallowedBeThyName();
-                        }
-                        else
-                        {
-                            musicaCarminaBurana();
-                        }
-
-
-                        p = 1;
-                    }
-                    else
-                    {
-                        Fondo = IMG_Load("CVerdad/Perdiste.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        if (bando == 1)
-                        {
-                            musicaCarminaBurana();
-
-                        }
-                        else
-                        {
-                            musicaHallowedBeThyName();
-                        }
-                        p = 1;
-
-                    }
-                
-
-
-                    
-
+                }
                 }
             }
 
