@@ -9202,7 +9202,7 @@ void Game::EscapeRoom()
 {
     const int WIDTH = 1000;
     const int HEIGHT = 600;
-    //const int SPRITE_SIZE = 120;
+   
     const int SizeMessaje = 50;
 
     SDL_Init(SDL_INIT_EVERYTHING);
