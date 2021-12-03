@@ -44,6 +44,8 @@ public:
 
 
 	void combateSujeto();
+	void EdificioUni();
+
 	void ventanaCombateSujeto(const char*, int, int, int, int, bool);
 	void elementosCombateSujeto();
 	void eventosCombateSujeto();
@@ -63,6 +65,7 @@ private:
 	int cnt = 0;
 	SDL_Window* window;
 	SDL_Window* Ventana;
+	
 	SDL_Renderer* renderer;
 	int numeroAdivinar;
 	int vidas;

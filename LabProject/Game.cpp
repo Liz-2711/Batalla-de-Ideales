@@ -7562,7 +7562,7 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
                             break;
 
-                        }if (x >= 462 && y >= 244 && x <= 554 && y <= 315) {
+                        }else if (x >= 462 && y >= 244 && x <= 554 && y <= 315) {
                             
                             std::cout << "N";
 
@@ -8417,756 +8417,764 @@ void Game::CombateTrancendental(int vidas)
                 else if (pregunta == 3)
                 {
 
-                switch (Event.type)
-                {
-                case SDL_QUIT:
-                    salir = 1;
-                    p = 1;
-                    break;
-                case SDL_MOUSEBUTTONDOWN:
-                    std::cout << "\nx = " << Event.motion.x;
-                    std::cout << "\ny = " << Event.motion.y;
-                    int x = Event.motion.x;
-                    int y = Event.motion.y;
-                    //vidas siguen siendo iguales
-                    //el caballo se acerca
-                    if (x >= 767 && y >= 517 && x <= 944 && y <= 557) {
-                        std::cout << "Nada";
-                        correctas++;
+                    switch (Event.type)
+                    {
+                     case SDL_QUIT:
+                        salir = 1;
+                        p = 1;
+                        break;
+                        case SDL_MOUSEBUTTONDOWN:
+                        std::cout << "\nx = " << Event.motion.x;
+                        std::cout << "\ny = " << Event.motion.y;
+                        int x = Event.motion.x;
+                        int y = Event.motion.y;
+                        //vidas siguen siendo iguales
+                        //el caballo se acerca
+                        if (x >= 767 && y >= 517 && x <= 944 && y <= 557) {
+                            std::cout << "Nada";
+                            correctas++;
+                            std::wcout << correctas;
+                            if (correctas > 1) {
+                                Fondo = IMG_Load("UltimoC/G1.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                        if (correctas > 1) {
-                            Fondo = IMG_Load("UltimoC/G1.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G2.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G2.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G3.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G3.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G4.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G4.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G5.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G5.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G6.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G6.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G7.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G7.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G8.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G8.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G9.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G9.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G10.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G10.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G11.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G11.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G12.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G12.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G13.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G13.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G14.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G14.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G15.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G15.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G16.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G16.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G17.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G17.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G18.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G18.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G19.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G19.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G20.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G20.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G21.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G21.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G22.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G22.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G23.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G23.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G24.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G25.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G26.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
+                                Fondo = IMG_Load("UltimoC/G27.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
-                            Fondo = IMG_Load("UltimoC/G27.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/Ganador.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            
+                                Fondo = IMG_Load("UltimoC/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
 
 
-                            if (bando == 1)
-                            {
-                                musicaHallowedBeThyName();
+
+                                if (bando == 1)
+                                {
+                                    musicaHallowedBeThyName();
+                                }
+                                else
+                                {
+                                    musicaCarminaBurana();
+                                }
+
+                                std::cout << "Se termino";
+                                p = 1;
                             }
                             else
                             {
-                                musicaCarminaBurana();
-                            }
+                                Fondo = IMG_Load("UltimoC/P1.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
 
+                                Fondo = IMG_Load("UltimoC/P2.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P3.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P4.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P5.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P6.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P7.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P8.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P9.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P10.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P11.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P12.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P13.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P14.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P15.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P16.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P17.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P18.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P19.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P20.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P21.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P22.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P23.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+
+
+                                Fondo = IMG_Load("UltimoC/Perdiste.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+
+                                if (bando == 1)
+                                {
+                                    musicaCarminaBurana();
+                                }
+                                else
+                                {
+                                    musicaHallowedBeThyName();
+                                }
+
+                                p = 1;
+
+                            }
+                            break;
+                        
+
+                        } else if (x < 767 && y > 517 || x > 944 && y < 517) {
+                            std::cout << correctas;
+                            if (correctas > 1) {
+                                Fondo = IMG_Load("UltimoC/G1.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G2.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G3.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G4.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G5.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G6.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G7.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G8.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G9.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G10.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G11.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G12.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G13.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G14.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G15.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G16.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G17.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G18.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G19.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G20.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G21.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G22.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G23.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/G27.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+
+                                if (bando == 1)
+                                {
+                                    musicaHallowedBeThyName();
+                                }
+                                else
+                                {
+                                    musicaCarminaBurana();
+                                }
+                                p = 1;
+                                break;
+                            }
+                            else
+
+                            {
+                                Fondo = IMG_Load("UltimoC/P1.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P2.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P3.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P4.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P5.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P6.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P7.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P8.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P9.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P10.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P11.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P12.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P13.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P14.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P15.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P16.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P17.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P18.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P19.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P20.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P21.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P22.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P23.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P24.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P25.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Fondo = IMG_Load("UltimoC/P26.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+
+
+                                Fondo = IMG_Load("UltimoC/Perdiste.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+
+                                if (bando == 1)
+                                {
+                                    musicaCarminaBurana();
+                                }
+                                else
+                                {
+                                    musicaHallowedBeThyName();
+                                }
+
+                                p = 1;
+
+
+                            }
+                                
                             std::cout << "Se termino";
                             p = 1;
                         }
-                        else
-                        {
-                            Fondo = IMG_Load("UltimoC/P1.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P2.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P3.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P4.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P5.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P6.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P7.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P8.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P9.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P10.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P11.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P12.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P13.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P14.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P15.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P16.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P17.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P18.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P19.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P20.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P21.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P22.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P23.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P24.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P25.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            Fondo = IMG_Load("UltimoC/P26.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(200);
-
-                            
-
-                            Fondo = IMG_Load("UltimoC/Perdiste.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                            SDL_FreeSurface(Fondo);
-                            SDL_UpdateWindowSurface(Ventana);
-
-                            if (bando == 1)
-                            {
-                                musicaCarminaBurana();
-                            }
-                            else
-                            {
-                                musicaHallowedBeThyName();
-                            }
-
-                            p = 1;
-
-                        }
-                        break;
-
-
-                    }
-                    else if (x < 767 && y > 517 && x > 944 && y < 517) {
-
-                    if (correctas > 1) {
-                        Fondo = IMG_Load("UltimoC/G1.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G2.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G3.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G4.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G5.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G6.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G7.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G8.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G9.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G10.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G11.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G12.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G13.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G14.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G15.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G16.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G17.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G18.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G19.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G20.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G21.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G22.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G23.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G24.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G25.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G26.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/G27.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/Ganador.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-
-
-
-                        if (bando == 1)
-                        {
-                            musicaHallowedBeThyName();
-                        }
-                        else
-                        {
-                            musicaCarminaBurana();
-                        }
-
-                        std::cout << "Se termino";
-                        p = 1;
-                    }
-                    else
-                    {
-                        Fondo = IMG_Load("UltimoC/P1.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P2.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P3.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P4.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P5.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P6.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P7.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P8.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P9.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P10.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P11.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P12.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P13.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P14.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P15.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P16.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P17.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P18.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P19.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P20.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P21.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P22.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P23.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P24.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P25.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-                        Fondo = IMG_Load("UltimoC/P26.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(200);
-
-
-
-                        Fondo = IMG_Load("UltimoC/Perdiste.png");
-                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-                        SDL_FreeSurface(Fondo);
-                        SDL_UpdateWindowSurface(Ventana);
-
-                        if (bando == 1)
-                        {
-                            musicaCarminaBurana();
-                        }
-                        else
-                        {
-                            musicaHallowedBeThyName();
-                        }
-
-                        p = 1;
+                        
 
 
 
                     }
 
 
-                }
+                
                 }
             }
 
         }
+        std::cout << correctas;
+    }
+    
 
         SDL_UpdateWindowSurface(Ventana);
 
@@ -9188,10 +9196,6 @@ void Game::CombateTrancendental(int vidas)
         SDL_FreeSurface(superficieVentana);
         SDL_DestroyWindow(Ventana);
         SDL_Quit();
-    }
-
-
-
     
 
 }
@@ -9721,3 +9725,912 @@ void Game::EscapeRoom()
 
 }
 
+//Jugeo de 
+void Game::EdificioUni()
+{
+
+    const int WIDTH = 1000; //Ancho de pantalla
+    const int HEIGHT = 564; // altura de pantallla
+    const int SPRITE_SIZE = 900; //TAMA;O D ELA ORCA
+    const int SizeMessaje = 900; // tamaño de mensaje de carta eleguida
+    const int FPS = 60;
+    const int frameDaley = 1000 / FPS;
+
+    Uint32 frameStart;
+    int frameTIme;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Izquierda;
+    SDL_Surface* PARTESa;
+
+    SDL_Surface* Corazones;
+
+
+
+    //envento para salir
+    SDL_Event EventoSalir;
+
+    int vida = vidas;
+    int vidaIa = 3;
+    int salir = 0;
+    //POsiciones de las imagenes
+    SDL_Rect    rcInicial;
+    SDL_Rect    gdFinal;
+
+    bool animation = false;
+    int frame = 2;
+    int speed = 500;
+
+    int movi = 1;
+
+    int x = 0;
+    //evento 
+    int tiempo = 0;
+    SDL_Event Event;
+
+    Ventana = SDL_CreateWindow("Combate por la verdad", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    if (Ventana == NULL)
+    {
+        std::cout << "Error";
+
+    }
+    else
+    {
+
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = 28; rcInicial.h = SPRITE_SIZE;
+
+        gdFinal.x = 467; gdFinal.y = 507; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+
+        Fondo = IMG_Load("Edificio/Castillo.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+        Izquierda = IMG_Load("Edificio/Arriba.png");
+        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+        SDL_FreeSurface(Fondo);
+
+        SDL_UpdateWindowSurface(Ventana);
+        int p = 0;
+        int mayorx = 454;
+        int mayory = 301;
+        int menorx = 514;
+        int menory = 323;
+        int correctas = 0;
+        int partes = 0;
+        //0 - edificio afuera
+        //1 - central 
+        //2- pasillo aula
+        //3- pasillo lab
+        //4 - aula
+        //5 - laboratorio
+        while (p == 0)
+        {
+
+            frameStart = SDL_GetTicks();
+            if (SDL_PollEvent(&Event))
+            {
+                //std::cout << "\nx - " << Event.motion.x;
+                //std::cout << "\ny- " << Event.motion.y;
+                if (gdFinal.x >= mayorx && gdFinal.y >= mayory && gdFinal.x < menorx && gdFinal.y < menory && partes == 0)
+                {
+                    Fondo = IMG_Load("Edificio/Central.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+                    
+                    gdFinal.x = 484; gdFinal.y = 484;
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    partes++;
+                }
+                else if (gdFinal.x >= 261 && gdFinal.y >= 255 && gdFinal.x < 291 && gdFinal.y < 263 && partes == 1)
+                {
+                    std::cout << "siguiente";
+                    Fondo = IMG_Load("Edificio/Aula.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    gdFinal.x =553; gdFinal.y = 258;
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                   
+                    
+                   
+                    partes = 2;
+                }
+                else if (gdFinal.x >= 703 && gdFinal.y >= 253 && gdFinal.x < 735 && gdFinal.y < 279 && partes == 1)
+                {
+                    std::cout << "siguiente";
+                    Fondo = IMG_Load("Edificio/Aula.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    gdFinal.x = 419; gdFinal.y = 255;
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    partes = 3;
+                }
+                else if (gdFinal.x >= 484 && gdFinal.y >= 48 && gdFinal.x < 518 && gdFinal.y < 63 && partes == 2)
+                {
+                    std::cout << "siguiente2";
+                    Fondo = IMG_Load("Edificio/Eaula.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    gdFinal.x = 28; gdFinal.y = 500;
+                    Izquierda = IMG_Load("Edificio/abajo.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    rcInicial.w = 36; rcInicial.h = SPRITE_SIZE;
+                    partes = 4;
+                }
+                else if (partes == 0) {
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+                            tiempo++;
+                            gdFinal.y += 1;
+                            std::cout << "\nY = " << gdFinal.y;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/C1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+                            std::cout << "\nY = " << gdFinal.y;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/C1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //std::cout << "\nderecha?";
+
+                            break;
+                        case SDLK_LEFT:
+                            tiempo++;
+
+                            gdFinal.x -= movi;
+                            std::cout << "\n Aqui X - " << gdFinal.x;
+
+                            //std::cout << "\n Aquia - " << x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/C1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //std::cout << "\nderecha?";
+                            break;
+
+                        case SDLK_RIGHT:
+                            tiempo++;
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia X- " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/C1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //gdFinal.y += -1 * movi;
+
+                            break;
+
+                            if (gdFinal.x == 470 && gdFinal.y == 321)
+                            {
+                                std::cout << "Entro";
+                                break;
+                            }
+
+                        }
+                    }
+
+                }
+                else if (partes == 1) 
+                {
+                switch (Event.type)
+                {
+
+                case SDL_QUIT:
+                    salir = 1;
+                    break;
+
+                case SDL_KEYDOWN:
+
+                    switch (Event.key.keysym.sym)
+                    {
+                    case SDLK_SPACE:
+                        salir = 1;
+                        break;
+                    case SDLK_DOWN:
+                        tiempo++;
+                        gdFinal.y += 1;
+                        std::cout << "\n" << gdFinal.y;
+
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Central.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Abajo.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        break;
+                    case SDLK_UP:
+                        gdFinal.y -= 1;
+
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Central.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Arriba.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        std::cout << "\nderecha?";
+
+                        break;
+                    case SDLK_LEFT:
+                        tiempo++;
+
+                        gdFinal.x -= movi;
+                        std::cout << "\n Aqui - " << gdFinal.x;
+
+                        std::cout << "\n Aquia - " << x;
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Central.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Izquierda.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        std::cout << "\nderecha?";
+                        break;
+
+                    case SDLK_RIGHT:
+                        tiempo++;
+                        gdFinal.x += (1 * movi);
+
+                        std::cout << "\n Aquia - " << gdFinal.x;
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Central.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/derecha.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        //gdFinal.y += -1 * movi;
+
+                        break;
+
+                        if (gdFinal.x == 470 && gdFinal.y == 321)
+                        {
+                            std::cout << "Entro";
+                            break;
+                        }
+
+                    }
+                }
+                }
+                else if (partes == 2) 
+                {
+                switch (Event.type)
+                {
+
+                case SDL_QUIT:
+                    salir = 1;
+                    break;
+
+                case SDL_KEYDOWN:
+
+                    switch (Event.key.keysym.sym)
+                    {
+                    case SDLK_SPACE:
+                        salir = 1;
+                        break;
+                    case SDLK_DOWN:
+                        tiempo++;
+                        gdFinal.y += 1;
+                        std::cout << "\n" << gdFinal.y;
+
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Aula.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Abajo.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                            Izquierda = IMG_Load("Edificio/A1.png");
+                            SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        break;
+                    case SDLK_UP:
+                        gdFinal.y -= 1;
+
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Aula.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Arriba.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                            Izquierda = IMG_Load("Edificio/A1.png");
+                            SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                            
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        std::cout << "\nderecha?";
+
+                        break;
+                    case SDLK_LEFT:
+                        tiempo++;
+
+                        gdFinal.x -= movi;
+                        std::cout << "\n Aqui - " << gdFinal.x;
+
+                        std::cout << "\n Aquia - " << x;
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Aula.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/Izquierda.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                            Izquierda = IMG_Load("Edificio/A1.png");
+                            SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        std::cout << "\nderecha?";
+                        break;
+
+                    case SDLK_RIGHT:
+                        tiempo++;
+                        gdFinal.x += (1 * movi);
+
+                        std::cout << "\n Aquia - " << gdFinal.x;
+                        animation = true;
+                        if (animation) {
+                            Fondo = IMG_Load("Edificio/Aula.png");
+                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            //std::cout << "\n" << rcInicial.x;
+                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                            Izquierda = IMG_Load("Edificio/derecha.png");
+                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                            Izquierda = IMG_Load("Edificio/A1.png");
+                            SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+
+                            SDL_UpdateWindowSurface(Ventana);
+                        }
+                        //gdFinal.y += -1 * movi;
+
+                        break;
+
+                        if (gdFinal.x == 470 && gdFinal.y == 321)
+                        {
+                            std::cout << "Entro";
+                            break;
+                        }
+
+                    }
+                }
+                }
+                else if (partes == 3) 
+{
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+                            tiempo++;
+                            gdFinal.y += 1;
+                            std::cout << "\n" << gdFinal.y;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Laboratorio.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/L1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Laboratorio.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/L1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+
+                            break;
+                        case SDLK_LEFT:
+                            tiempo++;
+
+                            gdFinal.x -= movi;
+                            std::cout << "\n Aqui - " << gdFinal.x;
+
+                            std::cout << "\n Aquia - " << x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Laboratorio.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/L1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+                            break;
+
+                        case SDLK_RIGHT:
+                            tiempo++;
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia - " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Laboratorio.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                Izquierda = IMG_Load("Edificio/L1.png");
+                                SDL_BlitSurface(Izquierda, NULL, superficieVentana, NULL);
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //gdFinal.y += -1 * movi;
+
+                            break;
+
+                            if (gdFinal.x == 470 && gdFinal.y == 321)
+                            {
+                                std::cout << "Entro";
+                                break;
+                            }
+
+                        }
+                    }
+}
+                else if (partes == 4)
+                {
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+                            tiempo++;
+                            gdFinal.y += 1;
+                            std::cout << "\n" << gdFinal.y;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/4.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/3.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+
+                            break;
+                        case SDLK_LEFT:
+                            tiempo++;
+
+                            gdFinal.x -= movi;
+                            std::cout << "\n Aqui - " << gdFinal.x;
+
+                            std::cout << "\n Aquia - " << x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/1.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+                            break;
+
+                        case SDLK_RIGHT:
+                            tiempo++;
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia - " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/2.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //gdFinal.y += -1 * movi;
+
+                            break;
+
+                            if (gdFinal.x == 470 && gdFinal.y == 321)
+                            {
+                                std::cout << "Entro";
+                                break;
+                            }
+
+                        }
+                    }
+                }
+                else if (partes == 5)
+                {
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+                            tiempo++;
+                            gdFinal.y += 1;
+                            std::cout << "\n" << gdFinal.y;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+
+                            break;
+                        case SDLK_LEFT:
+                            tiempo++;
+
+                            gdFinal.x -= movi;
+                            std::cout << "\n Aqui - " << gdFinal.x;
+
+                            std::cout << "\n Aquia - " << x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+                            break;
+
+                        case SDLK_RIGHT:
+                            tiempo++;
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia - " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //gdFinal.y += -1 * movi;
+
+                            break;
+
+                            if (gdFinal.x == 470 && gdFinal.y == 321)
+                            {
+                                std::cout << "Entro";
+                                break;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            // std::cout << "\n" << tiempo;
+             /*animation = false;
+             if (animation) {
+                 Fondo = IMG_Load("Edificio/Castillo.png");
+                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                 std::cout << "\n" << rcInicial.x;
+                 std::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                 Izquierda = IMG_Load("Edificio/Izquierda.png");
+                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                 SDL_UpdateWindowSurface(Ventana);
+             }*/
+
+
+
+            frameTIme = SDL_GetTicks() - frameStart;
+
+            if (frameDaley > frameTIme)
+            {
+                SDL_Delay(frameDaley - frameTIme);
+            }
+            //std::cout << tiempo;
+        }
+
+
+    }
+
+    while (!salir)
+    {
+
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+    }
+
+
+
+
+    
+
+    SDL_DestroyWindow(Ventana);
+    SDL_Quit();
+
+}
