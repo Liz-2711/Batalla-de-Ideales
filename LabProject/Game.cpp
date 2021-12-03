@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 SDL_Texture* playText;
 SDL_Rect scrR, destR;
@@ -7501,7 +7502,7 @@ void Game::CombateTrancendental(int vidas)
             //std::cout << "i";
             if (SDL_PollEvent(&Event))
             {
-                
+
                 if (pregunta == 0) {
                     switch (Event.type)
                     {
@@ -7513,12 +7514,12 @@ void Game::CombateTrancendental(int vidas)
                         break;
                     case SDL_MOUSEBUTTONDOWN:
                         std::cout << "x = " << Event.motion.x;
-                        std::cout << "\ny = "<< Event.motion.y;
+                        std::cout << "\ny = " << Event.motion.y;
                         int x = Event.motion.x;
                         int y = Event.motion.y;
                         if (x >= 462 && y >= 244 && x <= 554 && y <= 315) {
                             std::cout << "Si";
-                            
+
                             Fondo = IMG_Load("UltimoC/1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             SDL_FreeSurface(Fondo);
@@ -7569,7 +7570,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_Quit;
                             Map();
                         }
-                        
+
 
                     }
                 }
@@ -7588,15 +7589,15 @@ void Game::CombateTrancendental(int vidas)
                         std::cout << "\ny = " << Event.motion.y;
                         int x = Event.motion.x;
                         int y = Event.motion.y;
-                            //vidas siguen siendo iguales
-                            //el caballo se acerca
+                        //vidas siguen siendo iguales
+                        //el caballo se acerca
 
                         if (x >= 294 && y >= 517 && x <= 524 && y <= 557) {
 
                             std::cout << "Nada";
                             correctas++;
 
-                            
+
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7679,7 +7680,7 @@ void Game::CombateTrancendental(int vidas)
                             gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-                            
+
                             SDL_FreeSurface(Fondo);
                             SDL_FreeSurface(CaballeroU);
                             SDL_FreeSurface(CaballeroIA);
@@ -7715,7 +7716,7 @@ void Game::CombateTrancendental(int vidas)
                             gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-                            
+
                             SDL_FreeSurface(Fondo);
                             SDL_FreeSurface(CaballeroU);
                             SDL_FreeSurface(CaballeroIA);
@@ -7733,7 +7734,7 @@ void Game::CombateTrancendental(int vidas)
                             gdFinal.x = 550; gdFinal.y = 220;
                             CaballeroIA = IMG_Load("UltimoC/I1.png");
                             SDL_BlitSurface(CaballeroIA, &rcInicial, superficieVentana, &gdFinal);
-                           
+
                             SDL_FreeSurface(Fondo);
                             SDL_FreeSurface(CaballeroU);
                             SDL_FreeSurface(CaballeroIA);
@@ -7757,7 +7758,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
                             SDL_Delay(1000);
                             //-------------------------------------------
-                           
+
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             Corazones = Vidas(vida);
@@ -7786,7 +7787,7 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
                             break;
                         }
-                        else if(x < 294 && y > 517 || x > 524 && y > 517) {
+                        else if (x < 294 && y > 517 || x > 524 && y > 517) {
 
 
 
@@ -7955,7 +7956,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_Delay(1000);
 
                             //U9-------------------------------------------------------------------
-                            
+
 
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -7986,7 +7987,7 @@ void Game::CombateTrancendental(int vidas)
                             pregunta++;
                             break;
                         }
-                         
+
                     }
                 }
                 else if (pregunta == 2)
@@ -8004,14 +8005,14 @@ void Game::CombateTrancendental(int vidas)
                         std::cout << "\ny = " << Event.motion.y;
                         int x = Event.motion.x;
                         int y = Event.motion.y;
-                            //vidas siguen siendo iguales
-                            //el caballo se acerca
+                        //vidas siguen siendo iguales
+                        //el caballo se acerca
                         if (x >= 490 && y >= 517 && x <= 666 && y <= 557) {
                             std::cout << "Nada";
                             correctas++;
 
 
-                            
+
                             // U1 - I1--------------------------------------------------------
                             SDL_Delay(1000);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
@@ -8200,8 +8201,8 @@ void Game::CombateTrancendental(int vidas)
 
 
                         }
-                        else if(x < 490 && y > 517 || x > 666 && y < 517){
-                        
+                        else if (x < 490 && y > 517 || x > 666 && y < 517) {
+
                             vida -= 1;
                             Corazones = Vidas(vida);
                             std::cout << "a";
@@ -8408,7 +8409,7 @@ void Game::CombateTrancendental(int vidas)
                             break;
 
 
-                           
+
                         }
 
 
@@ -9178,20 +9179,20 @@ void Game::CombateTrancendental(int vidas)
 
         SDL_UpdateWindowSurface(Ventana);
 
-        while (!salir)
-        {
-            if (SDL_PollEvent(&EventoSalir))
+            while (!salir)
             {
-                switch (EventoSalir.type)
+                if (SDL_PollEvent(&EventoSalir))
                 {
-                case SDL_QUIT:
-                    salir = 1;
+                    switch (EventoSalir.type)
+                    {
+                    case SDL_QUIT:
+                        salir = 1;
 
-                    break;
+                        break;
 
+                    }
                 }
             }
-        }
 
         SDL_FreeSurface(superficieVentana);
         SDL_DestroyWindow(Ventana);
@@ -9204,11 +9205,10 @@ void Game::CombateTrancendental(int vidas)
 //JUEGOS DE EDIFICIO
 void Game::EscapeRoom()
 {
-
     const int WIDTH = 1000;
     const int HEIGHT = 600;
-    //const int SPRITE_SIZE = 120;
-    const int SizeMessaje = 600;
+   
+    const int SizeMessaje = 50;
 
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window* Ventana;
@@ -9243,7 +9243,7 @@ void Game::EscapeRoom()
 
     SDL_Surface* right = nullptr;
     SDL_Surface* wrong = nullptr;
-
+    SDL_Surface* comp = nullptr;
     SDL_Surface* bttn1 = nullptr;
     SDL_Surface* bttn2 = nullptr;
     SDL_Surface* bttn3 = nullptr;
@@ -9254,7 +9254,8 @@ void Game::EscapeRoom()
     SDL_Surface* code2 = nullptr;
     SDL_Surface* code3 = nullptr;
     SDL_Surface* code4 = nullptr;
-
+    SDL_Surface* inv1 = nullptr;
+    SDL_Surface* inv2 = nullptr;
 
     SDL_Surface* heart;
 
@@ -9281,7 +9282,7 @@ void Game::EscapeRoom()
     //evento para el toque de el vaso
 
     SDL_Event eleccion;
-    int SPRITE_SIZE = 50;
+    int SPRITE_SIZE = 1 / 5;
 
     Ventana = SDL_CreateWindow("Escape Room", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     superficieVentana = SDL_GetWindowSurface(Ventana);
@@ -9320,405 +9321,649 @@ void Game::EscapeRoom()
     clue17 = IMG_Load("Room/22.png");
     clue18 = IMG_Load("Room/23.png");
 
-
-    right = IMG_Load("Room/27.png");
-    wrong = IMG_Load("Room/26.png");
+    comp = IMG_Load("Room/complete.png");
+    right = IMG_Load("Room/code2.png");
+    wrong = IMG_Load("Room/code1.png");
     Preguntas = IMG_Load("Room/25.png");
-    bttn1 = IMG_Load("Room/31.png");
-    bttn2 = IMG_Load("Room/30.png");
-    bttn3 = IMG_Load("Room/29.png");
-    bttn4 = IMG_Load("Room/28.png");
+    bttn1 = IMG_Load("Room/code6.png");
+    bttn2 = IMG_Load("Room/code5.png");
+    bttn3 = IMG_Load("Room/code4.png");
+    bttn4 = IMG_Load("Room/code3.png");
 
-    code1 = IMG_Load("Room/1hrt.png");
-    code2 = IMG_Load("Room/2hrt.png");
-    code3 = IMG_Load("Room/3hrt.png");
-    code4 = IMG_Load("Room/4hrt.png");
+
 
     int Puntuacion = 0;
     int bk = 0;
     int prtnum = 1;
     SDL_Surface* currentImg = EscapeRoom;
+    SDL_Surface* imgInv;
+    SDL_Surface* imgInv2;
+    SDL_Surface* imgInv3;
+    SDL_Surface* imgInv4;
+    SDL_Surface* imgInv5;
+    SDL_Surface* imgInv6;
+    SDL_Surface* imgInv7;
+    SDL_Surface* imgInv8;
+    SDL_Surface* imgInv9;
+    SDL_Surface* imgInv10;
+    SDL_Surface* imgInv11;
+    SDL_Surface* imgInv12;
+    SDL_Surface* imgInv13;
+    SDL_Surface* imgInv14;
+    SDL_Surface* imgInv15;
+    SDL_Surface* imgInv16;
+    SDL_Surface* imgInv17;
+    SDL_Surface* imgInv18;
+
     SDL_Event evento;
     SDL_Event evento2;
     //SDL_MouseButtonEvent b = b;
     SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
     SDL_UpdateWindowSurface(Ventana);
     int count = 0;
+    SDL_Texture* grass_image = nullptr;
+    grass_image = IMG_LoadTexture(renderer, "Room/1.png");
+    SDL_Rect grass_rect;
+
+    int invn1 = 1;
+    int invn2 = 2;
+    int invn3 = 3;
+    int invn4 = 4;
+    int invn5 = 5;
+    int invn6 = 6;
+    int invn7 = 7;
+    int invn8 = 8;
+    int invn9 = 9;
+    int invn10 = 10;
+    int invn11 = 11;
+    int invn12 = 12;
+    int invn13 = 13;
+    int invn14 = 14;
+    int invn15 = 15;
+    int invn16 = 16;
+    int invn17 = 17;
+    int invn18 = 18;
+    std::vector<int> v;
+    bool codeAccess = false;
+    std::vector<int> arrCode;
 
     while (isRunning) {
-        gdPosScore.x = 18; gdPosScore.y = 18; gdPosScore.w = SPRITE_SIZE; gdPosScore.h = SPRITE_SIZE;
+        // SDL_UpdateWindowSurface(Ventana);
+        while (codeAccess == true) {
+
+
+            SDL_UpdateWindowSurface(Ventana);
+            while (SDL_PollEvent(&evento2) != 0) {
 
 
 
 
+                if (evento2.button.x >= 400 && evento2.button.x <= 500 && evento2.button.y >= 217 && evento2.button.y <= 290) {
 
+                    currentImg = bttn1;
 
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "1";
+                        arrCode.push_back(1);
+                    }
+                }
+                else if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 215 && evento2.button.y <= 290) {
 
-        //SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-       // SDL_UpdateWindowSurface(Ventana);
+                    currentImg = bttn2;
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "2";
+                        arrCode.push_back(2);
+                    }
+                }
+                else if (evento2.button.x >= 400 && evento2.button.x <= 497 && evento2.button.y >= 304 && evento2.button.y <= 382) {
 
-        while (SDL_PollEvent(&evento) != 0) {
+                    currentImg = bttn3;
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "3";
+                        arrCode.push_back(3);
+                    }
+                }
+                else if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 304 && evento2.button.y <= 382) {
 
+                    currentImg = bttn4;
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "4";
+                        arrCode.push_back(4);
+                    }
+                }
+                else if (evento2.button.x >= 681 && evento2.button.x <= 996 && evento2.button.y >= 509 && evento2.button.y <= 572) {
 
-            /*
-             while (count == 1) {
-         //std::cout << "1";
-         currentImg = wrong;
-         int num = 0;
-        // while (SDL_PollEvent(&evento2) != 0) {if (evento2.button.x >= 400 && evento2.button.x <= 500 && evento2.button.y >= 217 && evento2.button.y <= 290) {
+                    currentImg = bttn4;
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        arrCode.clear();
+                        codeAccess = false;
 
-                 currentImg = bttn1;
-                 if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                     num++;
-                 }
-             }
-             if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 215 && evento2.button.y <= 290) {
+                    }
+                }
+                else if (!arrCode.empty() && arrCode.size() == 6) {
+                    if (arrCode[0] == 1 && arrCode[1] == 2 && arrCode[2] == 2 && arrCode[3] == 3 && arrCode[4] == 3 && arrCode[5] == 2) {
+                        currentImg = right;
+                        SDL_Delay(500);
+                        currentImg = comp;
+                        //std::cout << "C O R R E C T   !!!!!";
 
-                 currentImg = bttn2;
-                 num++;
-             }
-             if (evento2.button.x >= 400 && evento2.button.x <= 497 && evento2.button.y >= 304 && evento2.button.y <= 382) {
+                    }
 
-                 currentImg = bttn3;
-                 if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                     num++;
-                 }
-             }
-             if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 304 && evento2.button.y <= 382) {
-
-                 currentImg = bttn4;
-                 if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                     num++;
-                 }
-             }
-
-             if (num = 6) {
-                 std::cout << "good";
-                 count = 0;
-                 //break;
-             }*/
-
-             // }}
-
-
-            if (evento.button.x >= 428 && evento.button.x <= 460 && evento.button.y >= 308 && evento.button.y <= 356) {
-
-                currentImg = codemachine;
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
+                }
+                else {
 
                     currentImg = wrong;
-                    count = 1;
-
                 }
-
-            }
-
-            else if (evento.button.x >= 491 && evento.button.x <= 541 && evento.button.y >= 70 && evento.button.y <= 132) {
-
-                currentImg = Board;
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = Preguntas;
-                }
-
-            }
-
-            // ********** C L U E 1 ************
-
-            else if (evento.button.x >= 260 && evento.button.x <= 282 && evento.button.y >= 123 && evento.button.y <= 150) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue1;
-                }
-
-            }
-            // ********** C L U E 2 ************
-
-            else if (evento.button.x >= 364 && evento.button.x <= 377 && evento.button.y >= 114 && evento.button.y <= 129) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue2;
-                }
-
-            }
-            // ********** C L U E 3 ************
-
-            else if (evento.button.x >= 381 && evento.button.x <= 396 && evento.button.y >= 79 && evento.button.y <= 117) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue3;
-                }
-
-            }
-            // ********** C L U E 4 ************
-
-            else if (evento.button.x >= 495 && evento.button.x <= 512 && evento.button.y >= 17 && evento.button.y <= 43) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue4;
-                }
-
-            }
-            // ********** C L U E 5 ************
-
-            else if (evento.button.x >= 471 && evento.button.x <= 483 && evento.button.y >= 548 && evento.button.y <= 568) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue5;
-                }
-
-            }
-            // ********** C L U E 6 ************
-
-            else if (evento.button.x >= 78 && evento.button.x <= 97 && evento.button.y >= 236 && evento.button.y <= 252) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue6;
-                }
-
-            }
-            // ********** C L U E 7 ************
-
-            else if (evento.button.x >= 274 && evento.button.x <= 282 && evento.button.y >= 82 && evento.button.y <= 109) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue7;
-                }
-
-            }
-            // ********** C L U E 8 ************
-
-            else if (evento.button.x >= 45 && evento.button.x <= 79 && evento.button.y >= 264 && evento.button.y <= 294) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue8;
-                }
-
-            }
-            // ********** C L U E 9 ************
-
-            else if (evento.button.x >= 424 && evento.button.x <= 441 && evento.button.y >= 129 && evento.button.y <= 147) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue9;
-                }
-
-            }
-            // ********** C L U E 10 ************
-
-            else if (evento.button.x >= 116 && evento.button.x <= 142 && evento.button.y >= 205 && evento.button.y <= 218) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue10;
-                }
-
-            }
-            // ********** C L U E 11 ************
-
-            else if (evento.button.x >= 387 && evento.button.x <= 409 && evento.button.y >= 21 && evento.button.y <= 42) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue11;
-                }
-
-            }
-            // ********** C L U E 12 ************
-
-            else if (evento.button.x >= 266 && evento.button.x <= 306 && evento.button.y >= 303 && evento.button.y <= 321) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue12;
-                }
-
-            }
-            // ********** C L U E 13 ************
-
-            else if (evento.button.x >= 41 && evento.button.x <= 55 && evento.button.y >= 222 && evento.button.y <= 253) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue13;
-                }
-
-            }
-            // ********** C L U E 14 ************
-
-            else if (evento.button.x >= 42 && evento.button.x <= 195 && evento.button.y >= 168 && evento.button.y <= 209) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue14;
-                }
-
-            }
-            // ********** C L U E 15 ************
-
-            else if (evento.button.x >= 199 && evento.button.x <= 227 && evento.button.y >= 147 && evento.button.y <= 177) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue15;
-                }
-
-            }
-            // ********** C L U E 16 ************
-
-            else if (evento.button.x >= 465 && evento.button.x <= 480 && evento.button.y >= 93 && evento.button.y <= 113) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue16;
-                }
-
-            }
-            // ********** C L U E 17 ************
-
-            else if (evento.button.x >= 461 && evento.button.x <= 477 && evento.button.y >= 19 && evento.button.y <= 42) {
-
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue17;
-                }
-
-            }
-            // ********** C L U E 18 ************
-
-            else if (evento.button.x >= 448 && evento.button.x <= 468 && evento.button.y >= 523 && evento.button.y <= 544) {
-
-                if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-                    currentImg = clue18;
-                }
-
-            }
-
-            else {
-
-                currentImg = EscapeRoom;
-
-
-            }
-            while (count == 1) {
-                // std::cout << "!";
-                currentImg = wrong;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
-                int num = 0;
-                while (SDL_PollEvent(&evento2) != 0) {
-                    currentImg = wrong;
-                    evento2.type = SDL_MOUSEBUTTONUP;
-                    if (evento2.button.x >= 400 && evento2.button.x <= 500 && evento2.button.y >= 217 && evento2.button.y <= 290) {
+            }
+        }
+        while (codeAccess == false) {
 
-                        currentImg = bttn1;
-                        if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                            num++;
-                        }
-                    }
-                    if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 215 && evento2.button.y <= 290) {
+            if (std::count(v.begin(), v.end(), 1)) {
 
-                        currentImg = bttn2;
-                        num++;
-                    }
-                    if (evento2.button.x >= 400 && evento2.button.x <= 497 && evento2.button.y >= 304 && evento2.button.y <= 382) {
+                gdPosScore.x = 620; gdPosScore.y = 265;
+                SDL_RenderClear(renderer);
+                imgInv = IMG_Load("Room/inv1.png");
 
-                        currentImg = bttn3;
-                        if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                            num++;
-                        }
-                    }
-                    if (evento2.button.x >= 504 && evento2.button.x <= 595 && evento2.button.y >= 304 && evento2.button.y <= 382) {
+                SDL_BlitSurface(imgInv, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv);
 
-                        currentImg = bttn4;
-                        if (evento2.type == SDL_MOUSEBUTTONDOWN) {
-                            num++;
-                        }
-                    }
+                if (evento.button.x >= 629 && evento.button.x <= 292 && evento.button.y >= 690 && evento.button.y <= 339) {
 
-                    if (num = 6) {
-                        std::cout << "good";
-                        count = 0;
-                        //break;
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue1;
+
                     }
 
                 }
 
             }
+            if (std::count(v.begin(), v.end(), 2)) {
+
+                gdPosScore.x = 700; gdPosScore.y = 265;
+                SDL_RenderClear(renderer);
+                imgInv2 = IMG_Load("Room/inv2.png");
+
+                SDL_BlitSurface(imgInv2, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv2);
+
+            }
+            if (std::count(v.begin(), v.end(), 3)) {
+
+                gdPosScore.x = 770; gdPosScore.y = 265;
+                SDL_RenderClear(renderer);
+                imgInv3 = IMG_Load("Room/inv3.png");
+                SDL_BlitSurface(imgInv3, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv3);
+
+            }
+            if (std::count(v.begin(), v.end(), 4)) {
+
+                gdPosScore.x = 850; gdPosScore.y = 265;
+                SDL_RenderClear(renderer);
+                imgInv4 = IMG_Load("Room/inv4.png");
+
+                SDL_BlitSurface(imgInv4, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv4);
+
+            }
+            if (std::count(v.begin(), v.end(), 5)) {
+
+                gdPosScore.x = 913; gdPosScore.y = 265;
+                SDL_RenderClear(renderer);
+                imgInv5 = IMG_Load("Room/inv5.png");
+
+                SDL_BlitSurface(imgInv5, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv5);
+
+            }
+            if (std::count(v.begin(), v.end(), 6)) {
+
+                gdPosScore.x = 620; gdPosScore.y = 325;
+                SDL_RenderClear(renderer);
+                imgInv6 = IMG_Load("Room/inv6.png");
+
+                SDL_BlitSurface(imgInv6, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv6);
+
+            }
+            if (std::count(v.begin(), v.end(), 7)) {
+
+                gdPosScore.x = 700; gdPosScore.y = 325;
+                SDL_RenderClear(renderer);
+                imgInv7 = IMG_Load("Room/inv7.png");
+
+                SDL_BlitSurface(imgInv7, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv7);
+
+            }
+            if (std::count(v.begin(), v.end(), 8)) {
+
+                gdPosScore.x = 770; gdPosScore.y = 325;
+                SDL_RenderClear(renderer);
+                imgInv8 = IMG_Load("Room/inv8.png");
+
+                SDL_BlitSurface(imgInv8, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv8);
+
+            }
+            if (std::count(v.begin(), v.end(), 9)) {
+
+                gdPosScore.x = 850; gdPosScore.y = 325;
+                SDL_RenderClear(renderer);
+                imgInv9 = IMG_Load("Room/inv9.png");
+
+                SDL_BlitSurface(imgInv9, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv9);
+
+            }
+            if (std::count(v.begin(), v.end(), 10)) {
+
+                gdPosScore.x = 913; gdPosScore.y = 325;
+                SDL_RenderClear(renderer);
+                imgInv10 = IMG_Load("Room/inv10.png");
+
+                SDL_BlitSurface(imgInv10, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv10);
+
+            }
+            if (std::count(v.begin(), v.end(), 11)) {
+
+                gdPosScore.x = 620; gdPosScore.y = 385;
+                SDL_RenderClear(renderer);
+                imgInv11 = IMG_Load("Room/inv11.png");
+
+                SDL_BlitSurface(imgInv11, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv11);
+
+            }
+            if (std::count(v.begin(), v.end(), 12)) {
+
+                gdPosScore.x = 700; gdPosScore.y = 385;
+                SDL_RenderClear(renderer);
+                imgInv12 = IMG_Load("Room/inv12.png");
+
+                SDL_BlitSurface(imgInv12, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv12);
+            }
+            if (std::count(v.begin(), v.end(), 13)) {
+
+                gdPosScore.x = 770; gdPosScore.y = 385;
+                SDL_RenderClear(renderer);
+                imgInv13 = IMG_Load("Room/inv13.png");
+
+                SDL_BlitSurface(imgInv13, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv13);
+
+            }
+            if (std::count(v.begin(), v.end(), 14)) {
+
+                gdPosScore.x = 850; gdPosScore.y = 385;
+                SDL_RenderClear(renderer);
+                imgInv14 = IMG_Load("Room/inv14.png");
+
+                SDL_BlitSurface(imgInv14, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv14);
+
+            }
+            if (std::count(v.begin(), v.end(), 15)) {
+
+                gdPosScore.x = 913; gdPosScore.y = 385;
+                SDL_RenderClear(renderer);
+                imgInv15 = IMG_Load("Room/inv15.png");
+
+                SDL_BlitSurface(imgInv15, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv15);
+
+            }
+            if (std::count(v.begin(), v.end(), 16)) {
+
+                gdPosScore.x = 660; gdPosScore.y = 445;
+                SDL_RenderClear(renderer);
+                imgInv16 = IMG_Load("Room/inv16.png");
+
+                SDL_BlitSurface(imgInv16, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv16);
+
+            }
+            if (std::count(v.begin(), v.end(), 17)) {
+
+                gdPosScore.x = 770; gdPosScore.y = 445;
+                SDL_RenderClear(renderer);
+                imgInv17 = IMG_Load("Room/inv17.png");
+
+                SDL_BlitSurface(imgInv17, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv17);
+
+            }
+            if (std::count(v.begin(), v.end(), 18)) {
+
+                gdPosScore.x = 881; gdPosScore.y = 445;
+                SDL_RenderClear(renderer);
+                imgInv18 = IMG_Load("Room/inv18.png");
+
+                SDL_BlitSurface(imgInv18, NULL, superficieVentana, &gdPosScore);
+                SDL_FreeSurface(imgInv18);
+
+            }
+
+
+
+            SDL_UpdateWindowSurface(Ventana);
+            while (SDL_PollEvent(&evento) != 0) {
+
+
+
+
+                if (evento.button.x >= 428 && evento.button.x <= 460 && evento.button.y >= 308 && evento.button.y <= 356) {
+
+                    currentImg = codemachine;
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = wrong;
+                        ///count = 1;
+
+                        codeAccess = true;
+                    }
+
+                }
+
+                else if (evento.button.x >= 491 && evento.button.x <= 541 && evento.button.y >= 70 && evento.button.y <= 132) {
+
+                    currentImg = Board;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = Preguntas;
+                    }
+
+                }
+
+                // ********** C L U E 1 ************
+
+                else if (evento.button.x >= 260 && evento.button.x <= 282 && evento.button.y >= 123 && evento.button.y <= 150 || evento.button.x >= 648 && evento.button.x <= 691 && evento.button.y >= 272 && evento.button.y <= 331) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue1;
+                        if (std::count(v.begin(), v.end(), 1)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(1);
+                    }
+
+                }
+                // ********** C L U E 2 ************
+
+                else if (evento.button.x >= 364 && evento.button.x <= 377 && evento.button.y >= 114 && evento.button.y <= 129 || evento.button.x >= 700 && evento.button.x <= 725 && evento.button.y >= 445 && evento.button.y <= 495) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue2;
+                        if (std::count(v.begin(), v.end(), 16)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(16);
+                    }
+
+                }
+                // ********** C L U E 3 ************
+
+                else if (evento.button.x >= 381 && evento.button.x <= 396 && evento.button.y >= 79 && evento.button.y <= 117 || evento.button.x >= 888 && evento.button.x <= 939 && evento.button.y >= 445 && evento.button.y <= 495) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue3;
+                        if (std::count(v.begin(), v.end(), 18)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(18);
+                    }
+
+                }
+                // ********** C L U E 4 ************
+
+                else if (evento.button.x >= 495 && evento.button.x <= 512 && evento.button.y >= 17 && evento.button.y <= 43 || evento.button.x >= 653 && evento.button.x <= 692 && evento.button.y >= 400 && evento.button.y <= 432) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue4;
+                        if (std::count(v.begin(), v.end(), 11)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(11);
+                    }
+
+                }
+                // ********** C L U E 5 ************
+
+                else if (evento.button.x >= 471 && evento.button.x <= 483 && evento.button.y >= 548 && evento.button.y <= 568 || evento.button.x >= 790 && evento.button.x <= 832 && evento.button.y >= 445 && evento.button.y <= 495) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue5;
+                        if (std::count(v.begin(), v.end(), 17)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(17);
+                    }
+
+                }
+                // ********** C L U E 6 ************
+
+                else if (evento.button.x >= 78 && evento.button.x <= 97 && evento.button.y >= 236 && evento.button.y <= 252 || evento.button.x >= 936 && evento.button.x <= 962 && evento.button.y >= 335 && evento.button.y <= 397) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue6;
+                        if (std::count(v.begin(), v.end(), 10)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(10);
+                    }
+
+                }
+                // ********** C L U E 7 ************
+
+                else if (evento.button.x >= 274 && evento.button.x <= 282 && evento.button.y >= 82 && evento.button.y <= 109 || evento.button.x >= 914 && evento.button.x <= 965 && evento.button.y >= 272 && evento.button.y <= 323) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue7;
+                        if (std::count(v.begin(), v.end(), 5)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(5);
+                    }
+
+                }
+                // ********** C L U E 8 ************
+
+                else if (evento.button.x >= 45 && evento.button.x <= 79 && evento.button.y >= 264 && evento.button.y <= 294 || evento.button.x >= 936 && evento.button.x <= 962 && evento.button.y >= 400 && evento.button.y <= 432) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue8;
+                        if (std::count(v.begin(), v.end(), 15)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(15);
+                    }
+
+                }
+                // ********** C L U E 9 ************
+
+                else if (evento.button.x >= 424 && evento.button.x <= 441 && evento.button.y >= 129 && evento.button.y <= 147 || evento.button.x >= 854 && evento.button.x <= 917 && evento.button.y >= 400 && evento.button.y <= 432) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue9;
+                        if (std::count(v.begin(), v.end(), 14)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(14);
+                    }
+
+                }
+                // ********** C L U E 10 ************
+
+                else if (evento.button.x >= 116 && evento.button.x <= 142 && evento.button.y >= 205 && evento.button.y <= 218 || evento.button.x >= 790 && evento.button.x <= 832 && evento.button.y >= 400 && evento.button.y <= 432) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue10;
+                        if (std::count(v.begin(), v.end(), 13)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(13);
+                    }
+
+                }
+                // ********** C L U E 11 ************
+
+                else if (evento.button.x >= 387 && evento.button.x <= 409 && evento.button.y >= 21 && evento.button.y <= 42 || evento.button.x >= 714 && evento.button.x <= 775 && evento.button.y >= 400 && evento.button.y <= 432) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue11;
+                        if (std::count(v.begin(), v.end(), 12)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(12);
+                    }
+
+                }
+                // ********** C L U E 12 ************
+
+                else if (evento.button.x >= 266 && evento.button.x <= 306 && evento.button.y >= 303 && evento.button.y <= 321 || evento.button.x >= 854 && evento.button.x <= 917 && evento.button.y >= 335 && evento.button.y <= 395) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue12;
+                        if (std::count(v.begin(), v.end(), 9)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(9);
+                    }
+
+                }
+                // ********** C L U E 13 ************
+
+                else if (evento.button.x >= 41 && evento.button.x <= 55 && evento.button.y >= 222 && evento.button.y <= 253 || evento.button.x >= 790 && evento.button.x <= 832 && evento.button.y >= 335 && evento.button.y <= 388) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue13; if (std::count(v.begin(), v.end(), 8)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(8);
+                    }
+
+                }
+                // ********** C L U E 14 ************
+
+                else if (evento.button.x >= 42 && evento.button.x <= 105 && evento.button.y >= 168 && evento.button.y <= 209 || evento.button.x >= 720 && evento.button.x <= 765 && evento.button.y >= 335 && evento.button.y <= 391) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue14;
+                        if (std::count(v.begin(), v.end(), 7)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(7);
+                    }
+
+                }
+                // ********** C L U E 15 ************
+
+                else if (evento.button.x >= 199 && evento.button.x <= 227 && evento.button.y >= 147 && evento.button.y <= 177 || evento.button.x >= 653 && evento.button.x <= 692 && evento.button.y >= 335 && evento.button.y <= 395) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue15;
+                        if (std::count(v.begin(), v.end(), 6)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(6);
+                    }
+
+                }
+                // ********** C L U E 16 ************
+
+                else if (evento.button.x >= 465 && evento.button.x <= 480 && evento.button.y >= 93 && evento.button.y <= 113 || evento.button.x >= 851 && evento.button.x <= 907 && evento.button.y >= 271 && evento.button.y <= 320) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue16;
+
+                        if (std::count(v.begin(), v.end(), 4)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(4);
+                    }
+
+                }
+                // ********** C L U E 17 ************
+
+                else if (evento.button.x >= 461 && evento.button.x <= 477 && evento.button.y >= 19 && evento.button.y <= 42 || evento.button.x >= 794 && evento.button.x <= 842 && evento.button.y >= 276 && evento.button.y <= 321) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue17;
+
+                        if (std::count(v.begin(), v.end(), 3)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(3);
+                    }
+
+                }
+                // ********** C L U E 18 ************
+
+                else if (evento.button.x >= 448 && evento.button.x <= 468 && evento.button.y >= 523 && evento.button.y <= 544 || evento.button.x >= 730 && evento.button.x <= 762 && evento.button.y >= 272 && evento.button.y <= 327) {
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue18;
+                        if (std::count(v.begin(), v.end(), 2)) { std::cout << "Elemnto ya fue encontrado!\n"; }
+                        else
+                            v.push_back(2);
+
+                    }
+
+                }
+
+                else {
+
+                    currentImg = EscapeRoom;
+
+                    //SDL_UpdateWindowSurface(Ventana);
+
+                }
+                
+            }
+            //************************************************************************************************************************************************************************************************
+
+
+            SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+            //SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(superficieVentana);
+
 
 
         }
 
-        //************************************************************************************************************************************************************************************************
-        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-        SDL_UpdateWindowSurface(Ventana);
-
     }
 
 
-     SDL_Surface* tmpsurface;
+   
+    SDL_Quit();
+
+}
 
 
-     while (!salir)
-     {
-         if (SDL_PollEvent(&EventoSalir))
-         {
-             switch (EventoSalir.type)
-             {
-             case SDL_QUIT:
-                 salir = 1;
-                 break;
-
-             case SDL_KEYDOWN:
-                 switch (EventoSalir.key.keysym.sym)
-                 {
-                 case SDLK_SPACE:
-                     salir = 1;
-                     break;
-                 case SDLK_ESCAPE:
-                     SDL_Quit();
-                     menuPrincipal();
-                     break;
-
-                 }
-                 break;
-             }
-         }
-     }
-
-
-
-
-     superficieVentana = nullptr;
-     Ventana = nullptr;
 
      SDL_DestroyWindow(Ventana);
     SDL_Quit();
