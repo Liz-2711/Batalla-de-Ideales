@@ -9965,11 +9965,6 @@ void Game::EscapeRoom()
 
 
 
-     SDL_DestroyWindow(Ventana);
-    SDL_Quit();
-
-}
-
 //Jugeo de 
 void Game::EdificioUni()
 {
@@ -10238,117 +10233,117 @@ void Game::EdificioUni()
                     }
 
                 }
-                else if (partes == 1) 
+                else if (partes == 1)
                 {
-                switch (Event.type)
-                {
-
-                case SDL_QUIT:
-                    salir = 1;
-                    break;
-
-                case SDL_KEYDOWN:
-
-                    switch (Event.key.keysym.sym)
+                    switch (Event.type)
                     {
-                    case SDLK_SPACE:
+
+                    case SDL_QUIT:
                         salir = 1;
                         break;
-                    case SDLK_DOWN:
-                        tiempo++;
-                        gdFinal.y += 1;
-                        std::cout << "\n" << gdFinal.y;
 
-                        animation = true;
-                        if (animation) {
-                            Fondo = IMG_Load("Edificio/Central.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    case SDL_KEYDOWN:
 
-                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            //std::cout << "\n" << rcInicial.x;
-                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            Izquierda = IMG_Load("Edificio/Abajo.png");
-                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
-
-
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        break;
-                    case SDLK_UP:
-                        gdFinal.y -= 1;
-
-                        animation = true;
-                        if (animation) {
-                            Fondo = IMG_Load("Edificio/Central.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-
-                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            //std::cout << "\n" << rcInicial.x;
-                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            Izquierda = IMG_Load("Edificio/Arriba.png");
-                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
-
-
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        std::cout << "\nderecha?";
-
-                        break;
-                    case SDLK_LEFT:
-                        tiempo++;
-
-                        gdFinal.x -= movi;
-                        std::cout << "\n Aqui - " << gdFinal.x;
-
-                        std::cout << "\n Aquia - " << x;
-                        animation = true;
-                        if (animation) {
-                            Fondo = IMG_Load("Edificio/Central.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-
-                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            //std::cout << "\n" << rcInicial.x;
-                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            Izquierda = IMG_Load("Edificio/Izquierda.png");
-                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
-
-
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        std::cout << "\nderecha?";
-                        break;
-
-                    case SDLK_RIGHT:
-                        tiempo++;
-                        gdFinal.x += (1 * movi);
-
-                        std::cout << "\n Aquia - " << gdFinal.x;
-                        animation = true;
-                        if (animation) {
-                            Fondo = IMG_Load("Edificio/Central.png");
-                            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-
-                            rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            //std::cout << "\n" << rcInicial.x;
-                            //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                            Izquierda = IMG_Load("Edificio/derecha.png");
-                            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
-
-
-                            SDL_UpdateWindowSurface(Ventana);
-                        }
-                        //gdFinal.y += -1 * movi;
-
-                        break;
-
-                        if (gdFinal.x == 470 && gdFinal.y == 321)
+                        switch (Event.key.keysym.sym)
                         {
-                            std::cout << "Entro";
+                        case SDLK_SPACE:
+                            salir = 1;
                             break;
-                        }
+                        case SDLK_DOWN:
+                            tiempo++;
+                            gdFinal.y += 1;
+                            std::cout << "\n" << gdFinal.y;
 
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Central.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Central.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+
+                            break;
+                        case SDLK_LEFT:
+                            tiempo++;
+
+                            gdFinal.x -= movi;
+                            std::cout << "\n Aqui - " << gdFinal.x;
+
+                            std::cout << "\n Aquia - " << x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Central.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            std::cout << "\nderecha?";
+                            break;
+
+                        case SDLK_RIGHT:
+                            tiempo++;
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia - " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("Edificio/Central.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                //std::cout << "\n" << rcInicial.x;
+                                //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            //gdFinal.y += -1 * movi;
+
+                            break;
+
+                            if (gdFinal.x == 470 && gdFinal.y == 321)
+                            {
+                                std::cout << "Entro";
+                                break;
+                            }
+
+                        }
                     }
-                }
                 }
                 else if (partes == 2) 
                 {
