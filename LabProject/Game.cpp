@@ -12,10 +12,10 @@ SDL_Rect    gdSprite;
 
 //controla que elemento va despues
 int elementospantalla = 0, preguntaCS = 1, puntos = 0, J1posx = 100, J1posy = 110, J2posx = 820, J2posy = 110, turno = 1,
-J1movimiento = 0, J2movimiento = 0;
-bool eliminado = false, J1RespuestaCorrecta, J2RespuestaCorrecta, opcionSeleccionada = 0;
+J1movimiento = 0, J2movimiento = 0, cantCodigo = 0, gameover = 0;
+bool eliminado = false, J1RespuestaCorrecta, J2RespuestaCorrecta, opcionSeleccionada = 0; 
+std::string codigo = "";
 
-int gameover = 0;
 Game::Game()
 {}
 
@@ -7524,17 +7524,17 @@ void Game::CombateTrancendental(int vidas)
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             SDL_FreeSurface(Fondo);
                             SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             SDL_FreeSurface(Fondo);
                             SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/3.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                             SDL_FreeSurface(Fondo);
                             SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(500);
+                            SDL_Delay(200);
 
                             //musicaHallowedBeThyName();
 
@@ -7615,7 +7615,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             // U1 - I1--------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7633,7 +7633,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U2--------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7651,7 +7651,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U3--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7669,7 +7669,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U4---------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7687,7 +7687,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U5 ------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7705,7 +7705,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U6--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7723,7 +7723,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U7--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7741,7 +7741,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //-------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7756,7 +7756,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_FreeSurface(CaballeroU);
                             SDL_FreeSurface(CaballeroIA);
                             SDL_UpdateWindowSurface(Ventana);
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             //-------------------------------------------
 
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
@@ -7812,7 +7812,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             // U1 - I1--------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7830,7 +7830,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U2--------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7848,7 +7848,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U3--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7866,7 +7866,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U4---------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7884,7 +7884,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U5 ------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7902,7 +7902,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U6--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7920,7 +7920,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U7--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -7938,7 +7938,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U8----------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta1.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8014,7 +8014,7 @@ void Game::CombateTrancendental(int vidas)
 
 
                             // U1 - I1--------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8032,7 +8032,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U2--------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8050,7 +8050,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U3--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8068,7 +8068,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U4---------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8086,7 +8086,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U5 ------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8104,7 +8104,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U6--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8122,7 +8122,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U7--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8140,7 +8140,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //-------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8224,7 +8224,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             // U1 - I1--------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8242,7 +8242,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U2--------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8260,7 +8260,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U3--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8278,7 +8278,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U4---------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8296,7 +8296,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U5 ------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8314,7 +8314,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U6--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8332,7 +8332,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U7--------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -8350,7 +8350,7 @@ void Game::CombateTrancendental(int vidas)
                             SDL_UpdateWindowSurface(Ventana);
 
                             //U8----------------------------------------------------------------------
-                            SDL_Delay(1000);
+                            SDL_Delay(200);
                             Fondo = IMG_Load("UltimoC/Pregunta2.png");
                             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
@@ -9989,9 +9989,7 @@ void Game::EdificioUni()
 
     SDL_Surface* Izquierda;
     SDL_Surface* PARTESa;
-
-    SDL_Surface* Corazones;
-
+    SDL_Surface* AniLab;
 
 
     //envento para salir
@@ -10054,12 +10052,13 @@ void Game::EdificioUni()
         //5 - laboratorio
         while (p == 0)
         {
-
+            //tiempo++;
+            //std::cout << tiempo;
             frameStart = SDL_GetTicks();
             if (SDL_PollEvent(&Event))
             {
-                //std::cout << "\nx - " << Event.motion.x;
-                //std::cout << "\ny- " << Event.motion.y;
+                std::cout << "\nx - " << Event.motion.x;
+                std::cout << "\ny- " << Event.motion.y;
                 if (gdFinal.x >= mayorx && gdFinal.y >= mayory && gdFinal.x < menorx && gdFinal.y < menory && partes == 0)
                 {
                     Fondo = IMG_Load("Edificio/Central.png");
@@ -10092,12 +10091,12 @@ void Game::EdificioUni()
                 else if (gdFinal.x >= 703 && gdFinal.y >= 253 && gdFinal.x < 735 && gdFinal.y < 279 && partes == 1)
                 {
                     std::cout << "siguiente";
-                    Fondo = IMG_Load("Edificio/Aula.png");
+                    Fondo = IMG_Load("Edificio/Laboratorio.png");
                     SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                     SDL_UpdateWindowSurface(Ventana);
 
                     gdFinal.x = 419; gdFinal.y = 255;
-                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
                     SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                     SDL_UpdateWindowSurface(Ventana);
 
@@ -10117,6 +10116,44 @@ void Game::EdificioUni()
                     rcInicial.w = 36; rcInicial.h = SPRITE_SIZE;
                     partes = 4;
                 }
+                else if (gdFinal.x >= 475 && gdFinal.y >= 54 && gdFinal.x < 520 && gdFinal.y < 67 && partes == 3)
+                {
+                    std::cout << "siguiente2";
+                    Fondo = IMG_Load("Edificio/Sotano.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    gdFinal.x = 476; gdFinal.y = 478;
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                   
+                    partes = 5;
+                }
+                // SALAS DE LABORATORIO
+                //Evidencia 
+                else if (gdFinal.x >= 256 && gdFinal.y >= 179 && gdFinal.x < 279 && gdFinal.y < 239 && partes == 6)
+                {
+                   
+                }
+                // Enumarecion
+                else if (gdFinal.x >= 258 && gdFinal.y >= 296 && gdFinal.x < 275 && gdFinal.y < 358 && partes == 6)
+                {
+                    mesaEnumeracion();
+                }
+                // analisis
+                else if (gdFinal.x >= 713 && gdFinal.y >= 177 && gdFinal.x < 735 && gdFinal.y < 238 && partes == 6)
+                {
+
+                }
+                //Sintesis
+                else if (gdFinal.x >= 714 && gdFinal.y >= 294 && gdFinal.x < 737 && gdFinal.y < 355 && partes == 6)
+                {
+
+                }
+
+
+
                 else if (partes == 0) {
                     switch (Event.type)
                     {
@@ -10693,7 +10730,138 @@ void Game::EdificioUni()
                         }
                     }
                 }
+                // ANIMACION CHARLA CON DESCARTES
                 else if (partes == 5)
+                {
+                    gdFinal.x = 480; gdFinal.y = 478;
+                    AniLab = IMG_Load("Edificio/S0.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/S1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S2.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S3.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S4.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/S5.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S6.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S7.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S8.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/S9.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/S10.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/S11.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/S12.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    if (bando == 1) 
+                    {
+                        AniLab = IMG_Load("Edificio/S13R.png");
+                        SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                        Izquierda = IMG_Load("Edificio/Arriba.png");
+                        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(AniLab);
+                        SDL_Delay(2500);
+                    }
+                    else 
+                    {
+                        AniLab = IMG_Load("Edificio/S14E.png");
+                        SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                        Izquierda = IMG_Load("Edificio/Arriba.png");
+                        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(AniLab);
+                        SDL_Delay(2500);
+                    }
+
+                    partes = 6;
+                } 
+                else if (partes == 6)
                 {
                     switch (Event.type)
                     {
@@ -10716,7 +10884,7 @@ void Game::EdificioUni()
 
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                Fondo = IMG_Load("Edificio/Sotano2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
@@ -10734,7 +10902,7 @@ void Game::EdificioUni()
 
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                Fondo = IMG_Load("Edificio/Sotano2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
@@ -10758,7 +10926,7 @@ void Game::EdificioUni()
                             std::cout << "\n Aquia - " << x;
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                Fondo = IMG_Load("Edificio/Sotano2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
@@ -10780,7 +10948,7 @@ void Game::EdificioUni()
                             std::cout << "\n Aquia - " << gdFinal.x;
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Castillo.png");
+                                Fondo = IMG_Load("Edificio/Sotano2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
@@ -10807,24 +10975,7 @@ void Game::EdificioUni()
                 }
             }
 
-            // std::cout << "\n" << tiempo;
-             /*animation = false;
-             if (animation) {
-                 Fondo = IMG_Load("Edificio/Castillo.png");
-                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
-
-                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
-                 std::cout << "\n" << rcInicial.x;
-                 std::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                 Izquierda = IMG_Load("Edificio/Izquierda.png");
-                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
-
-
-                 SDL_UpdateWindowSurface(Ventana);
-             }*/
-
-
-
+           
             frameTIme = SDL_GetTicks() - frameStart;
 
             if (frameDaley > frameTIme)
@@ -10876,4 +11027,218 @@ void Game::EdificioUni()
     SDL_DestroyWindow(Ventana);
     SDL_Quit();
 
+}
+
+void Game::mesaEnumeracion()
+{
+    ventanaMesaEnumeracion("Mesa Enumeracion", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, false);
+    elementosMesaEnumeracion();
+    while (true)
+        eventosMesaEnumeracion();
+}
+
+void Game::ventanaMesaEnumeracion(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
+{
+    int flags = 0;
+
+    if (fullscreen)
+        flags = SDL_WINDOW_FULLSCREEN;
+
+    if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+        window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+        isRunning = true;
+    }
+    else
+        isRunning = false;
+}
+
+void Game::elementosMesaEnumeracion()
+{
+    //fondo
+    superficieVentana = SDL_GetWindowSurface(window);
+
+    background = IMG_Load("assets/fondopuerta.png");
+    SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+    //panel de codigo
+    posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+    posFinal.x = 210; posFinal.y = 60; posFinal.w = 600; posFinal.h = 293;
+    imagen = IMG_Load("assets/panelcodigo.png");
+    SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+    SDL_UpdateWindowSurface(window);
+}
+
+void Game::eventosMesaEnumeracion()
+{
+    int cursorx, cursory;
+
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch (event.type) {
+        //cerrar ventana
+    case SDL_QUIT:
+        exit(1);
+        break;
+    case SDL_MOUSEMOTION:
+        cursorx = event.motion.x, cursory = event.motion.y;
+
+        //tecla 1
+        if (cursorx > 257 && cursorx < 347 && cursory > 106 && cursory < 196) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 253; posFinal.y = 104; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla1.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 2
+        else if (cursorx > 361 && cursorx < 450 && cursory > 108 && cursory < 199) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 357; posFinal.y = 105; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla2.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 3
+        else if (cursorx > 259 && cursorx < 347 && cursory > 212 && cursory < 301) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 255; posFinal.y = 207; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla3.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 4
+        else if (cursorx > 670 && cursorx < 759 && cursory > 212 && cursory < 303) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 665; posFinal.y = 207; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla4.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 5
+        else if (cursorx > 567 && cursorx < 657 && cursory > 108 && cursory < 197) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 562; posFinal.y = 104; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla5.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 6
+        else if (cursorx > 464 && cursorx < 553 && cursory > 211 && cursory < 302) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 459; posFinal.y = 207; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla6.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 7
+        else if (cursorx > 465 && cursorx < 553 && cursory > 108 && cursory < 197) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 459; posFinal.y = 104; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla7.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 8
+        else if (cursorx > 671 && cursorx < 758 && cursory > 109 && cursory < 198) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 665; posFinal.y = 103; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla8.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 9
+        else if (cursorx > 362 && cursorx < 449 && cursory > 214 && cursory < 302) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 357; posFinal.y = 207; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla9.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        //tecla 10
+        else if (cursorx > 567 && cursorx < 655 && cursory > 213 && cursory < 302) {
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 562; posFinal.y = 207; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/tecla10.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        else {
+            SDL_FillRect(superficieVentana, NULL, 0x000000);
+            SDL_BlitSurface(background, NULL, superficieVentana, NULL);
+
+            posInicial.x = 0; posInicial.y = 0; posInicial.w = 600; posInicial.h = 293;
+            posFinal.x = 210; posFinal.y = 60; posFinal.w = 600; posFinal.h = 293;
+            imagen = IMG_Load("assets/panelcodigo.png");
+            SDL_BlitSurface(imagen, &posInicial, superficieVentana, &posFinal);
+
+            SDL_UpdateWindowSurface(window);
+        }
+        break;
+    case SDL_MOUSEBUTTONDOWN:
+        cursorx = event.motion.x, cursory = event.motion.y;
+
+        if (cursorx > 257 && cursorx < 347 && cursory > 106 && cursory < 196) {
+            codigo += "1 ";
+            cantCodigo++;
+        }
+        if (cursorx > 361 && cursorx < 450 && cursory > 108 && cursory < 199) {
+            codigo += "2 ";
+            cantCodigo++;
+        }
+        if (cursorx > 259 && cursorx < 347 && cursory > 212 && cursory < 301) {
+            codigo += "3 ";
+            cantCodigo++;
+        }
+        if (cursorx > 670 && cursorx < 759 && cursory > 212 && cursory < 303) {
+            codigo += "4 ";
+            cantCodigo++;
+        }
+        if (cursorx > 567 && cursorx < 657 && cursory > 108 && cursory < 197) {
+            codigo += "5 ";
+            cantCodigo++;
+        }
+        if (cursorx > 464 && cursorx < 553 && cursory > 211 && cursory < 302) {
+            codigo += "6 ";
+            cantCodigo++;
+        }
+        if (cursorx > 465 && cursorx < 553 && cursory > 108 && cursory < 197) {
+            codigo += "7 ";
+            cantCodigo++;
+        }
+        if (cursorx > 671 && cursorx < 758 && cursory > 109 && cursory < 198) {
+            codigo += "8 ";
+            cantCodigo++;
+        }
+        if (cursorx > 362 && cursorx < 449 && cursory > 214 && cursory < 302) {
+            codigo += "9 ";
+            cantCodigo++;
+        }
+        if (cursorx > 567 && cursorx < 655 && cursory > 213 && cursory < 302) {
+            codigo += "10 ";
+            cantCodigo++;
+        }
+
+        std::cout << "Codigo Actual: " << codigo << "\n";
+
+        if (cantCodigo == 4) {
+            /*
+            comparar codigo con respuesta
+            */
+
+            cantCodigo = 0;
+            codigo = "";
+        }
+        break;
+    }
 }

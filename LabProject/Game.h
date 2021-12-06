@@ -54,6 +54,12 @@ public:
 
 	SDL_Surface* Vidas(int);
 
+
+	void mesaEnumeracion();
+	void ventanaMesaEnumeracion(const char*, int, int, int, int, bool);
+	void elementosMesaEnumeracion();
+	void eventosMesaEnumeracion();
+
 	
 	//funciones de juegos de la parte de eleccion
 	void juegoArte();
@@ -90,6 +96,8 @@ private:
 
 
 	int bando=1;
+	//1 - Racionalistas
+	//!= 1 - Empirsta
 };
 
 
