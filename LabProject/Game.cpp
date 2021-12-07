@@ -10102,20 +10102,27 @@ void Game::EdificioUni()
 
                     partes = 3;
                 }
+                //sala Aula
                 else if (gdFinal.x >= 484 && gdFinal.y >= 48 && gdFinal.x < 518 && gdFinal.y < 63 && partes == 2)
                 {
                     std::cout << "siguiente2";
-                    Fondo = IMG_Load("Edificio/Eaula.png");
+                    Fondo = IMG_Load("Edificio/Azotea.png");
                     SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                     SDL_UpdateWindowSurface(Ventana);
 
-                    gdFinal.x = 28; gdFinal.y = 500;
-                    Izquierda = IMG_Load("Edificio/abajo.png");
+                    gdFinal.x = 479; gdFinal.y = 261;
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
                     SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                     SDL_UpdateWindowSurface(Ventana);
-                    rcInicial.w = 36; rcInicial.h = SPRITE_SIZE;
+                    //rcInicial.w = 36; rcInicial.h = SPRITE_SIZE;
                     partes = 4;
                 }
+                //minijuego aula
+                else if (gdFinal.x >= 443 && gdFinal.y >= 67 && gdFinal.x < 501 && gdFinal.y < 82 && partes == 7)
+                {
+                    EscapeRoom();
+                }
+                //pasillo sotano
                 else if (gdFinal.x >= 475 && gdFinal.y >= 54 && gdFinal.x < 520 && gdFinal.y < 67 && partes == 3)
                 {
                     std::cout << "siguiente2";
@@ -10620,6 +10627,97 @@ void Game::EdificioUni()
 }
                 else if (partes == 4)
                 {
+                    std::cout << "Animacion";
+                    gdFinal.x = 479; gdFinal.y = 261;
+                    AniLab = IMG_Load("Edificio/A0.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/AZ1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/A2.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/A3.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/A4.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2500);
+
+                    AniLab = IMG_Load("Edificio/A5.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/A6.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    AniLab = IMG_Load("Edificio/A7.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Arriba.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(2000);
+
+                    if (bando == 1)
+                    {
+                        AniLab = IMG_Load("Edificio/A8.png");
+                        SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                        Izquierda = IMG_Load("Edificio/Arriba.png");
+                        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(AniLab);
+                        SDL_Delay(2500);
+                    }
+                    else
+                    {
+                        AniLab = IMG_Load("Edificio/A9.png");
+                        SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                        Izquierda = IMG_Load("Edificio/Arriba.png");
+                        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(AniLab);
+                        SDL_Delay(2500);
+                    }
+
+                    partes = 7;
+                }
+                else if (partes == 7)
+                {
                     switch (Event.type)
                     {
 
@@ -10641,13 +10739,13 @@ void Game::EdificioUni()
 
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                Fondo = IMG_Load("Edificio/Azotea2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
                                 //std::cout << "\n" << rcInicial.x;
                                 //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                                Izquierda = IMG_Load("Edificio/4.png");
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
                                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
 
 
@@ -10659,13 +10757,13 @@ void Game::EdificioUni()
 
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                Fondo = IMG_Load("Edificio/Azotea2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
                                 //std::cout << "\n" << rcInicial.x;
                                 //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                                Izquierda = IMG_Load("Edificio/3.png");
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
                                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
 
 
@@ -10683,13 +10781,13 @@ void Game::EdificioUni()
                             std::cout << "\n Aquia - " << x;
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                Fondo = IMG_Load("Edificio/Azotea2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
                                 //std::cout << "\n" << rcInicial.x;
                                 //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                                Izquierda = IMG_Load("Edificio/1.png");
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
                                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
 
 
@@ -10705,13 +10803,13 @@ void Game::EdificioUni()
                             std::cout << "\n Aquia - " << gdFinal.x;
                             animation = true;
                             if (animation) {
-                                Fondo = IMG_Load("Edificio/Eaula.png");
+                                Fondo = IMG_Load("Edificio/Azotea2.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
                                 rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
                                 //std::cout << "\n" << rcInicial.x;
                                 //s//td::cout << "\n" << static_cast<int>((SDL_GetTicks() / speed) % frame);
-                                Izquierda = IMG_Load("Edificio/2.png");
+                                Izquierda = IMG_Load("Edificio/derecha.png");
                                 SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
 
 
