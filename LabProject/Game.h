@@ -44,7 +44,7 @@ public:
 
 
 	void combateSujeto();
-	void EdificioUni();
+	void EdificioUni(int);
 
 	void ventanaCombateSujeto(const char*, int, int, int, int, bool);
 	void elementosCombateSujeto();
@@ -60,6 +60,8 @@ public:
 	void elementosMesaEnumeracion();
 	void eventosMesaEnumeracion();
 
+
+	void MesaSintesis();
 	
 	//funciones de juegos de la parte de eleccion
 	void juegoArte();
