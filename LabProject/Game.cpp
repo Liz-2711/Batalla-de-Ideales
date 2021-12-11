@@ -10050,6 +10050,8 @@ void Game::EdificioUni(int _Regreso)
         //3- pasillo lab
         //4 - aula
         //5 - laboratorio
+        int sala = _Regreso;
+
         while (p == 0)
         {
             //tiempo++;
@@ -10152,7 +10154,7 @@ void Game::EdificioUni(int _Regreso)
                 else if (gdFinal.x >= 713 && gdFinal.y >= 177 && gdFinal.x < 735 && gdFinal.y < 238 && partes == 6)
                 {
                    
-
+                    sala = _Regreso;
 
                 }
                 //Sintesis
@@ -10163,6 +10165,7 @@ void Game::EdificioUni(int _Regreso)
                     SDL_Quit();
                     MesaSintesis();
 
+                    
 
                     p = 1;
                     salir = 1;
@@ -10968,7 +10971,7 @@ void Game::EdificioUni(int _Regreso)
 
                     partes = 6;
                 } 
-                else if (partes == 6)
+                else if (partes == 6 || sala != 0)
                 {
                     switch (Event.type)
                     {
