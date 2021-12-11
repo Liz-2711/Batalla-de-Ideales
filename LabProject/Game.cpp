@@ -2884,6 +2884,7 @@ void Game::miniJuegoCiencia()
 
 
 
+
     const int WIDTH = 1000;
     const int HEIGHT = 600;
     //const int SPRITE_SIZE = 120;
@@ -3086,7 +3087,7 @@ void Game::miniJuegoCiencia()
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 2) {
 
@@ -3094,7 +3095,7 @@ void Game::miniJuegoCiencia()
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 3) {
 
@@ -3102,7 +3103,7 @@ void Game::miniJuegoCiencia()
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 4) {
 
@@ -3110,7 +3111,7 @@ void Game::miniJuegoCiencia()
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 5) {
 
@@ -3118,10 +3119,10 @@ void Game::miniJuegoCiencia()
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
 
-
+        SDL_UpdateWindowSurface(Ventana);
         if (prtnum == 1) {
 
 
@@ -3213,7 +3214,7 @@ void Game::miniJuegoCiencia()
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -3221,7 +3222,7 @@ void Game::miniJuegoCiencia()
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -3229,7 +3230,7 @@ void Game::miniJuegoCiencia()
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -3237,7 +3238,7 @@ void Game::miniJuegoCiencia()
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -3245,7 +3246,7 @@ void Game::miniJuegoCiencia()
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
 
 
@@ -3256,7 +3257,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -3264,7 +3265,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -3272,7 +3273,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -3280,7 +3281,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -3288,7 +3289,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
 
                 if (bk == 0) {
@@ -3331,7 +3332,7 @@ void Game::miniJuegoCiencia()
 
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
                 if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
 
                     currentImg = prt6;
@@ -3408,7 +3409,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -3416,7 +3417,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -3424,7 +3425,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -3432,7 +3433,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -3440,7 +3441,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 1) {
 
@@ -3448,7 +3449,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -3456,7 +3457,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -3464,7 +3465,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -3472,7 +3473,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -3480,7 +3481,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (bk == 1) {
                     Fondo1 = IMG_Load("Img/5sec.png");
@@ -3521,7 +3522,7 @@ void Game::miniJuegoCiencia()
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
 
 
                 if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
@@ -3603,7 +3604,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -3611,7 +3612,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -3619,7 +3620,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -3635,7 +3636,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (bk == 2) {
                     Fondo1 = IMG_Load("Img/5sec.png");
@@ -3676,7 +3677,7 @@ void Game::miniJuegoCiencia()
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
 
                 if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
 
@@ -3760,7 +3761,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -3768,7 +3769,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -3776,7 +3777,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -3784,7 +3785,7 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -3792,13 +3793,13 @@ void Game::miniJuegoCiencia()
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (bk == 3) {
                     Fondo1 = IMG_Load("Img/5sec.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -3806,7 +3807,7 @@ void Game::miniJuegoCiencia()
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
 
-                    SDL_UpdateWindowSurface(Ventana);
+                    /// SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -3833,7 +3834,7 @@ void Game::miniJuegoCiencia()
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
                 if (evento.button.x >= 106 && evento.button.x <= 305 && evento.button.y >= 175 && evento.button.y <= 274) {
 
                     currentImg = prt21;
@@ -3972,7 +3973,7 @@ void Game::miniJuegoCiencia()
 
 
         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-        SDL_UpdateWindowSurface(Ventana);
+        // SDL_UpdateWindowSurface(Ventana);
     }
 
 
@@ -4020,6 +4021,7 @@ void Game::miniJuegoCiencia()
     SDL_DestroyWindow(Ventana);
 
     SDL_Quit();
+
 
 
 }
@@ -4591,7 +4593,7 @@ void Game::miniJuegopolitica() {
     SDL_Event eleccion;
     int SPRITE_SIZE = 50;
 
-    Ventana = SDL_CreateWindow("Pantalla Cartas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    Ventana = SDL_CreateWindow("Politica", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     superficieVentana = SDL_GetWindowSurface(Ventana);
 
     Uint32 Color = SDL_MapRGB(superficieVentana->format, 222, 235, 247);
@@ -4716,7 +4718,7 @@ void Game::miniJuegopolitica() {
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            //SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 2) {
 
@@ -4724,7 +4726,7 @@ void Game::miniJuegopolitica() {
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            // SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 3) {
 
@@ -4732,7 +4734,7 @@ void Game::miniJuegopolitica() {
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            // SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 4) {
 
@@ -4740,7 +4742,7 @@ void Game::miniJuegopolitica() {
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            // SDL_UpdateWindowSurface(Ventana);
         }
         if (Puntuacion == 5) {
 
@@ -4748,14 +4750,14 @@ void Game::miniJuegopolitica() {
 
             SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
             SDL_FreeSurface(heart1);
-            SDL_UpdateWindowSurface(Ventana);
+            // SDL_UpdateWindowSurface(Ventana);
         }
 
-
+        SDL_UpdateWindowSurface(Ventana);
         if (prtnum == 1) {
 
 
-
+            // SDL_UpdateWindowSurface(Ventana);
             while (SDL_PollEvent(&evento) != 0) {
 
 
@@ -4775,7 +4777,7 @@ void Game::miniJuegopolitica() {
 
 
 
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 2;
                     }
@@ -4790,7 +4792,7 @@ void Game::miniJuegopolitica() {
                         currentImg = wrong;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 2;
                     }
@@ -4807,7 +4809,7 @@ void Game::miniJuegopolitica() {
 
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 2;
                         //pregunta2();
@@ -4823,7 +4825,7 @@ void Game::miniJuegopolitica() {
                         currentImg = wrong;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 2;
                     }
@@ -4844,7 +4846,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -4852,7 +4854,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -4860,7 +4862,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -4868,7 +4870,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -4876,7 +4878,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 1) {
 
@@ -4884,7 +4886,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -4892,7 +4894,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -4900,7 +4902,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -4908,7 +4910,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -4916,7 +4918,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
 
 
@@ -4927,7 +4929,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -4935,7 +4937,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -4943,7 +4945,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -4951,7 +4953,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -4959,14 +4961,14 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //  SDL_UpdateWindowSurface(Ventana);
                 }
 
                 if (bk == 0) {
                     Fondo1 = IMG_Load("Img/5COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -4974,35 +4976,35 @@ void Game::miniJuegopolitica() {
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
 
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/3COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/2COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/1COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
                     bk = 1;
                 }
 
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
                 if (evento.button.x >= 35 && evento.button.x <= 101 && evento.button.y >= 172 && evento.button.y <= 235) {
 
                     currentImg = prt5;
@@ -5013,7 +5015,7 @@ void Game::miniJuegopolitica() {
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
 
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 3;
                     }
@@ -5028,7 +5030,7 @@ void Game::miniJuegopolitica() {
                         currentImg = right;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 3;
                     }
@@ -5044,7 +5046,7 @@ void Game::miniJuegopolitica() {
 
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 3;
                         //pregunta2();
@@ -5063,7 +5065,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //  SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -5071,7 +5073,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -5079,7 +5081,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -5087,7 +5089,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -5095,8 +5097,9 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
+            SDL_UpdateWindowSurface(Ventana);
             while (SDL_PollEvent(&evento) != 0) {
 
                 if (Puntuacion == 1) {
@@ -5105,7 +5108,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -5113,7 +5116,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //   SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -5121,7 +5124,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -5129,7 +5132,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -5137,7 +5140,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 /*if (Puntuacion == 1) {
 
@@ -5183,7 +5186,7 @@ void Game::miniJuegopolitica() {
                     Fondo1 = IMG_Load("Img/5COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -5191,34 +5194,34 @@ void Game::miniJuegopolitica() {
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
 
-                    SDL_UpdateWindowSurface(Ventana);
+                    //  SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/3COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //  SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/2COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/1COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
                     bk = 2;
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
 
 
                 if (evento.button.x >= 35 && evento.button.x <= 101 && evento.button.y >= 172 && evento.button.y <= 235) {
@@ -5232,7 +5235,7 @@ void Game::miniJuegopolitica() {
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
 
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 4;
                     }
@@ -5248,7 +5251,7 @@ void Game::miniJuegopolitica() {
                         Puntuacion++;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 4;
                     }
@@ -5264,7 +5267,7 @@ void Game::miniJuegopolitica() {
 
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 4;
                         //pregunta2();
@@ -5286,7 +5289,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -5294,7 +5297,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -5302,7 +5305,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -5310,7 +5313,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -5318,7 +5321,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             while (SDL_PollEvent(&evento) != 0) {
                 if (Puntuacion == 1) {
@@ -5327,7 +5330,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -5335,7 +5338,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -5343,7 +5346,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -5351,7 +5354,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //  SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -5359,13 +5362,13 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (bk == 2) {
                     Fondo1 = IMG_Load("Img/5COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -5373,34 +5376,34 @@ void Game::miniJuegopolitica() {
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
 
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/3COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //  SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/2COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //   SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/1COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //   SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
                     bk = 3;
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
 
                 if (evento.button.x >= 38 && evento.button.x <= 200 && evento.button.y >= 170 && evento.button.y <= 240) {
 
@@ -5417,7 +5420,7 @@ void Game::miniJuegopolitica() {
 
 
 
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 5;
                     }
@@ -5432,7 +5435,7 @@ void Game::miniJuegopolitica() {
                         currentImg = wrong;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 5;
                     }
@@ -5449,7 +5452,7 @@ void Game::miniJuegopolitica() {
                         Puntuacion++;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 5;
                         //pregunta2();
@@ -5465,7 +5468,7 @@ void Game::miniJuegopolitica() {
                         currentImg = wrong;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 5;
                     }
@@ -5488,7 +5491,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 2) {
 
@@ -5496,7 +5499,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 3) {
 
@@ -5504,7 +5507,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 4) {
 
@@ -5512,7 +5515,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
             }
             if (Puntuacion == 5) {
 
@@ -5520,7 +5523,7 @@ void Game::miniJuegopolitica() {
 
                 SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                 SDL_FreeSurface(heart1);
-                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
             }
             while (SDL_PollEvent(&evento) != 0) {
 
@@ -5530,7 +5533,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 2) {
 
@@ -5538,7 +5541,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 3) {
 
@@ -5546,7 +5549,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 4) {
 
@@ -5554,7 +5557,7 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                 }
                 if (Puntuacion == 5) {
 
@@ -5562,13 +5565,13 @@ void Game::miniJuegopolitica() {
 
                     SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
                     SDL_FreeSurface(heart1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                 }
                 if (bk == 3) {
                     Fondo1 = IMG_Load("Img/5COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
@@ -5576,34 +5579,34 @@ void Game::miniJuegopolitica() {
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
 
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/3COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/2COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    // SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
 
 
                     Fondo1 = IMG_Load("Img/1COUNTDOWN.png");
                     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
                     SDL_FreeSurface(Fondo1);
-                    SDL_UpdateWindowSurface(Ventana);
+                    //SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(500);
                     bk = 4;
                 }
 
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
                 if (evento.button.x >= 38 && evento.button.x <= 200 && evento.button.y >= 170 && evento.button.y <= 240) {
 
 
@@ -5619,7 +5622,7 @@ void Game::miniJuegopolitica() {
 
 
 
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 6;
                     }
@@ -5635,7 +5638,7 @@ void Game::miniJuegopolitica() {
                         Puntuacion++;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 6;
                     }
@@ -5652,7 +5655,7 @@ void Game::miniJuegopolitica() {
 
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 6;
                         //pregunta2();
@@ -5668,7 +5671,7 @@ void Game::miniJuegopolitica() {
                         currentImg = wrong;
                         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                         SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
+                        SDL_Delay(1000);
 
                         prtnum = 6;
                     }
@@ -5688,7 +5691,7 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win1;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5700,7 +5703,7 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win2;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                // SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5711,7 +5714,7 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win3;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                //  SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5722,7 +5725,7 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win4;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                //  SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5733,7 +5736,7 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win5;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                SDL_UpdateWindowSurface(Ventana);
+                //   SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5749,7 +5752,7 @@ void Game::miniJuegopolitica() {
 
 
         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-        SDL_UpdateWindowSurface(Ventana);
+        // SDL_UpdateWindowSurface(Ventana);
     }
 
 
@@ -5799,6 +5802,7 @@ void Game::miniJuegopolitica() {
     SDL_Quit();
 
 
+
 }
 
 //mapa
@@ -5829,7 +5833,11 @@ void Game::Map()
 
     SDL_Texture* Fondo;
 
-
+    SDL_Surface* heart1;
+    SDL_Surface* heart2;
+    SDL_Surface* heart3;
+    SDL_Surface* heart4;
+    SDL_Surface* heart5;
 
     SDL_Surface* Continuar;
 
@@ -5872,7 +5880,8 @@ void Game::Map()
 
 
 
-    SDL_Surface* heart1 = NULL;
+    SDL_Rect    gdPosScore;
+    //SDL_Surface* heart1 = NULL;
 
     int Puntuacion = 0;
     int bk = 0;
@@ -5880,12 +5889,45 @@ void Game::Map()
     SDL_Surface* currentImg = prt1;
     SDL_Event evento;
     currentImg = prt1;
+    gdPosScore.x = 18; gdPosScore.y = 18; gdPosScore.w = SPRITE_SIZE; gdPosScore.h = SPRITE_SIZE;
     while (isRunning) {
+        if (vidas == 1) {
+            heart1 = IMG_Load("Img/1heart.png");
 
+            SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
+            SDL_FreeSurface(heart1);
+            //SDL_UpdateWindowSurface(Ventana);
+        }
+        if (vidas == 2) {
+            heart1 = IMG_Load("Img/2heart.png");
 
+            SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
+            SDL_FreeSurface(heart1);
+            // SDL_UpdateWindowSurface(Ventana);
+        }
+        if (vidas == 3) {
+            heart1 = IMG_Load("Img/3heart.png");
 
+            SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
+            SDL_FreeSurface(heart1);
+            //SDL_UpdateWindowSurface(Ventana);
+        }
+        if (vidas == 4) {
+            heart1 = IMG_Load("Img/4heart.png");
 
+            SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
+            SDL_FreeSurface(heart1);
+            //SDL_UpdateWindowSurface(Ventana);
+        }
+        if (vidas == 5) {
+            heart1 = IMG_Load("Img/5heart.png");
 
+            SDL_BlitSurface(heart1, NULL, superficieVentana, &gdPosScore);
+            SDL_FreeSurface(heart1);
+            // SDL_UpdateWindowSurface(Ventana);
+        }
+
+        SDL_UpdateWindowSurface(Ventana);
 
 
 
@@ -5961,7 +6003,7 @@ void Game::Map()
 
 
         SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-        SDL_UpdateWindowSurface(Ventana);
+
     }
 
 
@@ -12013,3 +12055,744 @@ void Game::MesaSintesis()
 
 
 }
+
+
+void Game::mesadeAnalisis()
+{
+
+    const int WIDTH = 1000;
+    const int HEIGHT = 600;
+
+    const int SizeMessaje = 50;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+    SDL_Renderer* renderizado; // render de ventana
+
+    //Imagenes
+    SDL_Surface* Fondo1;
+    SDL_Texture* Tfondo;
+    SDL_Surface* superficieVentana;
+    SDL_Surface* table = nullptr;
+
+
+    SDL_Surface* clue1 = nullptr;
+    SDL_Surface* clue2 = nullptr;
+    SDL_Surface* clue3 = nullptr;
+    SDL_Surface* clue4 = nullptr;
+
+    SDL_Surface* elegir = nullptr;
+    SDL_Surface* animSpoon1 = nullptr;
+    SDL_Surface* animSpoon2 = nullptr;
+    SDL_Surface* animSpoon3 = nullptr;
+    SDL_Surface* animSpoon4 = nullptr;
+    SDL_Surface* animRed1 = nullptr;
+    SDL_Surface* animRed2 = nullptr;
+    SDL_Surface* animRed3 = nullptr;
+    SDL_Surface* animRed4 = nullptr;
+    SDL_Surface* animRed5 = nullptr;
+
+    SDL_Surface* flame1 = nullptr;
+    SDL_Surface* flame2 = nullptr;
+    SDL_Surface* flame3 = nullptr;
+    SDL_Surface* flame4 = nullptr;
+    SDL_Surface* Book = nullptr;
+    SDL_Surface* crossOut = nullptr;
+    SDL_Surface* mortero1 = nullptr;
+    SDL_Surface* mortero2 = nullptr;
+    SDL_Surface* mortero3 = nullptr;
+    SDL_Surface* mortero4 = nullptr;
+    SDL_Surface* mortero5 = nullptr;
+    SDL_Surface* mortero6 = nullptr;
+    SDL_Surface* right = nullptr;
+    SDL_Surface* wrong1 = nullptr;
+    SDL_Surface* wrong2 = nullptr;
+    SDL_Surface* wrong3 = nullptr;
+    SDL_Surface* wrong4 = nullptr;
+    SDL_Surface* wrong5 = nullptr;
+    SDL_Surface* wrong6 = nullptr;
+    SDL_Surface* wrong7 = nullptr;
+    SDL_Surface* tablebttn = nullptr;
+    SDL_Texture* Fondo;
+
+
+
+    SDL_Surface* Continuar;
+
+
+
+
+    SDL_Event EventoSalir;
+
+    const Uint32* m;
+    int salir = 0;
+    //POsiciones de los vasos
+    SDL_Rect    rcMI;
+    SDL_Rect    rcInicial; //posicion inicial
+    SDL_Rect    gdPosCartas; //posicion con el toque
+    SDL_Rect    gdMensaje;
+
+    SDL_Renderer* renderer;
+    //evento para el toque de el vaso
+
+    SDL_Event eleccion;
+    int SPRITE_SIZE = 1 / 5;
+
+    Ventana = SDL_CreateWindow("Mesa de Analisis", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    Uint32 Color = SDL_MapRGB(superficieVentana->format, 222, 235, 247);
+    SDL_FillRect(superficieVentana, NULL, Color);
+
+    renderer = SDL_CreateRenderer(Ventana, -1, SDL_RENDERER_ACCELERATED);
+
+    SDL_Surface* numScore;
+    SDL_Rect    gdPosScore;
+
+    table = IMG_Load("Analisis/ptn1.png");
+    tablebttn = IMG_Load("Analisis/ptn2.png");
+    elegir = IMG_Load("Analisis/2.png");
+    clue1 = IMG_Load("Analisis/3.png");
+    clue2 = IMG_Load("Analisis/4.png");
+    clue3 = IMG_Load("Analisis/5.png");
+    //  clue1 = IMG_Load("Img/5puzzle.png");
+
+
+    clue4 = IMG_Load("Analisis/6.png");
+    // animSpoon1 = IMG_Load("Analisis/7.png");
+    animSpoon1 = IMG_Load("Analisis/8.png");
+    animSpoon2 = IMG_Load("Analisis/9.png");
+    animSpoon3 = IMG_Load("Analisis/10.png");
+    animSpoon4 = IMG_Load("Analisis/11.png");
+    animRed1 = IMG_Load("Analisis/12.png");
+    animRed2 = IMG_Load("Analisis/13.png");
+    animRed3 = IMG_Load("Analisis/14.png");
+    animRed4 = IMG_Load("Analisis/15.png");
+    animRed5 = IMG_Load("Analisis/16.png");
+    flame1 = IMG_Load("Analisis/17.png");
+    flame2 = IMG_Load("Analisis/18.png");
+    flame3 = IMG_Load("Analisis/19.png");
+    flame4 = IMG_Load("Analisis/20.png");
+    Book = IMG_Load("Analisis/21.png");
+    crossOut = IMG_Load("Analisis/crossout.png");
+    mortero1 = IMG_Load("Analisis/22.png");
+    mortero2 = IMG_Load("Analisis/23.png");
+    mortero3 = IMG_Load("Analisis/24.png");
+    mortero4 = IMG_Load("Analisis/25.png");
+    mortero5 = IMG_Load("Analisis/26.png");
+    right = IMG_Load("Analisis/right.png");
+    //wrong1 = IMG_Load("Analisis/wrong1.png");
+    wrong1 = IMG_Load("Analisis/wrong2.png");
+    wrong2 = IMG_Load("Analisis/wrong3.png");
+    wrong3 = IMG_Load("Analisis/wrong4.png");
+    wrong4 = IMG_Load("Analisis/wrong5.png");
+    wrong5 = IMG_Load("Analisis/wrong6.png");
+    wrong6 = IMG_Load("Analisis/wrong7.png");
+
+
+    SDL_Surface* currentImg = table;
+
+    std::vector<int> v;
+    SDL_Event evento;
+    SDL_Event evento2;
+    //SDL_MouseButtonEvent b = b;
+    SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+    SDL_UpdateWindowSurface(Ventana);
+    int count = 0;
+
+    bool libro = false;
+    bool elegirbool = false;
+    bool crossOutbool = false;
+    int taskComplete = 0;
+    int correct = 0;
+    /*
+      while (elegirbool == true) {
+
+
+            SDL_UpdateWindowSurface(Ventana);
+            while (SDL_PollEvent(&evento2) != 0) {
+
+
+
+
+
+                if (std::count(v.begin(), v.end(), 1)) {
+                    std::cout << "yes its hereee bitchhhhhhhh";
+
+                    gdPosScore.x = 335; gdPosScore.y = 179;
+                    SDL_RenderClear(renderer);
+                    crossOut = IMG_Load("Analisis/crossout.png");
+
+                    SDL_BlitSurface(crossOut, NULL, superficieVentana, &gdPosScore);
+                    SDL_FreeSurface(crossOut);
+
+                }
+                currentImg = Book;
+                if (evento2.type == SDL_MOUSEBUTTONUP) {
+
+                    libro = false;
+
+
+                }
+            }
+        }
+         */
+    while (isRunning) {
+
+
+
+
+        if (elegirbool == false) {
+
+            SDL_UpdateWindowSurface(Ventana);
+            while (SDL_PollEvent(&evento) != 0) {
+
+
+
+                // ********** C L U E 1 ************
+                if (evento.button.x >= 66 && evento.button.x <= 155 && evento.button.y >= 107 && evento.button.y <= 167) {
+
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue4;
+                        ///count = 1;
+
+
+                    }
+
+                }
+                // ********** C L U E 2 ************
+                else if (evento.button.x >= 489 && evento.button.x <= 541 && evento.button.y >= 291 && evento.button.y <= 431) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue3;
+                    }
+
+                }
+
+                // ********** C L U E 3 ************
+
+                else if (evento.button.x >= 709 && evento.button.x <= 755 && evento.button.y >= 60 && evento.button.y <= 174) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue1;
+
+                    }
+
+                }
+                // ********** C L U E 4 ************
+
+                else if (evento.button.x >= 784 && evento.button.x <= 871 && evento.button.y >= 78 && evento.button.y <= 172) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = clue2;
+
+                    }
+
+                }
+                // ********** BOOK  ************
+
+                else if (evento.button.x >= 741 && evento.button.x <= 965 && evento.button.y >= 231 && evento.button.y <= 415) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = Book;
+
+                        libro = true;
+                    }
+
+                }
+                // ********** R e d ************
+
+                else if (evento.button.x >= 684 && evento.button.x <= 787 && evento.button.y >= 416 && evento.button.y <= 482) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = animRed1;
+
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+
+                        SDL_Delay(200);
+
+                        currentImg = animRed2;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+
+                        SDL_Delay(200);
+                        currentImg = animRed3;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+
+                        SDL_Delay(200);
+                        currentImg = animRed4;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_Delay(200);
+                        currentImg = animRed5;
+                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                        SDL_Delay(200);
+                        v.push_back(1);
+                    }
+
+                }
+                // ********** S P O O N ************
+
+                else if (evento.button.x >= 852 && evento.button.x <= 950 && evento.button.y >= 434 && evento.button.y <= 462) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = animSpoon1;
+
+                        SDL_Delay(200);
+                        currentImg = animSpoon2;
+                        SDL_Delay(200);
+                        currentImg = animSpoon3;
+                        SDL_Delay(200);
+                        currentImg = animSpoon4;
+                        SDL_Delay(300);
+                        v.push_back(2);
+
+                    }
+
+                }
+                //*************  M O R T E R O  ***************
+                else if (evento.button.x >= 14 && evento.button.x <= 137 && evento.button.y >= 348 && evento.button.y <= 477) {
+
+
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = mortero1;
+
+                        SDL_Delay(200);
+                        currentImg = mortero2;
+                        SDL_Delay(200);
+                        currentImg = mortero3;
+                        SDL_Delay(200);
+                        currentImg = mortero4;
+                        SDL_Delay(200);
+                        currentImg = mortero5;
+                        SDL_Delay(300);
+                        v.push_back(3);
+
+                    }
+                }
+                else if (evento.button.x >= 248 && evento.button.x <= 368 && evento.button.y >= 529 && evento.button.y <= 570) {
+
+                    //currentImg = tablebttn;
+                    if (evento.type == SDL_MOUSEBUTTONDOWN) {
+
+                        currentImg = elegir;
+                        std::cout << "*";
+                        elegirbool = true;
+                    }
+                }
+                else {
+
+                    currentImg = table;
+
+
+
+                }
+            }
+
+        }
+        if (elegirbool == true) {
+
+
+            SDL_UpdateWindowSurface(Ventana);
+            while (SDL_PollEvent(&evento2) != 0) {
+                if (evento2.button.x >= 46 && evento2.button.x <= 290 && evento2.button.y >= 155 && evento2.button.y <= 418) {
+
+
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "1";
+                        correct = 1;
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        right = IMG_Load("Analisis/right.png");
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(right, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(right);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(50000);
+
+                    }
+                }
+                else if (evento2.button.x >= 336 && evento2.button.x <= 455 && evento2.button.y >= 122 && evento2.button.y <= 454) {
+
+
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "2";
+                        correct = 2;
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        // right = IMG_Load("Analisis/right.png");
+                        wrong1 = IMG_Load("Analisis/wrong2.png");
+                        wrong2 = IMG_Load("Analisis/wrong3.png");
+                        wrong3 = IMG_Load("Analisis/wrong4.png");
+                        wrong4 = IMG_Load("Analisis/wrong5.png");
+                        wrong5 = IMG_Load("Analisis/wrong6.png");
+                        wrong6 = IMG_Load("Analisis/wrong7.png");
+
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(1000);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong5, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong5);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+                        SDL_BlitSurface(wrong6, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong6);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(5000);
+
+
+                    }
+                }
+                else if (evento2.button.x >= 561 && evento2.button.x <= 676 && evento2.button.y >= 142 && evento2.button.y <= 451) {
+
+
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "3";
+                        correct = 3;
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        // right = IMG_Load("Analisis/right.png");
+                        wrong1 = IMG_Load("Analisis/wrong2.png");
+                        wrong2 = IMG_Load("Analisis/wrong3.png");
+                        wrong3 = IMG_Load("Analisis/wrong4.png");
+                        wrong4 = IMG_Load("Analisis/wrong5.png");
+                        wrong5 = IMG_Load("Analisis/wrong6.png");
+                        wrong6 = IMG_Load("Analisis/wrong7.png");
+
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(1000);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong5, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong5);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+                        SDL_BlitSurface(wrong6, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong6);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(5000);
+                    }
+                }
+                else if (evento2.button.x >= 758 && evento2.button.x <= 948 && evento2.button.y >= 153 && evento2.button.y <= 434) {
+
+
+                    if (evento2.type == SDL_MOUSEBUTTONDOWN) {
+                        std::cout << "4";
+                        correct = 4;
+                        flame1 = IMG_Load("Analisis/17.png");
+                        flame2 = IMG_Load("Analisis/18.png");
+                        flame3 = IMG_Load("Analisis/19.png");
+                        flame4 = IMG_Load("Analisis/20.png");
+                        // right = IMG_Load("Analisis/right.png");
+                        wrong1 = IMG_Load("Analisis/wrong2.png");
+                        wrong2 = IMG_Load("Analisis/wrong3.png");
+                        wrong3 = IMG_Load("Analisis/wrong4.png");
+                        wrong4 = IMG_Load("Analisis/wrong5.png");
+                        wrong5 = IMG_Load("Analisis/wrong6.png");
+                        wrong6 = IMG_Load("Analisis/wrong7.png");
+
+                        SDL_BlitSurface(flame1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(1000);
+
+
+
+                        SDL_BlitSurface(flame2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(flame4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(flame4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong1, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong1);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong2, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong2);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong3, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong3);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+
+                        SDL_BlitSurface(wrong4, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong4);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+
+
+                        SDL_BlitSurface(wrong5, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong5);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(100);
+                        SDL_BlitSurface(wrong6, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(wrong6);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(5000);
+                    }
+                }
+                else {
+
+                    currentImg = elegir;
+                }
+
+
+            }
+
+            SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+        }
+
+        //************************************************************************************************************************************************************************************************
+
+
+        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+        //SDL_UpdateWindowSurface(Ventana);
+        //SDL_UpdateWindowSurface(superficieVentana);
+    }
+
+
+
+    SDL_Quit();
+};
+

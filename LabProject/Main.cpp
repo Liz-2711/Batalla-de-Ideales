@@ -34,6 +34,9 @@ int main(int argc, char* argv[])
     //game->minjuegoHistoria();
     //game->Map();
 
+
+    game->mesadeAnalisis();
+
     while (game->running())
     {
 

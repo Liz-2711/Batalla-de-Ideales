@@ -62,6 +62,8 @@ public:
 
 
 	void MesaSintesis();
+
+	void mesadeAnalisis();
 	
 	//funciones de juegos de la parte de eleccion
 	void juegoArte();
