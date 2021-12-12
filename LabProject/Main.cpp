@@ -25,9 +25,10 @@ int main(int argc, char* argv[])
     //game->juegoArte();
     //game->bandosCoinFlip();
     //game->CombateTrancendental(5);
-    //game->EdificioUni(0);
+    game->EdificioUni(0);
     //game->MesaSintesis();
-    game->AniMesAna(0);
+    //game->AniMesAna(0);
+    //game->mesaEnumeracion();
    // game->mesadeAnalisis();
     //game->EscapeRoom();
     //game->mesaEnumeracion();
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
     //game->Map();
 
 
-    game->mesadeAnalisis();
+    //game->mesadeAnalisis();
 
     while (game->running())
     {

@@ -4,6 +4,7 @@
 #include <iostream>
 #include"SDL_image.h"
 #include <stdio.h>
+#include <string>
 
 class Game
 {
@@ -60,6 +61,8 @@ public:
 	void elementosMesaEnumeracion();
 	void eventosMesaEnumeracion();
 
+	void mensajePared();
+	void eventosMensajePared();
 
 	void MesaSintesis();
 
@@ -99,6 +102,8 @@ private:
     SDL_Rect posFinal;
 
 
+
+	std::string salascomplet;
 
 	int bando=1;
 	//1 - Racionalistas
