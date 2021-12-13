@@ -13840,3 +13840,900 @@ void Game::AniMesAna(int _correcto)
 
 };
 
+void Game::MesaEvidencia()
+{
+    //parte == 6
+    const int WIDTH = 1000; //Ancho de pantalla
+    const int HEIGHT = 564; // altura de pantallla
+    const int SPRITE_SIZE = 900; //TAMA;O D ELA ORCA
+    const int SizeMessaje = 900; // tamaño de mensaje de carta eleguida
+    const int FPS = 60;
+    const int frameDaley = 1000 / FPS;
+
+    Uint32 frameStart;
+    int frameTIme;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Izquierda;
+    SDL_Surface* PARTESa;
+    SDL_Surface* AniLab;
+
+
+    //envento para salir
+    SDL_Event EventoSalir;
+
+    int vida = vidas;
+    int vidaIa = 3;
+    int salir = 0;
+    //POsiciones de las imagenes
+    SDL_Rect    rcInicial;
+    SDL_Rect    gdFinal;
+
+    bool animation = false;
+    int frame = 2;
+    int speed = 500;
+
+    int movi = 1;
+
+    int x = 0;
+    int y = 0;
+    //evento 
+    int p = 0;
+
+    SDL_Event Event;
+    SDL_Event even;
+
+    int escena = 0;
+
+    int codiAle = 0;
+    srand(time(NULL));
+
+    std::string codigo = "";
+    std::string codigocorrec = "";
+    int intentos = 0;
+    int intentos2 = 0;
+    int xx =0;
+    int ye=0;
+    Ventana = SDL_CreateWindow("Combate por la verdad", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    if (Ventana == NULL)
+    {
+        std::cout << "Error";
+
+    }
+    else
+    {
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = 28; rcInicial.h = SPRITE_SIZE;
+
+        gdFinal.x = 566; gdFinal.y = 207; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+
+        Fondo = IMG_Load("SalaEvi/FondoE.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+        Izquierda = IMG_Load("Edificio/Izquierda.png");
+        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+        SDL_FreeSurface(Fondo);
+
+        SDL_UpdateWindowSurface(Ventana);
+        int ani = 0;
+        int i = 0;
+        while (p == 0)
+        {
+            //tiempo++;
+
+
+            frameStart = SDL_GetTicks();
+            if (SDL_PollEvent(&Event))
+            {
+                std::cout << "\nx - " << Event.motion.x;
+                std::cout << "\ny- " << Event.motion.y;
+
+                x = Event.motion.x;
+                y = Event.motion.y;
+
+
+                if (gdFinal.x >= 462 && gdFinal.y >= 210 && gdFinal.x < 464 && gdFinal.y < 240 && escena == 0 && ani == 0)
+                {
+                    std::cout << "Esfera";
+                   escena = 1;
+                    //escena = 2;
+                }
+                else if (gdFinal.x >= 323 && gdFinal.y >= 210 && gdFinal.x < 334 && gdFinal.y < 240 && escena == 0 && ani == 1)
+                {
+                    //minijuego de lizzie
+                    //debe regresar con escena 0 y ani == 2
+                }
+                if (gdFinal.x >= 462 && gdFinal.y >= 210 && gdFinal.x < 464 && gdFinal.y < 240 && escena == 0 && ani == 2)
+                {
+                    std::cout << "Animacion final";
+                    escena = 2;
+
+
+                }
+                else if (gdFinal.x >= 597 && gdFinal.y >= 199 && gdFinal.x < 633 && gdFinal.y < 231 && escena == 0 && ani == 4)
+                {
+                    std::cout << "salida";
+                    SDL_Quit();
+                    EdificioUni(1);
+                    escena = 4;
+
+                }
+                //else if (gdFinal.x >= 355 && gdFinal.y >= 205 && gdFinal.x < 386 && gdFinal.y < 267 && escena == 0 && ani == 5)
+                //{
+                //    std::cout << "Salir";
+                //    SDL_Quit();
+                //    SDL_DestroyWindow(Ventana);
+
+                //    EdificioUni(1);
+
+                //}
+
+
+
+                //frameStart = SDL_GetTicks();
+                else if (escena == 0) {
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+
+                            gdFinal.y += 1;
+
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEvi/FondoE.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEvi/FondoE.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+
+                            break;
+                        case SDLK_LEFT:
+
+
+                            gdFinal.x -= movi;
+
+
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEvi/FondoE.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+                            break;
+
+                        case SDLK_RIGHT:
+
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia X- " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEvi/FondoE.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+
+                            break;
+
+
+
+                        }
+                    }
+
+
+                }
+                else if (escena == 1)
+                {
+
+                    //gdFinal.x = 507; gdFinal.y = 226;
+                    AniLab = IMG_Load("SalaEvi/E1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(1000);
+
+
+                    AniLab = IMG_Load("SalaEvi/E2.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEvi/E3.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEvi/E4.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEvi/E5.1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    
+                    ani = 1;
+                    escena = 0;
+                }
+                else if (escena == 2)
+                {
+
+                    //gdFinal.x = 445; gdFinal.y = 67;
+
+                    AniLab = IMG_Load("SalaEvi/F.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                   
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(3000);
+
+
+                    AniLab = IMG_Load("SalaEvi/FE1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(3000);
+
+                    AniLab = IMG_Load("SalaEvi/M6.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(3000);
+                    
+                    while (i == 0)
+                    {
+                        if (SDL_PollEvent(&even))
+                        {
+                            xx = even.motion.x;
+                            ye = even.motion.y;
+                            switch (even.type)
+                            {
+
+                            case SDL_MOUSEBUTTONDOWN:
+                                /*std::cout << "\n\nxx: " << xx;
+                                std::cout << "\n\nye: " << ye;*/
+
+                               
+
+                                if (xx > 457 && ye > 325 && xx < 689 && ye < 369)
+                                {
+                                    //boton 1
+                                    std::cout << "boron 1 ";
+
+                                    AniLab = IMG_Load("SalaEvi/FondoE.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    AniLab = IMG_Load("SalaEvi/F1.png");
+
+                                   
+
+                                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_FreeSurface(AniLab);
+                                    SDL_Delay(3000);
+                                    i = 1;
+                                    ani = 4;
+                                }
+
+                                if (xx > 483 && ye > 406 && xx < 677 && ye < 478)
+                                {
+                                    //boton 2
+                                    std::cout << "boron 2";
+
+                                    AniLab = IMG_Load("SalaEvi/FondoE.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    AniLab = IMG_Load("SalaEvi/FE2.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_FreeSurface(AniLab);
+                                    SDL_Delay(3000);
+                                    i = 1;
+                                    ani = 4;
+                                }
+
+                                if (xx > 757 && ye > 326 && xx < 942 && ye < 370)
+                                {
+                                    //boton 3
+                                    std::cout << "boron 3 ";
+                                    AniLab = IMG_Load("SalaEvi/FondoE.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    SDL_FreeSurface(AniLab);
+                                    AniLab = IMG_Load("SalaEvi/FE3.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_FreeSurface(AniLab);
+                                    SDL_Delay(3000);
+                                    i = 1;
+                                    ani = 4;
+                                }
+
+
+                                if (xx > 754 && ye > 410 && xx < 956 && ye < 454)
+                                {
+                                    //boton 4
+                                    std::cout << "boron 4 ";
+                                    AniLab = IMG_Load("SalaEvi/FondoE.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    AniLab = IMG_Load("SalaEvi/FE4.png");
+                                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_FreeSurface(AniLab);
+                                    SDL_Delay(3000);
+
+                                    i = 1;
+                                    ani = 4;
+                                }
+
+                                
+
+
+                            }
+                        }
+                    }
+
+                    AniLab = IMG_Load("SalaEvi/FondoE.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(1000);
+                    escena = 0;
+                    ani = 4;
+
+
+                }
+               
+
+                frameTIme = SDL_GetTicks() - frameStart;
+                if (frameDaley > frameTIme)
+                {
+                    SDL_Delay(frameDaley - frameTIme);
+                }
+
+
+
+
+
+                //std::cout << tiempo;
+            }
+
+
+        }
+    }
+
+    while (!salir)
+    {
+
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+
+
+
+    }
+
+
+
+
+}
+
+void Game::MesaEnumeracion2()
+{
+    //parte == 6
+    const int WIDTH = 1000; //Ancho de pantalla
+    const int HEIGHT = 564; // altura de pantallla
+    const int SPRITE_SIZE = 900; //TAMA;O D ELA ORCA
+    const int SizeMessaje = 900; // tamaño de mensaje de carta eleguida
+    const int FPS = 60;
+    const int frameDaley = 1000 / FPS;
+
+    Uint32 frameStart;
+    int frameTIme;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Izquierda;
+    SDL_Surface* PARTESa;
+    SDL_Surface* AniLab;
+
+
+    //envento para salir
+    SDL_Event EventoSalir;
+
+    int vida = vidas;
+    int vidaIa = 3;
+    int salir = 0;
+    //POsiciones de las imagenes
+    SDL_Rect    rcInicial;
+    SDL_Rect    gdFinal;
+
+    bool animation = false;
+    int frame = 2;
+    int speed = 500;
+
+    int movi = 1;
+
+    int x = 0;
+    int y = 0;
+    //evento 
+    int p = 0;
+
+    SDL_Event Event;
+    SDL_Event even;
+
+    int escena = 0;
+
+    int codiAle = 0;
+    srand(time(NULL));
+
+    std::string codigo = "";
+    std::string codigocorrec = "";
+    int intentos = 0;
+    int intentos2 = 0;
+    int xx = 0;
+    int ye = 0;
+    Ventana = SDL_CreateWindow("Combate por la verdad", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    if (Ventana == NULL)
+    {
+        std::cout << "Error";
+
+    }
+    else
+    {
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = 28; rcInicial.h = SPRITE_SIZE;
+
+        gdFinal.x = 566; gdFinal.y = 207; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+
+        Fondo = IMG_Load("SalaEnu/FondoN.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+        Izquierda = IMG_Load("Edificio/Izquierda.png");
+        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+        SDL_FreeSurface(Fondo);
+
+        SDL_UpdateWindowSurface(Ventana);
+        int ani = 0;
+        int i = 0;
+        while (p == 0)
+        {
+            //tiempo++;
+
+
+            frameStart = SDL_GetTicks();
+            if (SDL_PollEvent(&Event))
+            {
+                std::cout << "\nx - " << Event.motion.x;
+                std::cout << "\ny- " << Event.motion.y;
+
+                x = Event.motion.x;
+                y = Event.motion.y;
+
+
+                if (gdFinal.x >= 462 && gdFinal.y >= 210 && gdFinal.x < 464 && gdFinal.y < 240 && escena == 0 && ani == 0)
+                {
+                    std::cout << "Esfera";
+                    escena = 1;
+                    // escena = 2;
+                }
+               
+                
+                else if (gdFinal.x >= 355 && gdFinal.y >= 205 && gdFinal.x < 386 && gdFinal.y < 267 && escena == 0 && ani == 4)
+                {
+                    std::cout << "Salir";
+                    SDL_Quit();
+                    SDL_DestroyWindow(Ventana);
+
+                    EdificioUni(2);
+
+                }
+
+
+
+                ////frameStart = SDL_GetTicks();
+                else if (escena == 0) {
+                    switch (Event.type)
+                    {
+
+                    case SDL_QUIT:
+                        salir = 1;
+                        break;
+
+                    case SDL_KEYDOWN:
+
+                        switch (Event.key.keysym.sym)
+                        {
+                        case SDLK_SPACE:
+                            salir = 1;
+                            break;
+                        case SDLK_DOWN:
+
+                            gdFinal.y += 1;
+
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEnu/FondoN.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Abajo.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+                            break;
+                        case SDLK_UP:
+                            gdFinal.y -= 1;
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEnu/FondoN.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Arriba.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+
+                            break;
+                        case SDLK_LEFT:
+
+
+                            gdFinal.x -= movi;
+
+
+
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEnu/FondoN.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/Izquierda.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+                            break;
+
+                        case SDLK_RIGHT:
+
+                            gdFinal.x += (1 * movi);
+
+                            std::cout << "\n Aquia X- " << gdFinal.x;
+                            animation = true;
+                            if (animation) {
+                                Fondo = IMG_Load("SalaEnu/FondoN.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                                rcInicial.x = rcInicial.w * static_cast<int>((SDL_GetTicks() / speed) % frame);
+
+                                Izquierda = IMG_Load("Edificio/derecha.png");
+                                SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+
+
+                                SDL_UpdateWindowSurface(Ventana);
+                            }
+
+
+                            break;
+
+
+
+                        }
+                    }
+
+
+                }
+                else if (escena == 1)
+                {
+
+                    //gdFinal.x = 507; gdFinal.y = 226;
+                    AniLab = IMG_Load("SalaEnu/N1.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/Izquierda.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(1000);
+
+
+                    AniLab = IMG_Load("SalaEnu/N2.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEnu/N3.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEnu/N4.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+                    AniLab = IMG_Load("SalaEnu/FondoN.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(AniLab);
+                    SDL_Delay(4000);
+
+
+                    ani = 1;
+                    escena = 2;
+
+                }
+
+                else if (escena == 2)
+                {
+
+                    // aqui e sdonde hraa tu juego 
+                    while (i == 0)
+                    {
+                        if (SDL_PollEvent(&even))
+                        {
+                            xx = even.motion.x;
+                            ye = even.motion.y;
+                            switch (even.type)
+                            {
+
+                            case SDL_MOUSEBUTTONDOWN:
+                                std::cout << "\n\nxx: " << xx;
+                                std::cout << "\n\nye: " << ye;
+
+                                
+                                //PARED DE ARRIBA
+                                if (xx > 420 && ye > 78 && xx < 448 && ye < 91)
+                                {
+                                    // aqui tu codigo de pared que sea aleatorio no siempre el mismo en la misma pared
+                                }
+
+                                //PARED DE ENMEDIO
+                                if (xx > 295 && ye > 223 && xx < 310 && ye < 261)
+                                {
+                                    // aqui tu codigo de pared que sea aleatorio no siempre el mismo en la misma pared
+                                }
+                                
+                                //PARED DE ABAJO
+                                if (xx > 405 && ye > 454 && xx < 444 && ye < 468)
+                                {
+                                    //boton 3
+                                   // aqui tu codigo de pared que sea aleatorio no siempre el mismo en la misma pared
+                                }
+
+                                //COFRE
+                                if (xx > 428 && ye > 240 && xx < 430 && ye < 271)
+                                {
+                                    //boton 4
+                                   //Aqui debe de entrar al codigo y si el codigo es correcto debe dar estos parametros scena = 0 , ani = 4;
+                                }
+
+                               
+
+                            }
+                        }
+                    }
+                    Fondo = IMG_Load("SalaEnu/FondoN.png");
+                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                    Izquierda = IMG_Load("Edificio/derecha.png");
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                }
+
+               
+
+
+                frameTIme = SDL_GetTicks() - frameStart;
+                if (frameDaley > frameTIme)
+                {
+                    SDL_Delay(frameDaley - frameTIme);
+                }
+
+
+
+
+
+                //std::cout << tiempo;
+            }
+
+
+        }
+    }
+
+    while (!salir)
+    {
+
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+
+
+
+    }
+
+
+
+
+}
+

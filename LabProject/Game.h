@@ -65,6 +65,8 @@ public:
 	void eventosMensajePared();
 
 	void MesaSintesis();
+	void MesaEvidencia();
+	void MesaEnumeracion2();
 
 	void mesadeAnalisis();
 	void AniMesAna(int);

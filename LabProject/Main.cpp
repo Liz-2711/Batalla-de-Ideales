@@ -25,7 +25,9 @@ int main(int argc, char* argv[])
     //game->juegoArte();
     //game->bandosCoinFlip();
     //game->CombateTrancendental(5);
-    game->EdificioUni(0);
+    //game->EdificioUni(0);
+    //game->MesaEvidencia();
+     game->MesaEnumeracion2();
     //game->MesaSintesis();
     //game->AniMesAna(0);
     //game->mesaEnumeracion();
