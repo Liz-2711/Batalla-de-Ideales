@@ -32,7 +32,7 @@ public:
 
 	void miniJuegopolitica();
 
-	void Map();
+	void Map(int);
 
 	void bandosCoinFlip();
 	
@@ -67,6 +67,10 @@ public:
 	void MesaSintesis();
 	void MesaEvidencia();
 	void MesaEnumeracion2();
+
+	void mesadeEvidenciaMinijuego();
+
+	void GameOver(int vidas);
 
 	void mesadeAnalisis();
 	void AniMesAna(int);
