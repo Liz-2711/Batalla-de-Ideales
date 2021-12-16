@@ -426,6 +426,7 @@ void Game::pantallaCartas()
     
     SDL_Surface* Continuar; // imagen de tecla espace y tecla escape
 
+    SDL_Surface* Logro = nullptr;
 
 
     //enveno para salir
@@ -489,6 +490,7 @@ void Game::pantallaCartas()
         gdPosCartas.x = 120;
         Continuar = IMG_Load("Imagenes/Continuar.png");
 
+        Logro = IMG_Load("Logros/Carta.png");
 
         ////Liberemaos las imagenes
         SDL_FreeSurface(Fondo);
@@ -547,6 +549,10 @@ void Game::pantallaCartas()
                                 Carta1 = IMG_Load("Imagenes/MensajeC.png");
                                 i = 1;
                             }
+                            Logro = IMG_Load("Logros/Carta.png");
+                            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(500);
                             SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
                             gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
                             SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
@@ -580,6 +586,10 @@ void Game::pantallaCartas()
                                 Carta1 = IMG_Load("Imagenes/MensajeC.png");
                                 i = 1;
                             }
+                            Logro = IMG_Load("Logros/Carta.png");
+                            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(500);
                             SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
                             gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
                             SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
@@ -613,7 +623,10 @@ void Game::pantallaCartas()
                                 Carta1 = IMG_Load("Imagenes/MensajeC.png");
                                 i = 1;
                             }
-
+                            Logro = IMG_Load("Logros/Carta.png");
+                            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(500);
                             SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
                             gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
                             SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
@@ -647,12 +660,23 @@ void Game::pantallaCartas()
                                 Carta1 = IMG_Load("Imagenes/MensajeC.png");
                                 i = 1;
                             }
+
+                            Logro = IMG_Load("Logros/Carta.png");
+                            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                            SDL_UpdateWindowSurface(Ventana);
+                            SDL_Delay(500);
+
                             SDL_BlitSurface(Carta1, &rcMI, superficieVentana, &gdMensaje);
                             gdMensaje.x = 130; gdMensaje.y = 530; gdMensaje.w = 513; gdMensaje.h = 87;
                             SDL_BlitSurface(Continuar, &rcMI, superficieVentana, &gdMensaje);
                             SDL_UpdateWindowSurface(Ventana);
 
                         }
+
+                        
+
+
+
                     }
                     break;
 
@@ -682,6 +706,8 @@ void Game::pantallaCartas()
                     if (numeroAdivinar == 1)
                     {
                         std::cout << "Carta ARTE";
+                       
+
                         SDL_Quit();
                         juegoArte();
                         //miniJuegoCiencia(); 
@@ -690,6 +716,8 @@ void Game::pantallaCartas()
                     else if (numeroAdivinar == 2)
                     {
                         std::cout << "Carta Historia";
+                        
+
                         SDL_Quit();
                         juegoArte();
                         //miniJuegoCiencia();
@@ -698,7 +726,7 @@ void Game::pantallaCartas()
                     else if (numeroAdivinar == 3)
                     {
                         std::cout << "Carta POLITICA";
-                        
+                       
                         SDL_Quit();
                         juegoArte();
                         //miniJuegoCiencia();
@@ -708,6 +736,8 @@ void Game::pantallaCartas()
                     else if (numeroAdivinar == 4)
                     {
                         std::cout << "Carta CIENCIA";
+                        
+
                         SDL_Quit();
                         juegoArte();
                         //miniJuegoCiencia();
@@ -764,6 +794,7 @@ void Game::juegoArte()
     SDL_Surface* Respuesta1;
     SDL_Surface* R1;
     SDL_Surface* Corazones;
+    SDL_Surface* Logro = nullptr;
     
 
 
@@ -816,6 +847,8 @@ void Game::juegoArte()
        
         gdFinal.x = 0; gdFinal.y = 0;
         Corazones = Vidas(1);
+
+       
         
         
 
@@ -1180,8 +1213,19 @@ void Game::juegoArte()
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
-                                
-                                
+
+                                Logro = IMG_Load("Logros/Arte.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("Imagenes/G5.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
                                 i = 1;
                             }
                             else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
@@ -1199,6 +1243,19 @@ void Game::juegoArte()
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
+
+                                Logro = IMG_Load("Logros/Arte.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("Imagenes/G4.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
                                 vidas = 4;
                                 std::cout << "\n4";
                                 i = 1;
@@ -1218,6 +1275,20 @@ void Game::juegoArte()
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
+
+                                Logro = IMG_Load("Logros/Arte.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                //SDL_Delay(1000);
+                                Fondo = IMG_Load("Imagenes/G3.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
                                 i = 1;
                             }
                             else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
@@ -1236,6 +1307,19 @@ void Game::juegoArte()
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(1000);
 
+
+                                Logro = IMG_Load("Logros/Arte.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("Imagenes/G2.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
                                 
                                 i = 1;
                             }
@@ -1248,6 +1332,15 @@ void Game::juegoArte()
                                 std::cout << "\nVidas ganadas: 1";
                                 vidas = 1;
                                 SDL_Delay(1000);
+                                Fondo = IMG_Load("Imagenes/G1.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                               
+
+
                                 Fondo = IMG_Load("Imagenes/G1.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
@@ -2747,6 +2840,18 @@ void Game::juegoArte()
                                     SDL_UpdateWindowSurface(Ventana);
                                     SDL_Delay(1000);
 
+                                    Logro = IMG_Load("Logros/Arte.png");
+                                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Logro);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    Fondo = IMG_Load("Imagenes/G4.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
                                     i = 1;
                                 }
                                 else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
@@ -2757,6 +2862,19 @@ void Game::juegoArte()
                                     std::cout << "\nVidas ganadas: 3";
                                     vidas = 3;
                                     SDL_Delay(1000);
+                                    Fondo = IMG_Load("Imagenes/G3.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    Logro = IMG_Load("Logros/Arte.png");
+                                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Logro);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+
                                     Fondo = IMG_Load("Imagenes/G3.png");
                                     SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                     SDL_FreeSurface(Fondo);
@@ -2780,6 +2898,18 @@ void Game::juegoArte()
                                     SDL_UpdateWindowSurface(Ventana);
                                     SDL_Delay(1000);
 
+                                    Logro = IMG_Load("Logros/Arte.png");
+                                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Logro);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    Fondo = IMG_Load("Imagenes/G2.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
                                     i = 1;
                                 }
                                 else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
@@ -2797,6 +2927,18 @@ void Game::juegoArte()
                                     SDL_UpdateWindowSurface(Ventana);
                                     SDL_Delay(1000);
 
+                                    Logro = IMG_Load("Logros/Arte.png");
+                                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Logro);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    Fondo = IMG_Load("Imagenes/G1.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
                                     i = 1;
                                 }
                                 else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2)
@@ -2808,6 +2950,18 @@ void Game::juegoArte()
                                     std::cout << "\nVidas ganadas: 0";
 
                                     SDL_Delay(1000);
+                                    Fondo = IMG_Load("Imagenes/G0.png");
+                                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Fondo);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
+                                    Logro = IMG_Load("Logros/Arte.png");
+                                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                    SDL_FreeSurface(Logro);
+                                    SDL_UpdateWindowSurface(Ventana);
+                                    SDL_Delay(1000);
+
                                     Fondo = IMG_Load("Imagenes/G0.png");
                                     SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                     SDL_FreeSurface(Fondo);
@@ -2946,7 +3100,7 @@ void Game::miniJuegoCiencia()
     egg = IMG_Load("gameOver/1(1).png");
     SDL_Texture* Fondo;
 
-
+    SDL_Surface* Logro = nullptr;
 
     SDL_Surface* Continuar;
 
@@ -3056,6 +3210,8 @@ void Game::miniJuegoCiencia()
     win4 = IMG_Load("Img/win4.png");
     win5 = IMG_Load("Img/win5.png");
    
+
+    Logro = IMG_Load("Logros/Ciencia.png");;
 
     SDL_Surface* heart1 = NULL;
 
@@ -3935,12 +4091,35 @@ void Game::miniJuegoCiencia()
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                 SDL_UpdateWindowSurface(Ventana);
 
+
+                Logro = IMG_Load("Logros/Ciencia.png");;
+                SDL_BlitSurface(Logro, NULL, superficieVentana,NULL);
+                SDL_FreeSurface(Logro);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
+
+                currentImg = win1;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+
                 SDL_Delay(6000);
 
 
 
             }
             if (Puntuacion == 2) {
+
+
+                currentImg = win2;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                Logro = IMG_Load("Logros/Ciencia.png");;
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(Logro);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
 
 
                 currentImg = win2;
@@ -3958,11 +4137,33 @@ void Game::miniJuegoCiencia()
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
                 SDL_UpdateWindowSurface(Ventana);
 
+                Logro = IMG_Load("Logros/Ciencia.png");;
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(Logro);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
+
+
+                currentImg = win3;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
                 SDL_Delay(6000);
 
 
 
             }  if (Puntuacion == 4) {
+
+
+                currentImg = win4;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                Logro = IMG_Load("Logros/Ciencia.png");;
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(Logro);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
 
 
                 currentImg = win4;
@@ -3975,6 +4176,16 @@ void Game::miniJuegoCiencia()
 
             } if (Puntuacion == 5) {
 
+
+                currentImg = win5;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                Logro = IMG_Load("Logros/Ciencia.png");;
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(Logro);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
 
                 currentImg = win5;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
@@ -4590,7 +4801,7 @@ void Game::miniJuegopolitica() {
     SDL_Surface* heart;
 
     SDL_Texture* Fondo;
-
+    SDL_Surface* Logro = nullptr;
 
 
     SDL_Surface* Continuar;
@@ -4701,6 +4912,9 @@ void Game::miniJuegopolitica() {
     win5 = IMG_Load("Img/5hrt.png");
     SDL_Surface* egg = nullptr;
     egg = IMG_Load("gameOver/1(1).png");
+
+
+    Logro = IMG_Load("Logros/Politica.png");
 
 
     SDL_Surface* heart1 = NULL;
@@ -5730,8 +5944,16 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win1;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
                 // SDL_UpdateWindowSurface(Ventana);
+                Logro = IMG_Load("Logros/Politica.png");
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
 
+                currentImg = win1;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
                 SDL_Delay(6000);
 
 
@@ -5742,8 +5964,16 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win2;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
                 // SDL_UpdateWindowSurface(Ventana);
+                Logro = IMG_Load("Logros/Politica.png");
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
 
+                currentImg = win2;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
                 SDL_Delay(6000);
 
 
@@ -5753,7 +5983,17 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win3;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
                 //  SDL_UpdateWindowSurface(Ventana);
+                Logro = IMG_Load("Logros/Politica.png");
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
+
+                currentImg = win3;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
 
                 SDL_Delay(6000);
 
@@ -5764,7 +6004,17 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win4;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                Logro = IMG_Load("Logros/Politica.png");
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
                 //  SDL_UpdateWindowSurface(Ventana);
+
+                currentImg = win4;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -5775,7 +6025,17 @@ void Game::miniJuegopolitica() {
 
                 currentImg = win5;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+
+                Logro = IMG_Load("Logros/Politica.png");
+                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(1000);
                 //   SDL_UpdateWindowSurface(Ventana);
+
+                currentImg = win5;
+                SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
 
@@ -6461,7 +6721,7 @@ void Game::CombateporlaVerdad(int vidas)
     SDL_Surface* CaballoIA;
 
     SDL_Surface* Corazones;
-
+    SDL_Surface* Logro = nullptr;
 
 
     //envento para salir
@@ -6505,7 +6765,7 @@ void Game::CombateporlaVerdad(int vidas)
         CaballoIA = IMG_Load("CVerdad/CaballoR1.png");
         gdFinal.x = 0; gdFinal.y = 0;
      
-
+        Logro = IMG_Load("Logros/Combate1.png");
         SDL_FreeSurface(Fondo);
 
 
@@ -6900,6 +7160,20 @@ void Game::CombateporlaVerdad(int vidas)
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Logro = IMG_Load("Logros/Combate1.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("CVerdad/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
 
                                 if (bando == 1) 
                                 {
@@ -6986,6 +7260,9 @@ void Game::CombateporlaVerdad(int vidas)
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
+
+
+
                                 if (bando == 1)
                                 {
                                     musicaCarminaBurana();
@@ -7079,6 +7356,20 @@ void Game::CombateporlaVerdad(int vidas)
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
+                                Logro = IMG_Load("Logros/Combate1.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("CVerdad/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(500);
+
 
                                 if (bando == 1)
                                 {
@@ -7543,7 +7834,7 @@ void Game::CombateTrancendental(int vidas)
     SDL_Surface* CaballeroIA;
 
     SDL_Surface* Corazones;
-
+    SDL_Surface* Logro = nullptr;
 
 
     //envento para salir
@@ -8702,9 +8993,17 @@ void Game::CombateTrancendental(int vidas)
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
-
-
-
+                                SDL_Delay(200);
+                                Logro = IMG_Load("Logros/Combate3.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+                                Fondo = IMG_Load("UltimoC/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+                                
                                 if (bando == 1)
                                 {
                                     musicaHallowedBeThyName();
@@ -9066,6 +9365,19 @@ void Game::CombateTrancendental(int vidas)
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(200);
+
+                                Logro = IMG_Load("Logros/Combate3.png");
+                                SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Logro);
+                                SDL_UpdateWindowSurface(Ventana);
+                                SDL_Delay(1000);
+
+                                Fondo = IMG_Load("UltimoC/Ganador.png");
+                                SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                                SDL_FreeSurface(Fondo);
+                                SDL_UpdateWindowSurface(Ventana);
+
 
                                 if (bando == 1)
                                 {
@@ -10116,6 +10428,7 @@ void Game::EdificioUni(int _Regreso)
     SDL_Surface* Sala2;
     SDL_Surface* Sala1;
     SDL_Surface* AniLab;
+    SDL_Surface* Logro = nullptr;
 
 
     //envento para salir
@@ -10235,6 +10548,12 @@ void Game::EdificioUni(int _Regreso)
                     SDL_UpdateWindowSurface(Ventana);
                     SDL_FreeSurface(AniLab);
                     SDL_Delay(2500);
+
+                    Logro =IMG_Load("Logros/Rene.png");
+                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(Logro);
+                    SDL_Delay(1000);
 
                     AniLab = IMG_Load("Edificio/Final3.png");
                     SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
@@ -10430,9 +10749,19 @@ void Game::EdificioUni(int _Regreso)
                    std::cout << "siguiente2";
                    Fondo = IMG_Load("Edificio/Azotea.png");
                    SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+                   gdFinal.x = 480; gdFinal.y = 83;
+                   Izquierda = IMG_Load("Edificio/Abajo.png");
+                   SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                    SDL_UpdateWindowSurface(Ventana);
 
+                   Logro = IMG_Load("Logros/Escape.png");
+                   SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                   SDL_UpdateWindowSurface(Ventana);
+                   SDL_Delay(1000);
+
                    gdFinal.x = 480; gdFinal.y = 83;
+                   Fondo = IMG_Load("Edificio/Azotea.png");
+                   SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                    Izquierda = IMG_Load("Edificio/Abajo.png");
                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                    SDL_UpdateWindowSurface(Ventana);
@@ -11879,6 +12208,19 @@ void Game::EdificioUni(int _Regreso)
 
                     AniLab = IMG_Load("Edificio/Trono.png");
                     SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(1000);
+                  
+                    Logro = IMG_Load("Logros/Rene.png");
+                    SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_FreeSurface(Logro);
+                    SDL_Delay(1000);
+
+                    AniLab = IMG_Load("Edificio/Trono.png");
+                    SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                    SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                     SDL_UpdateWindowSurface(Ventana);
                     SDL_Delay(2500);
 
@@ -12538,6 +12880,7 @@ void Game::MesaSintesis()
     SDL_Surface* Izquierda;
     SDL_Surface* PARTESa;
     SDL_Surface* AniLab;
+    SDL_Surface* Logro;
 
 
     //envento para salir
@@ -13024,7 +13367,20 @@ void Game::MesaSintesis()
                         SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
                         SDL_UpdateWindowSurface(Ventana);
                         SDL_FreeSurface(AniLab);
+                        
+
+                        Logro = IMG_Load("Logros/Sintesis.png");
+                        SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(Logro);
                         SDL_Delay(1000);
+
+                        AniLab = IMG_Load("MesaSintesis/Fondo.png");
+                        SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
+                        Izquierda = IMG_Load("Edificio/Arriba.png");
+                        SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_FreeSurface(AniLab);
 
                         escena = 0;
                         ani = 3;
@@ -13968,6 +14324,8 @@ void Game::AniMesAna(int _correcto)
     SDL_Surface* PARTESa;
     SDL_Surface* AniLab;
 
+    SDL_Surface* Logro = nullptr;
+
 
     //envento para salir
     SDL_Event EventoSalir;
@@ -14016,9 +14374,27 @@ void Game::AniMesAna(int _correcto)
             gdFinal.x = 670; gdFinal.y = 206;
             Fondo = IMG_Load("Analisis/Fondo2.png");
             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+            SDL_FreeSurface(Fondo);
 
             Izquierda = IMG_Load("Edificio/Izquierda.png");
             SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+            SDL_UpdateWindowSurface(Ventana);
+            SDL_FreeSurface(Izquierda);
+
+            Logro =  IMG_Load("Logros/Analisis.png");
+            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+            SDL_UpdateWindowSurface(Ventana);
+            SDL_FreeSurface(Logro);
+            SDL_Delay(1000);
+
+
+            Fondo = IMG_Load("Analisis/Fondo2.png");
+            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+            Izquierda = IMG_Load("Edificio/Izquierda.png");
+            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+            SDL_UpdateWindowSurface(Ventana);
+
         }
         else {
 
@@ -14549,6 +14925,8 @@ void Game::MesaEvidencia(int completado)
     SDL_Surface* AniLab;
 
 
+    SDL_Surface* Logro = nullptr;
+
     //envento para salir
     SDL_Event EventoSalir;
 
@@ -14602,6 +14980,24 @@ void Game::MesaEvidencia(int completado)
         if (completado == 2)
         {
             gdFinal.x = 337; gdFinal.y = 213;
+            Fondo = IMG_Load("SalaEvi/FondoE.png");
+            SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+            Izquierda = IMG_Load("Edificio/Izquierda.png");
+            SDL_BlitSurface(Izquierda, &rcInicial, superficieVentana, &gdFinal);
+            SDL_FreeSurface(Fondo);
+            SDL_UpdateWindowSurface(Ventana);
+            SDL_Delay(1000);
+
+
+
+            //std::cout << "\n\n********************************Logro*************************\n\n";
+            Logro = IMG_Load("Logros/Evidencia.png");
+            SDL_BlitSurface(Logro, NULL, superficieVentana, NULL);
+            SDL_FreeSurface(Logro);
+            SDL_UpdateWindowSurface(Ventana);
+            SDL_Delay(1000);
+
+
             Fondo = IMG_Load("SalaEvi/FondoE.png");
             SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
 
