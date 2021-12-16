@@ -19,30 +19,50 @@ int main(int argc, char* argv[])
     int frameTime;
 
     game = new Game();
-    //game->init("GameWindow", 800, 600, false);
-    //game->combateSujeto();
-    //game->CombateporlaVerdad(5);
+    //Lizzie -  Video introducctivo
+    //game->init("GameWindow", 800, 600, false); 
+    
+    //Mirian
+    //game->pantallaCartas();
     //game->juegoArte();
-    //game->bandosCoinFlip();
-    //game->CombateTrancendental(5);
-    //game->EdificioUni(0);
-    //game->MesaEvidencia();
-    // game->MesaEnumeracion2();
-    //game->MesaSintesis();
-    //game->AniMesAna(0);
-    //game->mesaEnumeracion();
-   // game->mesadeAnalisis();
-    //game->EscapeRoom();
-    //game->mesaEnumeracion();
-   game->GameOver(3);
-    //game->miniJuegoCiencia();
-    //game->mesadeEvidenciaMinijuego();
-    //game->miniJuegopolitica();
+
+    //Steve
     //game->minjuegoHistoria();
-    //game->Map();
 
+    //Lizzie
+    //game->miniJuegopolitica();
+    //game->miniJuegoCiencia();
+    
+    //eleccion bandos  && mapa- Lizzie
+    //game->bandosCoinFlip();
+    //game->Map(0);
 
-    //game->mesadeAnalisis();
+    //combates
+    //Steve - combate por el sujeto
+    //game->combateSujeto();
+
+    //Mirian - combate por la verdad y comabte trnacendental 
+    //game->CombateporlaVerdad(5);
+    //game->CombateTrancendental(5);
+    
+    //Lizzie - musica de ganadores de combates
+    
+    //Edificio - Mirian, Lizzie , Steve
+    //game->EdificioUni(0);
+    //Primero hablo sobre lo de animacion y movimento y edificio
+
+    //pasamos a la sala de aula donde Lizzie explica el juego de escape room
+    //luego pasamos a el laboratorio donde se empezaria con el orden:
+    //juego Evidencia - Lizzie
+    //juego Enumeracion  -  Steve
+    //juego Analisis - Lizzie
+    //juego Sintesis - Mirian
+    //sala de trono -  Mirian
+    //Logros y objetos Mirian Lizzie
+
+    //Game over - Lizzie
+
+    //orden de ecplicacion de pantallas 
 
     while (game->running())
     {

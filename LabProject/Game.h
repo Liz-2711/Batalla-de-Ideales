@@ -19,66 +19,103 @@ public:
 	bool running() { return isRunning; }
 	void render();
 	void clean();
+	//menu
     void ventanaMenuPrincipal(const char*, int, int, int, int, bool);
     void eventosMenuPrincipal();
     void elementosMenuPrincipal();
     void menuPrincipal();
+
+	//cartas
 	void pantallaCartas();
 
+	//minijuego Historia
 	void minjuegoHistoria();
 	void ventanaMinijuegoHistoria(const char*, int, int, int, int, bool);
 	void minijuegoHistoriaElementos();
 	void minijuegoHistoriaEventos();
 
+	//minijuego Politica
 	void miniJuegopolitica();
 
+	//minijuego Arte
+	void juegoArte();
+
+	//minujuego CIencia
+	void miniJuegoCiencia();
+
+
+	//Eleccion de bandos
+	void bandosCoinFlip();
+
+	//map
 	void Map(int);
 
-	void bandosCoinFlip();
+	//Combates
+
+	//Combate por la verdad
+	 void CombateporlaVerdad(int);
+	//combate por el sujeto
+	 void combateSujeto();
+	 void ventanaCombateSujeto(const char*, int, int, int, int, bool);
+	 void elementosCombateSujeto();
+	 void eventosCombateSujeto();
+
+	//combate trancendental
+	 void CombateTrancendental(int);
+
+
+	//musica ganador
+	//bando 1
+	//1 - Racionalistas
+	//!= 1 - Empirsta
+	//racionalista
+	 void musicaHallowedBeThyName();
+
+	 //Empirista
+	 void musicaCarminaBurana();
+
+	 //funcion vidas
+	 SDL_Surface* Vidas(int);
+
+
+
+
+	 //Edificio
+	 //en este caso los cambios de pantalla tienen que hacerse desde dentro de esta funcion casis solo e scuando se llamasn a los juegos d elas salas
+	 void EdificioUni(int);
+
+	 //aula IManuel KANT
+	 void EscapeRoom(); //juego
+
+
+	 //Laboratorio ReneDescartes
+	 //salas
+	 //salas enumeracion
+	 void mesaEnumeracion();
+	 void ventanaMesaEnumeracion(const char*, int, int, int, int, bool);
+	 void elementosMesaEnumeracion();
+	 void eventosMesaEnumeracion();//juego
+	 void mensajePared();
+	 void eventosMensajePared();
+
+	 void MesaEnumeracion2(); // sala con animaciones
 	
-	void CombateporlaVerdad(int);
-	void CombateTrancendental(int);
+	 //sala Sintesis
+	 void MesaSintesis();
 
-	void musicaHallowedBeThyName();
-
-	void musicaCarminaBurana();
-
-
-	void combateSujeto();
-	void EdificioUni(int);
-
-	void ventanaCombateSujeto(const char*, int, int, int, int, bool);
-	void elementosCombateSujeto();
-	void eventosCombateSujeto();
-
-	void EscapeRoom();
-
-	SDL_Surface* Vidas(int);
+	 //sala Evidencia
+	 void MesaEvidencia(int); // sala
+	 void mesadeEvidenciaMinijuego();// juego
 
 
-	void mesaEnumeracion();
-	void ventanaMesaEnumeracion(const char*, int, int, int, int, bool);
-	void elementosMesaEnumeracion();
-	void eventosMesaEnumeracion();
-
-	void mensajePared();
-	void eventosMensajePared();
-
-	void MesaSintesis();
-	void MesaEvidencia();
-	void MesaEnumeracion2();
-
-	void mesadeEvidenciaMinijuego();
+	 //sala Analisis
+	 void mesadeAnalisis(); //juego
+	 void AniMesAna(int); //sala
+	
+	//gameover solo si vidas es 0
 
 	void GameOver(int vidas);
-
-	void mesadeAnalisis();
-	void AniMesAna(int);
 	
-	//funciones de juegos de la parte de eleccion
-	void juegoArte();
-	void miniJuegoCiencia();
-   //void  isRunning() { return isRunning(); };
 
 private:
 	bool isRunning = true;
