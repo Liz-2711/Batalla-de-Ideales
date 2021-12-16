@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 
     //Lizzie -  Video introducctivo
-    //game->init("GameWindow", 800, 600, false); 
+    game->init("GameWindow", 800, 600, false); 
     
     //Mirian
     //game->pantallaCartas();
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     //game->combateSujeto();
 
     //Mirian - combate por la verdad y comabte trnacendental 
-    game->CombateporlaVerdad(2);
+    //game->CombateporlaVerdad(2);
    //game->CombateTrancendental(5);
     
     //Lizzie - musica de ganadores de combates

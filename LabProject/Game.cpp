@@ -739,7 +739,7 @@ void Game::pantallaCartas()
                         
 
                         SDL_Quit();
-                        juegoArte();
+                        //juegoArte();
                         miniJuegoCiencia();
                         //juegoCiencia();
                         
@@ -1370,6 +1370,8 @@ void Game::juegoArte()
                                 std::cout << "\nOtra validacion: p1 - " << pregun1 << " p2- " << pregun2 << " p3- " << pregun3 << " p4- " << pregun4 << " p5- " << pregun5;
                                 i = 1;
                             }
+
+                           
 
                         }
                         
@@ -2868,6 +2870,8 @@ void Game::juegoArte()
                                     SDL_Delay(1000);
 
                                     i = 1;
+                                    SDL_Quit();
+                                    bandosCoinFlip(vidas);
                                 }
                                 else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                                 {
@@ -2897,6 +2901,8 @@ void Game::juegoArte()
                                     SDL_Delay(1000);
 
                                     i = 1;
+                                    SDL_Quit();
+                                    bandosCoinFlip(vidas);
                                 }
                                 else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                                 {
@@ -2926,6 +2932,8 @@ void Game::juegoArte()
                                     SDL_Delay(1000);
 
                                     i = 1;
+                                    SDL_Quit();
+                                    bandosCoinFlip(vidas);
                                 }
                                 else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
                                 {
@@ -2955,6 +2963,8 @@ void Game::juegoArte()
                                     SDL_Delay(1000);
 
                                     i = 1;
+                                    SDL_Quit();
+                                    bandosCoinFlip(vidas);
                                 }
                                 else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2)
                                 {
@@ -2984,6 +2994,8 @@ void Game::juegoArte()
                                     SDL_Delay(1000);
 
                                     i = 1;
+                                    SDL_Quit();
+                                    bandosCoinFlip(vidas);
                                 }
                                 else {
                                     std::cout << "\nOtra validacion: p1 - " << pregun1 << " p2- " << pregun2 << " p3- " << pregun3 << " p4- " << pregun4 << " p5- " << pregun5;
