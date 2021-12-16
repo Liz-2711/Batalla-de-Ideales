@@ -719,18 +719,18 @@ void Game::pantallaCartas()
                         
 
                         SDL_Quit();
-                        juegoArte();
+                        //juegoArte();
                         //miniJuegoCiencia();
-                       
+                        minjuegoHistoria();
                     }
                     else if (numeroAdivinar == 3)
                     {
                         std::cout << "Carta POLITICA";
                        
                         SDL_Quit();
-                        juegoArte();
+                       // juegoArte();
                         //miniJuegoCiencia();
-                        //juegoPolitica();
+                        miniJuegopolitica();
                        
                     }
                     else if (numeroAdivinar == 4)
@@ -740,7 +740,7 @@ void Game::pantallaCartas()
 
                         SDL_Quit();
                         juegoArte();
-                        //miniJuegoCiencia();
+                        miniJuegoCiencia();
                         //juegoCiencia();
                         
 
@@ -958,6 +958,9 @@ void Game::juegoArte()
                             
                             SDL_FreeSurface(Orca1);
                             SDL_UpdateWindowSurface(Ventana);
+
+
+
                             
                         }
                         else if (preguntas == 2) 
@@ -1227,6 +1230,8 @@ void Game::juegoArte()
                                 SDL_Delay(1000);
 
                                 i = 1;
+                                SDL_Quit();
+                                bandosCoinFlip(vidas);
                             }
                             else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 1 || pregun1 == 1 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1)
                             {
@@ -1259,6 +1264,8 @@ void Game::juegoArte()
                                 vidas = 4;
                                 std::cout << "\n4";
                                 i = 1;
+                                SDL_Quit();
+                                bandosCoinFlip(vidas);
                             }
                             else if (pregun1 == 1 && pregun2 == 1 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 1 && pregun4 == 1 || pregun1 == 2 && pregun2 == 1 && pregun3 == 1 && pregun4 == 2)
                             {
@@ -1290,6 +1297,8 @@ void Game::juegoArte()
                                 SDL_Delay(1000);
 
                                 i = 1;
+                                SDL_Quit();
+                                bandosCoinFlip(vidas);
                             }
                             else if (pregun1 == 1 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2 || pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 1)
                             {
@@ -1322,6 +1331,8 @@ void Game::juegoArte()
 
                                 
                                 i = 1;
+                                SDL_Quit();
+                                bandosCoinFlip(vidas);
                             }
                             else if (pregun1 == 2 && pregun2 == 2 && pregun3 == 2 && pregun4 == 2)
                             {
@@ -1348,6 +1359,10 @@ void Game::juegoArte()
                                 SDL_Delay(1000);
                                 std::cout << "Salir";
                                 i = 1;
+
+                                SDL_Quit();
+                                bandosCoinFlip(vidas);
+
                             }
                             else {
                                 //p1 - 2 p2 - 1 p3 - 1 p4 - 2 p5 -1
@@ -4104,12 +4119,13 @@ void Game::miniJuegoCiencia()
 
 
                 SDL_Delay(6000);
-
-
+//AQUI PARA
+                SDL_Quit();
+                bandosCoinFlip(1);
 
             }
             if (Puntuacion == 2) {
-
+               
 
                 currentImg = win2;
                 SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
@@ -4128,7 +4144,8 @@ void Game::miniJuegoCiencia()
 
                 SDL_Delay(6000);
 
-
+                SDL_Quit();
+                bandosCoinFlip(2);
 
             }  if (Puntuacion == 3) {
 
@@ -4149,7 +4166,8 @@ void Game::miniJuegoCiencia()
                 SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
-
+                SDL_Quit();
+                bandosCoinFlip(3);
 
 
             }  if (Puntuacion == 4) {
@@ -4171,7 +4189,8 @@ void Game::miniJuegoCiencia()
                 SDL_UpdateWindowSurface(Ventana);
 
                 SDL_Delay(6000);
-
+                SDL_Quit();
+                bandosCoinFlip(4);
 
 
             } if (Puntuacion == 5) {
@@ -4193,7 +4212,8 @@ void Game::miniJuegoCiencia()
 
                 SDL_Delay(6000);
 
-
+                SDL_Quit();
+                bandosCoinFlip(5);
 
             }
 
@@ -4669,6 +4689,8 @@ void Game::minijuegoHistoriaEventos() {
                     posFinal.x = 380; posFinal.y = 50; posFinal.w = 268; posFinal.h = 102;
                     lingote = IMG_Load("assets/10lingotes.png");
                     SDL_BlitSurface(lingote, &posInicial, superficieVentana, &posFinal);
+                    SDL_Quit();
+                    Map(1);
                 }
                 if (elementospantalla == 7) {
                     pregunta1 = IMG_Load("assets/minijuegohistoriapregunta3.png");
@@ -4678,6 +4700,8 @@ void Game::minijuegoHistoriaEventos() {
                     posFinal.x = 380; posFinal.y = 50; posFinal.w = 268; posFinal.h = 102;
                     lingote = IMG_Load("assets/20lingotes.png");
                     SDL_BlitSurface(lingote, &posInicial, superficieVentana, &posFinal);
+                    SDL_Quit();
+                    Map(2);
                 }
                 if (elementospantalla == 9) {
                     pregunta1 = IMG_Load("assets/minijuegohistoriapregunta4.png");
@@ -4687,6 +4711,8 @@ void Game::minijuegoHistoriaEventos() {
                     posFinal.x = 380; posFinal.y = 50; posFinal.w = 268; posFinal.h = 102;
                     lingote = IMG_Load("assets/40lingotes.png");
                     SDL_BlitSurface(lingote, &posInicial, superficieVentana, &posFinal);
+                    SDL_Quit();
+                    Map(3);
                 }
                 if (elementospantalla == 11) {
                     pregunta1 = IMG_Load("assets/minijuegohistoriapregunta5.png");
@@ -4696,6 +4722,8 @@ void Game::minijuegoHistoriaEventos() {
                     posFinal.x = 380; posFinal.y = 50; posFinal.w = 268; posFinal.h = 102;
                     lingote = IMG_Load("assets/70lingotes.png");
                     SDL_BlitSurface(lingote, &posInicial, superficieVentana, &posFinal);
+                    SDL_Quit();
+                    Map(4);
                 }
                 if (elementospantalla == 13) {
 
@@ -4714,6 +4742,8 @@ void Game::minijuegoHistoriaEventos() {
     }
 
     if (eliminado) {
+
+        
         std::cout << "perdiste, te llevas " << puntos << " puntos\n";
         elementospantalla = -1;
         eliminado = false;
@@ -6137,11 +6167,11 @@ void Game::Map(int vidas)
     SDL_Surface* heart3;
     SDL_Surface* heart4;
     SDL_Surface* heart5;
-
+    SDL_Surface* trophy;
     SDL_Surface* Continuar;
     SDL_Surface* egg = nullptr;
     egg = IMG_Load("gameOver/3(1).png");
-
+    trophy = IMG_Load("gameOver/TrofEnc.png");
 
 
 
@@ -6234,6 +6264,7 @@ void Game::Map(int vidas)
 
         while (SDL_PollEvent(&evento) != 0) {
 
+            //School
 
             if (evento.button.x >= 703 && evento.button.x <= 825 && evento.button.y >= 12 && evento.button.y <= 156) {
 
@@ -6242,43 +6273,44 @@ void Game::Map(int vidas)
                 currentImg = prt5;
 
                 if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
+                    if (Access == true) {
+                        EdificioUni(0);
+                    }
 
 
                 }
 
             }
+            //Colisium
             if (evento.button.x >= 326 && evento.button.x <= 586 && evento.button.y >= 29 && evento.button.y <= 270) {
 
 
                 currentImg = prt4;
                 if (evento.type == SDL_MOUSEBUTTONDOWN) {
 
-                    /*    currentImg = prt5;
-                        SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
-                        SDL_UpdateWindowSurface(Ventana);
-                        SDL_Delay(2000);
-
-                        prtnum = 2;*/
+                    CombateTrancendental(vidas);
                 }
 
             }
+
+            //Glatiator
             if (evento.button.x >= 79 && evento.button.x <= 144 && evento.button.y >= 375 && evento.button.y <= 497) {
 
 
                 currentImg = prt3;
                 if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
-
+                    
+                    CombateporlaVerdad(vidas);
                 }
 
             }
+            //Bridge
             if (evento.button.x >= 666 && evento.button.x <= 850 && evento.button.y >= 317 && evento.button.y <= 416) {
 
 
                 currentImg = prt2;
                 if (evento.type == SDL_MOUSEBUTTONDOWN) {
-
+                    combateSujeto();
 
                 }
 
@@ -6296,6 +6328,23 @@ void Game::Map(int vidas)
 
                     SDL_Delay(780);
 
+                    //prtnum = 5;
+                }
+
+            }
+            //trofeo
+            if (evento.button.x >= 259 && evento.button.x <= 306 && evento.button.y >= 259 && evento.button.y <= 304) {
+
+                //  currentImg = egg;
+                if (evento.type == SDL_MOUSEBUTTONDOWN) {
+                    currentImg = trophy;
+                    // currentImg = correct4;
+                    // Puntuacion++;
+                    SDL_BlitSurface(currentImg, NULL, superficieVentana, NULL);
+                    SDL_UpdateWindowSurface(Ventana);
+
+                    SDL_Delay(780);
+                    mapaLogro = true;
                     //prtnum = 5;
                 }
 
@@ -6374,7 +6423,7 @@ void Game::Map(int vidas)
 }
 
 //eleccion de bandos
-void Game::bandosCoinFlip()
+void Game::bandosCoinFlip(int vidas)
 {
 
     const int WIDTH = 1000;
@@ -6410,12 +6459,12 @@ void Game::bandosCoinFlip()
     SDL_Surface* win3 = nullptr;
     SDL_Surface* win4 = nullptr;
     SDL_Surface* win5 = nullptr;
-
+    SDL_Surface* map = nullptr;
     SDL_Surface* heart;
     SDL_Texture* Fondo;
     SDL_Surface* Continuar;
     SDL_Event EventoSalir;
-
+    SDL_Event eveto;
     const Uint32* m;
     int salir = 0;
     //POsiciones de los vasos
@@ -6438,13 +6487,13 @@ void Game::bandosCoinFlip()
 
     renderer = SDL_CreateRenderer(Ventana, -1, SDL_RENDERER_ACCELERATED);
 
-
+   
 
     Fondo1 = IMG_Load("Imgs/1.png");
     SDL_BlitSurface(Fondo1, NULL, superficieVentana, NULL);
     SDL_FreeSurface(Fondo1);
     SDL_UpdateWindowSurface(Ventana);
-    SDL_Delay(5000);
+    SDL_Delay(6500);
 
 
 
@@ -6473,6 +6522,33 @@ void Game::bandosCoinFlip()
 
 
 
+
+
+
+        while (SDL_PollEvent(&eveto) != 0) {
+
+
+            if (eveto.button.x >= 112 && eveto.button.x <= 207 && eveto.button.y >= 445 && eveto.button.y <= 507) {
+
+
+
+
+
+                if (eveto.type == SDL_MOUSEBUTTONDOWN) {
+
+                    map = IMG_Load("gameOver/MapaEnc.png");
+                    MapaFound = true;
+                    SDL_BlitSurface(map, NULL, superficieVentana, NULL);
+                    SDL_FreeSurface(map);
+                    SDL_UpdateWindowSurface(Ventana);
+                    SDL_Delay(500);
+
+                }
+
+            }
+
+        }
+    
     srand(time(0));
 
     unsigned seed = time(0);
@@ -6547,6 +6623,14 @@ void Game::bandosCoinFlip()
         SDL_UpdateWindowSurface(Ventana);
         SDL_Delay(1500);
         bando = 1;
+
+        SDL_Quit();
+        if (MapaFound == true) {
+            Map(vidas);
+        }
+        else
+            combateSujeto();
+        
     }
     else {
         coin1 = IMG_Load("Imgs/4.png");
@@ -6622,6 +6706,13 @@ void Game::bandosCoinFlip()
         SDL_FreeSurface(Racional);
         SDL_UpdateWindowSurface(Ventana);
         SDL_Delay(1500);
+
+        SDL_Quit();
+        if (MapaFound == true) {
+            Map(vidas);
+        }
+        else
+            combateSujeto();
     }
 
 
@@ -6726,7 +6817,7 @@ void Game::CombateporlaVerdad(int vidas)
 
     //envento para salir
     SDL_Event EventoSalir;
-
+    SDL_Event evento;
     int vida = vidas;
     int vidaIa = 3;
     int salir = 0;
@@ -7173,19 +7264,26 @@ void Game::CombateporlaVerdad(int vidas)
                                 SDL_FreeSurface(Fondo);
                                 SDL_UpdateWindowSurface(Ventana);
                                 SDL_Delay(500);
-
+                                
+                                    
 
                                 if (bando == 1) 
                                 {
+                                    //SDL_Quit();
                                     musicaHallowedBeThyName();
+                                    //SDL_Quit();
+
                                 }
                                 else 
                                 {
                                     musicaCarminaBurana();
+                                   // SDL_Quit();
                                 }
-
+                                //SDL_Quit();
                                 std:: cout << "Se termino";
                                 p = 1;
+
+                               
                             }
                             else 
                             {
@@ -7266,10 +7364,12 @@ void Game::CombateporlaVerdad(int vidas)
                                 if (bando == 1)
                                 {
                                     musicaCarminaBurana();
+                                   // SDL_Quit();
                                 }
                                 else
                                 {
                                     musicaHallowedBeThyName();
+                                    //SDL_Quit();
                                 }
 
                                 p = 1;
@@ -7375,14 +7475,16 @@ void Game::CombateporlaVerdad(int vidas)
                                 {
                                    
                                     musicaHallowedBeThyName();
+                                   // SDL_Quit();
                                 }
                                 else
                                 { 
                                     musicaCarminaBurana();
+                                   // SDL_Quit();
                                 }
-
-
                                 p = 1;
+                                
+                                
                             }
                             else
                             {
@@ -7460,13 +7562,16 @@ void Game::CombateporlaVerdad(int vidas)
                                 if (bando == 1)
                                 {
                                     musicaCarminaBurana();
-                                    
+                                   // SDL_Quit();
+                                   
                                 }
                                 else
                                 {
                                     musicaHallowedBeThyName();
+                                   // SDL_Quit();
                                 }
                                 p = 1;
+                                
 
                             }
                             break;
@@ -7515,7 +7620,9 @@ void Game::musicaHallowedBeThyName()
 
     int success = SDL_QueueAudio(deviceId, wavBuffer, wavLength);
     SDL_PauseAudioDevice(deviceId, 0);
-
+    SDL_Delay(1000);
+   // SDL_Quit();
+    Map(vidas);
 }
 
 void Game::musicaCarminaBurana()
@@ -7530,7 +7637,9 @@ void Game::musicaCarminaBurana()
 
     int success = SDL_QueueAudio(deviceId, wavBuffer, wavLength);
     SDL_PauseAudioDevice(deviceId, 0);
-
+    SDL_Delay(1000);
+    //SDL_Quit();
+   Map(vidas);
 }
 
 
@@ -9625,7 +9734,7 @@ void Game::EscapeRoom()
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window* Ventana;
     SDL_Renderer* renderizado; // render de ventana
-
+    ///bool Equivocado = false;
     //Imagenes
     SDL_Surface* Fondo1;
     SDL_Texture* Tfondo;
@@ -9803,6 +9912,8 @@ void Game::EscapeRoom()
 
     while (isRunning) {
         // SDL_UpdateWindowSurface(Ventana);
+
+        
         while (codeAccess == true) {
 
 
@@ -9857,14 +9968,40 @@ void Game::EscapeRoom()
                 else if (!arrCode.empty() && arrCode.size() == 6) {
                     if (arrCode[0] == 1 && arrCode[1] == 2 && arrCode[2] == 2 && arrCode[3] == 3 && arrCode[4] == 3 && arrCode[5] == 2) {
                         currentImg = right;
+                        //SDL_RenderClear(renderer);
+                        right = IMG_Load("Room/code2.png");
+
+
+                        //wrong = IMG_Load("Evidencia/wrong.png");
+                        SDL_BlitSurface(right, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(right);
+                        SDL_UpdateWindowSurface(Ventana);
                         SDL_Delay(1000);
+
                         currentImg = comp;
+
+                        comp = IMG_Load("Room/complete.png");
+
+
+                        //wrong = IMG_Load("Evidencia/wrong.png");
+                        SDL_BlitSurface(comp, NULL, superficieVentana, NULL);
+                        SDL_FreeSurface(comp);
+                        SDL_UpdateWindowSurface(Ventana);
+                        SDL_Delay(1000);
                         //SDL_Delay(1000);
 
                         SDL_Quit();
                         EdificioUni(5);
                         //std::cout << "C O R R E C T   !!!!!";
 
+                    }
+                    else {
+                        SDL_RenderClear(renderer);
+                        wrong = IMG_Load("Room/codes.png");
+                        //Equivocado = true; 
+                        SDL_BlitSurface(wrong, NULL, superficieVentana, &gdPosScore);
+                       // SDL_FreeSurface(wrong);
+                        SDL_Delay(1000);
                     }
 
                 }

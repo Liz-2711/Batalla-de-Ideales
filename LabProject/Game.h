@@ -13,7 +13,9 @@ public:
 	~Game();
 
 	void init(const char* title, int width, int height, bool fullscreen);
-
+	bool MapaFound = false;
+	bool mapaLogro = false;
+	bool Access = false;
 	void handleEvents();
 	void update();
 	bool running() { return isRunning; }
@@ -45,7 +47,7 @@ public:
 
 
 	//Eleccion de bandos
-	void bandosCoinFlip();
+	void bandosCoinFlip(int);
 
 	//map
 	void Map(int);

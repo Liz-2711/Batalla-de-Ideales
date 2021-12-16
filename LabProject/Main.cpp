@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     //game->juegoArte();
 
     //Steve
-    //game->minjuegoHistoria();
+   // game->minjuegoHistoria();
 
     //Lizzie
    // game->miniJuegopolitica();
@@ -35,21 +35,21 @@ int main(int argc, char* argv[])
     
     //eleccion bandos  && mapa- Lizzie
     //game->bandosCoinFlip();
-    //game->Map(0);
+    //game->Map(5);
 
     //combates
     //Steve - combate por el sujeto
     //game->combateSujeto();
 
     //Mirian - combate por la verdad y comabte trnacendental 
-   // game->CombateporlaVerdad(5);
+    //game->CombateporlaVerdad(5);
    //game->CombateTrancendental(5);
     
     //Lizzie - musica de ganadores de combates
     
     //Edificio - Mirian, Lizzie , Steve
     //game->EdificioUni(0);
-    game->Logros();
+    //game->Logros();
     //Primero hablo sobre lo de animacion y movimento y edificio
 
     //pasamos a la sala de aula donde Lizzie explica el juego de escape room
