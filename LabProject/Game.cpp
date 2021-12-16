@@ -16803,3 +16803,194 @@ void Game::GameOver(int vidas)
     SDL_Quit();
 
 }
+
+void Game::Logros()
+{
+    const int WIDTH = 1000; //Ancho de pantalla
+    const int HEIGHT = 564; // altura de pantallla
+    const int SPRITE_SIZE = 900; //TAMA;O D ELA ORCA
+    const int SizeMessaje = 900; // tamaño de mensaje de carta eleguida
+    const int FPS = 60;
+    const int frameDaley = 1000 / FPS;
+
+    Uint32 frameStart;
+    int frameTIme;
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window* Ventana;
+
+
+    //Imagenes
+    SDL_Surface* Fondo;
+    SDL_Surface* superficieVentana;
+
+    SDL_Surface* Izquierda;
+    SDL_Surface* PARTESa;
+    SDL_Surface* AniLab;
+
+
+    //envento para salir
+    SDL_Event EventoSalir;
+
+    int vida = vidas;
+    int vidaIa = 3;
+    int salir = 0;
+    //POsiciones de las imagenes
+    SDL_Rect    rcInicial;
+    SDL_Rect    gdFinal;
+
+    bool animation = false;
+    int frame = 2;
+    int speed = 500;
+
+    int movi = 1;
+
+    int x = 0;
+    int y = 0;
+    //evento 
+    int p = 0;
+
+    SDL_Event Event;
+    SDL_Event even;
+
+    int escena = 0;
+
+    int codiAle = 0;
+    srand(time(NULL));
+
+    std::string codigo = "";
+    std::string codigocorrec = "";
+    int intentos = 0;
+    int intentos2 = 0;
+    int xx = 0;
+    int ye = 0;
+    Ventana = SDL_CreateWindow("Combate por la verdad", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    superficieVentana = SDL_GetWindowSurface(Ventana);
+
+    if (Ventana == NULL)
+    {
+        std::cout << "Error";
+
+    }
+    else
+    {
+        rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = 28; rcInicial.h = SPRITE_SIZE;
+
+        gdFinal.x = 566; gdFinal.y = 207; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+
+        Fondo = IMG_Load("Logros/Logros.png");
+        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+        SDL_FreeSurface(Fondo);
+
+        SDL_UpdateWindowSurface(Ventana);
+        int logrosp = 0;      
+        int i = 0;
+        while (p == 0)
+        {
+            //tiempo++;
+
+
+            frameStart = SDL_GetTicks();
+            if (SDL_PollEvent(&Event))
+            {
+                
+
+                x = Event.motion.x;
+                y = Event.motion.y;
+
+
+                switch (Event.type)
+                {
+                case SDL_MOUSEBUTTONDOWN:
+                    std::cout << "\nx - " << Event.motion.x;
+                    std::cout << "\ny- " << Event.motion.y;
+                    if (x > 342 && x < 399 && y > 15 && y < 78 && logrosp == 0) 
+                    {
+                        Fondo = IMG_Load("Logros/Logros1.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                        SDL_FreeSurface(Fondo);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        logrosp = 1;
+                    }
+                    else if (x > 342 && x < 399 && y > 15 && y < 78 && logrosp == 1)
+                    {
+                        Fondo = IMG_Load("Logros/Logros2.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                        SDL_FreeSurface(Fondo);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        logrosp = 2;
+                    }
+                    else if (x > 342 && x < 399 && y > 15 && y < 78 && logrosp == 2)
+                    {
+                        Fondo = IMG_Load("Logros/Logron.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                        SDL_FreeSurface(Fondo);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        logrosp = 2;
+                    }
+                    else if (x > 723 && x < 999 && y > 0 && y < 95 )
+                    {
+                        //pantalla Objetos
+                    }
+                    break;
+
+                }
+
+
+
+
+                frameTIme = SDL_GetTicks() - frameStart;
+                if (frameDaley > frameTIme)
+                {
+                    SDL_Delay(frameDaley - frameTIme);
+                }
+
+
+
+
+
+                //std::cout << tiempo;
+            }
+
+
+        }
+    }
+
+    while (!salir)
+    {
+
+        if (SDL_PollEvent(&EventoSalir))
+        {
+            switch (EventoSalir.type)
+            {
+            case SDL_QUIT:
+                salir = 1;
+                break;
+
+            case SDL_KEYDOWN:
+                switch (EventoSalir.key.keysym.sym)
+                {
+                case SDLK_SPACE:
+                    salir = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    SDL_Quit();
+                    menuPrincipal();
+                    break;
+
+                }
+                break;
+            }
+        }
+
+
+
+    }
+}

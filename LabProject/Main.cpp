@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     
     //Edificio - Mirian, Lizzie , Steve
     //game->EdificioUni(0);
-    game->EscapeRoom();
+    game->Logros();
     //Primero hablo sobre lo de animacion y movimento y edificio
 
     //pasamos a la sala de aula donde Lizzie explica el juego de escape room

@@ -115,6 +115,11 @@ public:
 	//gameover solo si vidas es 0
 
 	void GameOver(int vidas);
+
+
+	//Logros
+
+	void Logros();
 	
 
 private:
