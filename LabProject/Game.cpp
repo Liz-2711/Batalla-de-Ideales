@@ -6962,7 +6962,8 @@ void Game::CombateporlaVerdad(int vidas)
                         }
 
                     }
-                }else if (pregunta == 1)
+                }
+                else if (pregunta == 1)
                 {
                     gdFinal.x = 0; gdFinal.y = 0;
 
@@ -7044,7 +7045,8 @@ void Game::CombateporlaVerdad(int vidas)
 
 
                     }
-                }else if (pregunta == 2)
+                }
+                else if (pregunta == 2)
                 {
                     gdFinal.x = 0; gdFinal.y = 0;
 
@@ -7156,7 +7158,8 @@ void Game::CombateporlaVerdad(int vidas)
 
 
                     }
-                }else if (pregunta == 3)
+                }
+                else if (pregunta == 3)
                 {
                     switch (Event.type)
                     {
@@ -7174,7 +7177,7 @@ void Game::CombateporlaVerdad(int vidas)
                             //el caballo se acerca
                             correctas++;
 
-                            if (correctas > 1) {
+                            if (correctas > 1 && vida > 0) {
                                 Fondo = IMG_Load("CVerdad/10.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
@@ -7376,10 +7379,18 @@ void Game::CombateporlaVerdad(int vidas)
                                 
                             }
 
+                            if (vida == 0)
+                            {
+                                SDL_Quit();
+                                GameOver(vidas);
+
+
+                            }
+
                             break;
                         default:
-                           
-                            if (correctas > 1) {
+                            
+                             if (correctas > 1) {
                                 Fondo = IMG_Load("CVerdad/10.png");
                                 SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
                                 SDL_FreeSurface(Fondo);
@@ -7486,6 +7497,7 @@ void Game::CombateporlaVerdad(int vidas)
                                 
                                 
                             }
+                             
                             else
                             {
                                 Fondo = IMG_Load("CVerdad/24.png");
@@ -7573,7 +7585,17 @@ void Game::CombateporlaVerdad(int vidas)
                                 p = 1;
                                 
 
+
                             }
+
+                            if (vida == 0)
+                            {
+                                SDL_Quit();
+                                GameOver(vidas);
+
+
+                            }
+
                             break;
                         }
 
@@ -15885,6 +15907,7 @@ void Game::MesaEnumeracion2()
                                 {
                                     //boton 3
                                    // aqui tu codigo de pared que sea aleatorio no siempre el mismo en la misma pared
+                                    mesaEnumeracion();
                                 }
 
                                 //COFRE
@@ -15892,6 +15915,8 @@ void Game::MesaEnumeracion2()
                                 {
                                     //boton 4
                                    //Aqui debe de entrar al codigo y si el codigo es correcto debe dar estos parametros scena = 0 , ani = 4;
+                                    mesaEnumeracion();
+
                                 }
 
                                
@@ -15961,9 +15986,6 @@ void Game::MesaEnumeracion2()
 
 
 }
-
-
-
 void Game::mesadeEvidenciaMinijuego()
 {
 

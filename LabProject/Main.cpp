@@ -19,6 +19,10 @@ int main(int argc, char* argv[])
     int frameTime;
 
     game = new Game();
+
+   // game->MesaEnumeracion2();
+
+
     //Lizzie -  Video introducctivo
     //game->init("GameWindow", 800, 600, false); 
     
@@ -42,7 +46,7 @@ int main(int argc, char* argv[])
     //game->combateSujeto();
 
     //Mirian - combate por la verdad y comabte trnacendental 
-    //game->CombateporlaVerdad(5);
+    game->CombateporlaVerdad(2);
    //game->CombateTrancendental(5);
     
     //Lizzie - musica de ganadores de combates
