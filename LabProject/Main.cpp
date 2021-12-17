@@ -46,13 +46,15 @@ int main(int argc, char* argv[])
     //game->combateSujeto();
 
     //Mirian - combate por la verdad y comabte trnacendental 
-    //game->CombateporlaVerdad(2);
-   //game->CombateTrancendental(5);
+    //game->CombateporlaVerdad(5);
+ // game->CombateTrancendental(5);
     
     //Lizzie - musica de ganadores de combates
     
     //Edificio - Mirian, Lizzie , Steve
-    game->EdificioUni(0);
+    //game->EdificioUni(0);
+    //game->MesaEvidencia(2);
+    game->MesaEnumeracion2();
     //game->Logros();
     //Primero hablo sobre lo de animacion y movimento y edificio
 
