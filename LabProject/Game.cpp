@@ -273,6 +273,7 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
 
     //funcion de eventos para el menu principal
     void Game::eventosMenuPrincipal() {
+        int opcion = 0;
         SDL_Event event;
         SDL_PollEvent(&event);
         switch (event.type) {
@@ -295,12 +296,12 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             if (cursorx > 385 && cursorx < 630 && cursory > 190 && cursory < 240) {
                 std::cout << "Tocaste el boton de CONTROLES.\n";
                 SDL_Quit();
-                CombateporlaVerdad(5);
+                pntllMenu(1);
             }
             //detectar si esta en boton 3
             if (cursorx > 385 && cursorx < 630 && cursory > 300 && cursory < 350) {
                 std::cout << "Tocaste el boton de CREDITOS.\n";
-              
+                pntllMenu(2);
             }
             //detectar si esta en boton 4
             if (cursorx > 385 && cursorx < 630 && cursory > 410 && cursory < 460) {
@@ -310,6 +311,7 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
             break;
         }
     }
+
 
     //elementos de menu principal (botones)
     void Game::elementosMenuPrincipal() {
@@ -345,7 +347,97 @@ void Game::init(const char* title, int WIDTH, int HEIGHT, bool fullscreen)
 
         SDL_UpdateWindowSurface(window);
     }
+    void Game::pntllMenu(int _cual) {
+        const int WIDTH = 1000;
+        const int HEIGHT = 600;
+        //const int SPRITE_SIZE = 120;
+        const int SizeMessaje = 600;
 
+        SDL_Init(SDL_INIT_EVERYTHING);
+        SDL_Window* Ventana;
+        SDL_Renderer* renderizado; // render de ventana
+
+        //Imagenes
+
+        SDL_Surface* superficieVentana;
+      
+
+        SDL_Surface* heart;
+
+        SDL_Texture* Fondo;
+
+        SDL_Surface* heart1;
+       
+
+
+
+        SDL_Event EventoSalir;
+
+        const Uint32* m;
+        int salir = 0;
+        //POsiciones de los vasos
+        SDL_Rect    rcMI;
+        SDL_Rect    rcInicial; //posicion inicial
+        SDL_Rect    gdPosCartas; //posicion con el toque
+        SDL_Rect    gdMensaje;
+
+        SDL_Renderer* renderer;
+        //evento para el toque de el vaso
+
+        SDL_Event eleccion;
+        int SPRITE_SIZE = 50;
+
+        Ventana = SDL_CreateWindow(" ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+        superficieVentana = SDL_GetWindowSurface(Ventana);
+
+        Uint32 Color = SDL_MapRGB(superficieVentana->format, 222, 235, 247);
+        SDL_FillRect(superficieVentana, NULL, Color);
+
+        renderer = SDL_CreateRenderer(Ventana, -1, SDL_RENDERER_ACCELERATED);
+
+
+
+
+     
+
+
+
+
+        SDL_Rect    gdPosScore;
+        //SDL_Surface* heart1 = NULL;
+
+        int Puntuacion = 0;
+        int bk = 0;
+        int prtnum = 1;
+        SDL_Surface* currentImg;
+        SDL_Event evento;
+        currentImg;
+        gdPosScore.x = 18; gdPosScore.y = 18; gdPosScore.w = SPRITE_SIZE; gdPosScore.h = SPRITE_SIZE;
+        while (isRunning) {
+            if (_cual == 1) {
+                heart1 = IMG_Load("gameOver/controles.png");
+
+                SDL_BlitSurface(heart1, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(heart1);
+                SDL_UpdateWindowSurface(Ventana);
+                //SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(5000);
+               
+            }
+            if (_cual == 2) {
+                heart1 = IMG_Load("gameOver/creditos.png");
+
+                SDL_BlitSurface(heart1, NULL, superficieVentana, NULL);
+                SDL_FreeSurface(heart1);
+                SDL_UpdateWindowSurface(Ventana);
+                SDL_Delay(5000);
+            }
+            
+
+            SDL_UpdateWindowSurface(Ventana);
+
+        }
+    }
 void Game::handleEvents()
 {
 	SDL_Event event;

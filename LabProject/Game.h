@@ -11,7 +11,7 @@ class Game
 public:
 	Game();
 	~Game();
-
+	void pntllMenu(int);
 	void init(const char* title, int width, int height, bool fullscreen);
 	bool MapaFound = false;
 	bool mapaLogro = false;
