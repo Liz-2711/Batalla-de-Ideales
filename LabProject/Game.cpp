@@ -10738,7 +10738,7 @@ void Game::EdificioUni(int _Regreso)
 
         rcInicial.x = 0; rcInicial.y = 0; rcInicial.w = 28; rcInicial.h = SPRITE_SIZE;
 
-        gdFinal.x = 467; gdFinal.y = 507; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
+        gdFinal.x = 470; gdFinal.y = 507; gdFinal.w = SPRITE_SIZE; gdFinal.h = SPRITE_SIZE;
 
         Fondo = IMG_Load("Edificio/Castillo.png");
         SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
@@ -12602,6 +12602,7 @@ void Game::EdificioUni(int _Regreso)
                                         }
                                         else if((FINAL.type == SDL_MOUSEBUTTONDOWN))
                                         {
+                                            SDL_Quit();
                                             menuPrincipal();
                                         }
                                         
@@ -12616,7 +12617,8 @@ void Game::EdificioUni(int _Regreso)
                                         }
                                         else if ((FINAL.type == SDL_MOUSEBUTTONDOWN))
                                         {
-                                            
+                                            SDL_Quit();
+                                            Logros();
                                         }
 
                                     }
@@ -12668,34 +12670,48 @@ void Game::EdificioUni(int _Regreso)
                                 case SDL_MOUSEBUTTONDOWN:
                                     std::cout << "\n\nfx: " << FINAL.motion.x;
                                     std::cout << "\n\nfy:" << FINAL.motion.y;
-                                    if (Event.motion.x > 601 && Event.motion.x < 715 && Event.motion.y > 372 && Event.motion.y < 421) 
+                                    if (FINAL.motion.x > 601 && FINAL.motion.x < 715 && FINAL.motion.y > 372 && FINAL.motion.y < 421)
                                      {
                                         //Salir
+                                        if ((FINAL.type == SDL_MOUSEBUTTONDOWN))
+                                        {
+                                            menuPrincipal();
+                                            std::cout << "salir";
+                                            //Logros();
+                                        }
                                         if (FINAL.type == SDL_MOUSEMOTION) {
                                             AniLab = IMG_Load("Victoria/94.png");
                                             SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
                                             SDL_UpdateWindowSurface(Ventana);
                                         }
-                                        else if ((FINAL.type == SDL_MOUSEBUTTONDOWN))
-                                        {
-                                            menuPrincipal();
-                                        }
+                                       
                                         
-                                     }
-                                    else if (Event.motion.x > 598 && Event.motion.x < 827 && Event.motion.y > 448 && Event.motion.y < 500)
+                                    }
+                                    
+                                     
+                                    if (FINAL.motion.x > 603 && FINAL.motion.x < 819 && FINAL.motion.y > 449 && FINAL.motion.y < 497)
                                     {
+                                       
+                                        
                                         //Logros
+                                        if ((FINAL.type == SDL_MOUSEBUTTONDOWN))
+                                        {
+                                            std::cout << "salir";
+                                            //SDL_Quit();
+                                            Logros();
+                                        }
+
+
                                        if (FINAL.type == SDL_MOUSEMOTION) {
                                             AniLab = IMG_Load("Victoria/95.png");
                                             SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
                                             SDL_UpdateWindowSurface(Ventana);
-                                        }
-                                        else if ((FINAL.type == SDL_MOUSEBUTTONDOWN))
-                                        {
-                                            
-                                        }
+                                       }
+                                       
+                                       
                                     }
-                                    else 
+                                   
+                                    else
                                     {
                                         AniLab = IMG_Load("Victoria/93.png");
                                         SDL_BlitSurface(AniLab, NULL, superficieVentana, NULL);
@@ -17198,9 +17214,35 @@ void Game::Logros()
                         SDL_UpdateWindowSurface(Ventana);
                         logrosp = 2;
                     }
-                    else if (x > 723 && x < 999 && y > 0 && y < 95 )
+                    else if (x > 723 && x < 999 && y > 0 && y < 95 && logrosp >=0 && logrosp != 6)
                     {
                         //pantalla Objetos
+                        Fondo = IMG_Load("Logros/Objetos1.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                        SDL_FreeSurface(Fondo);
+
+                        SDL_UpdateWindowSurface(Ventana);
+
+                        logrosp = 3;
+                    }
+                    else if (x > 342 && x < 399 && y > 15 && y < 78 && logrosp == 3)
+                    {
+                        Fondo = IMG_Load("Logros/objet2.png");
+                        SDL_BlitSurface(Fondo, NULL, superficieVentana, NULL);
+
+                        SDL_FreeSurface(Fondo);
+
+                        SDL_UpdateWindowSurface(Ventana);
+                        logrosp = 6;
+                    }
+
+                    else if (x > 723 && x < 999 && y > 0 && y < 95 && logrosp == 6)
+                    {
+                        //pantalla Objetos
+                        SDL_Quit();
+                        p = 1;
+                        salir = 1;
                     }
                     break;
 

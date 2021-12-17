@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 
     //Lizzie -  Video introducctivo
-    game->init("GameWindow", 800, 600, false); 
+    //game->init("GameWindow", 800, 600, false); 
     
     //Mirian
     //game->pantallaCartas();
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
     //Lizzie - musica de ganadores de combates
     
     //Edificio - Mirian, Lizzie , Steve
-    //game->EdificioUni(0);
+    game->EdificioUni(0);
     //game->Logros();
     //Primero hablo sobre lo de animacion y movimento y edificio
 
